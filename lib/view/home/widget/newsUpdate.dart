@@ -56,6 +56,8 @@ class _NewsWidgetState extends State<NewsWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Container(
           margin: EdgeInsets.only(top: 16, bottom: 10),
@@ -157,12 +159,11 @@ class _NewsWidgetState extends State<NewsWidget> {
               padding: EdgeInsets.only(left: 5, right: 5),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Colors.yellow,
-                border: Border.all(width: 3, color: Colors.white),
+                color: Color(0xFFEB1717),
               ),
               child: Text(
                 'ดูทั้งหมด',
-                style: TextStyle(fontSize: 12),
+                style: TextStyle(fontSize: 12, color: Colors.white),
               ),
             ),
           ),

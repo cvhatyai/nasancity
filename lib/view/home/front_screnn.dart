@@ -380,38 +380,6 @@ class _FrontpageScreenState extends State<FrontpageScreen> {
                   ),
                   BannerWidget(),
                   NewsWidget(),
-                  Container(
-                    child: Stack(
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(top: 270),
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                                Colors.white.withOpacity(0),
-                                Color(0xFF40B103),
-                              ],
-                              stops: [
-                                0.5,
-                                0,
-                              ],
-                            ),
-                          ),
-                          child: Column(
-                            children: [
-                              ComplaintWidget(),
-                              Container(
-                                decoration: BoxDecoration(),
-                                child: UpdateWidget(),
-                              )
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
                   GalleryWidget(),
                   ComplainFollowWidget(),
                   GreenMarketView(),
