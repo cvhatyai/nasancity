@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:nasancity/style/font_style.dart';
 import 'package:nasancity/system/Info.dart';
 import 'package:nasancity/system/widht_device.dart';
 import 'package:nasancity/view/news/NewsDetailView.dart';
@@ -60,6 +61,44 @@ class _NewsWidgetState extends State<NewsWidget> {
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Container(
+          padding: EdgeInsets.only(left: 10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Text(
+                    'นาสาร',
+                    style: TextStyle(
+                      color: Color(0xFFEB1717),
+                      fontFamily: FontStyles.FontFamily,
+                      fontSize: 26,
+                    ),
+                  ),
+                  Text(
+                    'อัปเดต',
+                    style: TextStyle(
+                      color: Color(0xFF0075CC),
+                      fontFamily: FontStyles.FontFamily,
+                      fontSize: 26,
+                    ),
+                  )
+                ],
+              ),
+              Text(
+                'ข่าวสำคัญ',
+                style: TextStyle(
+                  color: Color(0xFF707070),
+                  fontFamily: FontStyles.FontFamily,
+                  fontSize: 18,
+                  height: 1,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Container(
           margin: EdgeInsets.only(top: 16, bottom: 10),
           height: 260,
           child: (data != null && data.length != 0)
@@ -83,24 +122,27 @@ class _NewsWidgetState extends State<NewsWidget> {
                           child: Column(
                             // alignment: Alignment.topCenter,
                             children: [
-                              Image.network(
-                                data[i]["display_image"],
-                                fit: BoxFit.fill,
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.network(
+                                  data[i]["display_image"],
+                                  fit: BoxFit.fill,
+                                ),
                               ),
                               Container(
                                 decoration: BoxDecoration(
                                   color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.grey.withOpacity(0.5),
-                                      spreadRadius: 1,
-                                      blurRadius: 7,
-                                      offset: Offset(
-                                        0,
-                                        1,
-                                      ), // changes position of shadow
-                                    ),
-                                  ],
+                                  // boxShadow: [
+                                  //   BoxShadow(
+                                  //     color: Colors.grey.withOpacity(0.5),
+                                  //     spreadRadius: 1,
+                                  //     blurRadius: 7,
+                                  //     offset: Offset(
+                                  //       0,
+                                  //       1,
+                                  //     ), // changes position of shadow
+                                  //   ),
+                                  // ],
                                 ),
                                 alignment: Alignment.center,
                                 width: WidhtDevice().widht(context) * 0.45,
@@ -124,7 +166,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                                         data[i]["create_date"],
                                         style: TextStyle(
                                           fontSize: 10,
-                                          color: Color(0xFF6399C4),
+                                          color: Color(0xFFEB1717),
                                         ),
                                       ),
                                     ],

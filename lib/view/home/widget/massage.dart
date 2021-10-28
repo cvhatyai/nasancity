@@ -16,7 +16,7 @@ class MassageWidget extends StatefulWidget {
 }
 
 class _MassageWidgetState extends State<MassageWidget> {
-  String msg = "ยินดีต้อนรับ :: เทศบาลตำบลบ้านเชี่ยวหลาน";
+  String msg = "ยินดีต้อนรับ :: เทศบาลเมืองนาสาร";
   @override
   void initState() {
     // TODO: implement initState
@@ -44,51 +44,18 @@ class _MassageWidgetState extends State<MassageWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 20, right: 20),
+      // padding: EdgeInsets.only(left: 20, right: 20),
       child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Colors.grey.shade300,
-                Colors.white,
-              ],
-              stops: [
-                0,
-                1
-              ]),
-        ),
-        child: Row(
-          children: [
-            Container(
-              padding: EdgeInsets.only(top: 7, bottom: 7, right: 15, left: 15),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20.0),
-                  bottomLeft: Radius.circular(20.0),
-                  bottomRight: Radius.circular(20.0),
-                ),
-                color: Color(0xFF48BE00),
-              ),
-              child: FaIcon(
-                FontAwesomeIcons.volumeUp,
-                color: Colors.white,
-                size: 20,
-              ),
-            ),
-            Expanded(
-              child: Container(
-                height: 20,
-                // child: Marquee(
-                //   text: msg,
-                //   blankSpace: 20.0,
-                // ),
-              ),
-            ),
-          ],
-        ),
+        height: 20,
+        // child: Marquee(
+        //   text: msg,
+        //   blankSpace: 20.0,
+        //   style: TextStyle(
+        //     fontFamily: FontStyles.FontFamily,
+        //     color: Colors.white,
+        //     fontSize: 16,
+        //   ),
+        // ),
       ),
     );
   }

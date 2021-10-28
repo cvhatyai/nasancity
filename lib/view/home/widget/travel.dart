@@ -60,13 +60,17 @@ class _TravelWidgetState extends State<TravelWidget> {
   }
 
   //tab
-  Color selectedColor = Colors.black;
-  Color selectedTabColor = Colors.green;
-  Color normalColor = Colors.green;
+  Color selectedColor = Color(0xFFFFF700);
+  Color normalColor = Color(0xFFEB1717);
+  Color normalTextColor = Color(0xFF45494C);
 
   BoxDecoration tabSelect = BoxDecoration(
     borderRadius: BorderRadius.circular(15),
-    color: Color(0xFFE6DF04),
+    color: Color(0xFFEB1717),
+  );
+  BoxDecoration tabNormal = BoxDecoration(
+    borderRadius: BorderRadius.circular(15),
+    color: Color(0xFFEFEFEF),
   );
 
   getTravel(tab) {
@@ -131,7 +135,7 @@ class _TravelWidgetState extends State<TravelWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xFFf5f6fa),
+      // color: Color(0xFFf5f6fa),
       child: Container(
         child: Stack(
           children: [
@@ -139,14 +143,14 @@ class _TravelWidgetState extends State<TravelWidget> {
               height: 230,
               width: WidhtDevice().widht(context),
               child: Image.asset(
-                'assets/bg/travel.png',
+                'assets/bg/bg-travel.png',
                 fit: BoxFit.cover,
                 alignment: Alignment.topCenter,
               ),
             ),
             Positioned(
               right: 0,
-              top: 120,
+              top: 20,
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -174,10 +178,11 @@ class _TravelWidgetState extends State<TravelWidget> {
                       Container(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "อากาศบ้านเชี่ยวหลานวันนี้",
+                          "อากาศนาสารวันนี้",
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.white,
+                            fontFamily: FontStyles.FontFamily,
                           ),
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
@@ -200,8 +205,9 @@ class _TravelWidgetState extends State<TravelWidget> {
                                   child: Text(
                                     "$tempWeather°",
                                     style: TextStyle(
-                                      fontSize: 14,
+                                      fontSize: 22,
                                       color: Colors.white,
+                                      fontFamily: FontStyles.FontFamily,
                                     ),
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
@@ -212,14 +218,21 @@ class _TravelWidgetState extends State<TravelWidget> {
                           ),
                           Expanded(
                             flex: 2,
-                            child: Text(
-                              textWeather,
-                              style: TextStyle(
-                                fontSize: 10,
-                                color: Colors.white,
+                            child: Container(
+                              child: SingleChildScrollView(
+                                scrollDirection: Axis.vertical,
+                                child: Text(
+                                  textWeather,
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.white,
+                                    height: 1,
+                                    fontFamily: FontStyles.FontFamily,
+                                  ),
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               ),
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
                             ),
                           ),
                           Icon(
@@ -239,41 +252,15 @@ class _TravelWidgetState extends State<TravelWidget> {
                 children: [
                   Container(
                     alignment: Alignment.centerLeft,
-                    padding: EdgeInsets.only(left: 24, top: 8),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "มา",
-                          style: TextStyle(
-                              color: Color(0xFF3AC0EA),
-                              fontSize: 22,
-                              fontStyle: FontStyle.italic,
-                              fontFamily: FontStyles.Arabica),
-                        ),
-                        Text(
-                          "บ้านเชี่ยวหลาน",
-                          style: TextStyle(
-                              color: Color(0xFF3AC0EA),
-                              fontSize: 22,
-                              fontStyle: FontStyle.italic,
-                              fontFamily: FontStyles.Arabica),
-                        ),
-                        Text(
-                          "ต้องไม่พลาด",
-                          style: TextStyle(
-                              color: Color(0xFFFF7801),
-                              fontSize: 22,
-                              fontStyle: FontStyle.italic,
-                              fontFamily: FontStyles.Arabica),
-                        ),
-                      ],
+                    padding: EdgeInsets.only(left: 10, top: 8),
+                    child: Image.asset(
+                      'assets/logo/icon-travel.png',
+                      width: MediaQuery.of(context).size.width / 2.2,
                     ),
                   ),
                   Container(
                     // padding: EdgeInsets.all(4),
-                    margin: EdgeInsets.only(top: 145),
+                    margin: EdgeInsets.only(top: 20),
                     decoration: BoxDecoration(
                       // color: Colors.white,
                       borderRadius: BorderRadius.all(
@@ -287,41 +274,40 @@ class _TravelWidgetState extends State<TravelWidget> {
                             //travelTab
                             Container(
                               width: WidhtDevice().widht(context),
-                              margin: EdgeInsets.only(right: 25, left: 25),
+                              margin: EdgeInsets.only(right: 20, left: 20),
                               padding: EdgeInsets.only(
                                   top: 5, bottom: 5, right: 5, left: 5),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(15),
-                                ),
-                              ),
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      getTravel(1);
-                                    },
+                                  Expanded(
                                     child: Container(
-                                      padding: EdgeInsets.only(
-                                          left: 10,
-                                          right: 10,
-                                          top: 5,
-                                          bottom: 5),
-                                      decoration: (currentTab == 1)
-                                          ? tabSelect
-                                          : BoxDecoration(),
-                                      child: Column(
-                                        children: [
-                                          Row(
+                                      margin: EdgeInsets.only(
+                                          left: 5, right: 5, bottom: 15),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          getTravel(1);
+                                        },
+                                        child: Container(
+                                          height: 120,
+                                          padding: EdgeInsets.only(
+                                              left: 10,
+                                              right: 10,
+                                              top: 5,
+                                              bottom: 5),
+                                          decoration: (currentTab == 1)
+                                              ? tabSelect
+                                              : tabNormal,
+                                          child: Column(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                                MainAxisAlignment.spaceEvenly,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
                                             children: [
                                               Image.asset(
                                                 'assets/item/travel/travel1.png',
-                                                height: 18,
+                                                height: 50,
                                                 color: (currentTab == 1)
                                                     ? selectedColor
                                                     : normalColor,
@@ -332,10 +318,10 @@ class _TravelWidgetState extends State<TravelWidget> {
                                                   style: TextStyle(
                                                     fontFamily:
                                                         FontStyles.FontFamily,
-                                                    fontSize: 14,
+                                                    fontSize: 16,
                                                     color: (currentTab == 1)
                                                         ? selectedColor
-                                                        : normalColor,
+                                                        : normalTextColor,
                                                   ),
                                                 ),
                                                 margin: EdgeInsets.symmetric(
@@ -344,46 +330,55 @@ class _TravelWidgetState extends State<TravelWidget> {
                                               ),
                                             ],
                                           ),
-                                        ],
+                                        ),
                                       ),
                                     ),
                                   ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      getTravel(2);
-                                    },
+                                  Expanded(
                                     child: Container(
-                                      padding: EdgeInsets.only(
-                                          left: 10,
-                                          right: 10,
-                                          top: 5,
-                                          bottom: 5),
-                                      decoration: (currentTab == 2)
-                                          ? tabSelect
-                                          : BoxDecoration(),
-                                      child: Column(
-                                        children: [
-                                          Row(
+                                      margin: EdgeInsets.only(
+                                        left: 5,
+                                        right: 5,
+                                        top: 15,
+                                      ),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          getTravel(2);
+                                        },
+                                        child: Container(
+                                          height: 120,
+                                          padding: EdgeInsets.only(
+                                              left: 10,
+                                              right: 10,
+                                              top: 5,
+                                              bottom: 5),
+                                          decoration: (currentTab == 2)
+                                              ? tabSelect
+                                              : tabNormal,
+                                          child: Column(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                                MainAxisAlignment.spaceEvenly,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
                                             children: [
                                               Image.asset(
                                                 'assets/item/travel/travel2.png',
-                                                height: 18,
+                                                height: 50,
                                                 color: (currentTab == 2)
                                                     ? selectedColor
                                                     : normalColor,
                                               ),
                                               Container(
+                                                alignment: Alignment.center,
                                                 child: Text(
                                                   "กิน",
                                                   style: TextStyle(
                                                     fontFamily:
                                                         FontStyles.FontFamily,
-                                                    fontSize: 14,
+                                                    fontSize: 16,
                                                     color: (currentTab == 2)
                                                         ? selectedColor
-                                                        : normalColor,
+                                                        : normalTextColor,
                                                   ),
                                                 ),
                                                 margin: EdgeInsets.symmetric(
@@ -391,46 +386,55 @@ class _TravelWidgetState extends State<TravelWidget> {
                                               ),
                                             ],
                                           ),
-                                        ],
+                                        ),
                                       ),
                                     ),
                                   ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      getTravel(3);
-                                    },
+                                  Expanded(
                                     child: Container(
-                                      padding: EdgeInsets.only(
-                                          left: 10,
-                                          right: 10,
-                                          top: 5,
-                                          bottom: 5),
-                                      decoration: (currentTab == 3)
-                                          ? tabSelect
-                                          : BoxDecoration(),
-                                      child: Column(
-                                        children: [
-                                          Row(
+                                      margin: EdgeInsets.only(
+                                        left: 5,
+                                        right: 5,
+                                        bottom: 15,
+                                      ),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          getTravel(3);
+                                        },
+                                        child: Container(
+                                          height: 120,
+                                          padding: EdgeInsets.only(
+                                              left: 10,
+                                              right: 10,
+                                              top: 5,
+                                              bottom: 5),
+                                          decoration: (currentTab == 3)
+                                              ? tabSelect
+                                              : tabNormal,
+                                          child: Column(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                                MainAxisAlignment.spaceEvenly,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
                                             children: [
                                               Image.asset(
                                                 'assets/item/travel/travel3.png',
-                                                height: 18,
+                                                height: 50,
                                                 color: (currentTab == 3)
                                                     ? selectedColor
                                                     : normalColor,
                                               ),
                                               Container(
+                                                alignment: Alignment.center,
                                                 child: Text(
                                                   "พัก",
                                                   style: TextStyle(
                                                     fontFamily:
                                                         FontStyles.FontFamily,
-                                                    fontSize: 14,
+                                                    fontSize: 16,
                                                     color: (currentTab == 3)
                                                         ? selectedColor
-                                                        : normalColor,
+                                                        : normalTextColor,
                                                   ),
                                                 ),
                                                 margin: EdgeInsets.symmetric(
@@ -438,46 +442,52 @@ class _TravelWidgetState extends State<TravelWidget> {
                                               ),
                                             ],
                                           ),
-                                        ],
+                                        ),
                                       ),
                                     ),
                                   ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      getTravel(4);
-                                    },
+                                  Expanded(
                                     child: Container(
-                                      padding: EdgeInsets.only(
-                                          left: 10,
-                                          right: 10,
-                                          top: 5,
-                                          bottom: 5),
-                                      decoration: (currentTab == 4)
-                                          ? tabSelect
-                                          : BoxDecoration(),
-                                      child: Column(
-                                        children: [
-                                          Row(
+                                      margin: EdgeInsets.only(
+                                          left: 5, right: 5, top: 15),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          getTravel(4);
+                                        },
+                                        child: Container(
+                                          height: 120,
+                                          padding: EdgeInsets.only(
+                                              left: 10,
+                                              right: 10,
+                                              top: 5,
+                                              bottom: 5),
+                                          decoration: (currentTab == 4)
+                                              ? tabSelect
+                                              : tabNormal,
+                                          child: Column(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                                MainAxisAlignment.spaceEvenly,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
                                             children: [
                                               Image.asset(
                                                 'assets/item/travel/travel4.png',
-                                                height: 18,
+                                                height: 50,
                                                 color: (currentTab == 4)
                                                     ? selectedColor
                                                     : normalColor,
                                               ),
                                               Container(
+                                                alignment: Alignment.center,
                                                 child: Text(
-                                                  "OTOP",
+                                                  "ช๊อป",
                                                   style: TextStyle(
                                                     fontFamily:
                                                         FontStyles.FontFamily,
-                                                    fontSize: 14,
+                                                    fontSize: 16,
                                                     color: (currentTab == 4)
                                                         ? selectedColor
-                                                        : normalColor,
+                                                        : normalTextColor,
                                                   ),
                                                 ),
                                                 margin: EdgeInsets.symmetric(
@@ -486,7 +496,7 @@ class _TravelWidgetState extends State<TravelWidget> {
                                               ),
                                             ],
                                           ),
-                                        ],
+                                        ),
                                       ),
                                     ),
                                   ),

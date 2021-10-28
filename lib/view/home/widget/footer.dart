@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:nasancity/style/font_style.dart';
 import 'package:nasancity/system/Info.dart';
 import 'package:nasancity/view/poll/PollView.dart';
 import 'package:flutter/gestures.dart';
@@ -61,163 +62,161 @@ class _FooterWidgetState extends State<FooterWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(bottom: 36, top: 8),
+      padding: EdgeInsets.only(bottom: 36, top: 20),
       width: MediaQuery.of(context).size.width,
       child: Column(
         children: [
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [
+          //     Text(
+          //       "คุยสดกับเจ้าหน้าที่",
+          //       textAlign: TextAlign.center,
+          //       style: TextStyle(fontSize: 11),
+          //     ),
+          //     Padding(padding: EdgeInsets.all(5)),
+          //     GestureDetector(
+          //       onTap: () {
+          //         _makePhoneCall('tel:077346096');
+          //       },
+          //       child: Row(
+          //         children: [
+          //           Icon(
+          //             Icons.phone,
+          //             color: Colors.blueAccent,
+          //             size: 18,
+          //           ),
+          //           Text(
+          //             'โทร. 0-7734-6096',
+          //             textAlign: TextAlign.center,
+          //             style: TextStyle(fontSize: 11),
+          //           ),
+          //         ],
+          //       ),
+          //     ),
+          //   ],
+          // ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              // Expanded(
+              //   child: GestureDetector(
+              //     onTap: () {
+              //       Navigator.push(
+              //         context,
+              //         MaterialPageRoute(
+              //           builder: (context) => PollView(
+              //             isHaveArrow: "1",
+              //           ),
+              //         ),
+              //       );
+              //     },
+              //     child: Container(
+              //       margin: EdgeInsets.only(left: 10, bottom: 5),
+              //       padding: EdgeInsets.only(top: 4, bottom: 4),
+              //       decoration: BoxDecoration(
+              //         borderRadius: BorderRadius.all(
+              //           Radius.circular(3),
+              //         ),
+              //         boxShadow: [
+              //           BoxShadow(
+              //             color: Colors.grey.withOpacity(0.5),
+              //             spreadRadius: 3,
+              //             blurRadius: 7,
+              //             offset: Offset(0, 3), // changes position of shadow
+              //           ),
+              //         ],
+              //         color: Colors.white,
+              //       ),
+              //       child: SingleChildScrollView(
+              //         scrollDirection: Axis.horizontal,
+              //         child: Row(
+              //           mainAxisAlignment: MainAxisAlignment.center,
+              //           children: [
+              //             Image.asset(
+              //               'assets/item/menu/review_1.png',
+              //               height: 18,
+              //               width: 18,
+              //             ),
+              //             Container(
+              //               padding: EdgeInsets.only(left: 2),
+              //               child: Text(
+              //                 "ประเมินความพึงพอใจ",
+              //                 style: TextStyle(
+              //                     fontSize: 11, fontWeight: FontWeight.normal),
+              //               ),
+              //             ),
+              //           ],
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              // ),
               Text(
-                "คุยสดกับเจ้าหน้าที่",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 11),
+                'คุยสดกับเจ้าหน้าที่',
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.black,
+                  fontFamily: FontStyles.FontFamily,
+                  fontWeight: FontWeight.w300,
+                ),
               ),
-              Padding(padding: EdgeInsets.all(5)),
               GestureDetector(
                 onTap: () {
-                  _makePhoneCall('tel:077346096');
+                  Toast.show("ไม่มีข้อมูล", context,
+                      duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+                  // if (faceLink != "") {
+                  //   _launchInBrowser(faceLink);
+                  // } else {
+                  //   Toast.show("ไม่มีข้อมูล", context,
+                  //       duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+                  // }
                 },
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.phone,
-                      color: Colors.blueAccent,
-                      size: 18,
-                    ),
-                    Text(
-                      'โทร. 0-7734-6096',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 11),
-                    ),
-                  ],
+                child: Image.asset(
+                  'assets/item/face.png',
+                  fit: BoxFit.contain,
+                  width: 130,
                 ),
               ),
-            ],
-          ),
-          Row(
-            children: [
-              Expanded(
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => PollView(
-                          isHaveArrow: "1",
-                        ),
-                      ),
-                    );
-                  },
-                  child: Container(
-                    margin: EdgeInsets.only(left: 10, bottom: 5),
-                    padding: EdgeInsets.only(top: 4, bottom: 4),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(3),
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 3,
-                          blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
-                      color: Colors.white,
-                    ),
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/item/menu/review_1.png',
-                            height: 18,
-                            width: 18,
-                          ),
-                          Container(
-                            padding: EdgeInsets.only(left: 2),
-                            child: Text(
-                              "ประเมินความพึงพอใจ",
-                              style: TextStyle(
-                                  fontSize: 11, fontWeight: FontWeight.normal),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: GestureDetector(
-                  onTap: () {
+              GestureDetector(
+                onTap: () {
+                  if (lineLink != "") {
+                    _launchInBrowser(lineLink);
+                  } else {
                     Toast.show("ไม่มีข้อมูล", context,
                         duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-                    // if (faceLink != "") {
-                    //   _launchInBrowser(faceLink);
-                    // } else {
-                    //   Toast.show("ไม่มีข้อมูล", context,
-                    //       duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-                    // }
-                  },
-                  child: Image.asset(
-                    'assets/item/face.png',
-                  ),
-                ),
-              ),
-              Expanded(
-                child: GestureDetector(
-                  onTap: () {
-                    if (lineLink != "") {
-                      _launchInBrowser(lineLink);
-                    } else {
-                      Toast.show("ไม่มีข้อมูล", context,
-                          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-                    }
-                  },
-                  child: Image.asset(
-                    'assets/item/line.png',
-                  ),
+                  }
+                },
+                child: Image.asset(
+                  'assets/item/line.png',
+                  fit: BoxFit.contain,
+                  width: 130,
                 ),
               ),
             ],
           ),
+          Divider(),
           RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
               children: [
                 TextSpan(
-                  text: 'Copyright©2021 ',
+                  text: 'Copyright©2021 All rights reserved. Powered by ',
                   style: TextStyle(
-                    fontSize: 11,
+                    fontSize: 12,
                     color: Colors.black,
-                  ),
-                ),
-                TextSpan(
-                  text: 'nasancity.go.th',
-                  style: TextStyle(
-                    color: Color(0xFF00C3EB),
-                    fontSize: 11,
-                  ),
-                  recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      _launchInBrowser("https://nasancity.go.th");
-                    },
-                ),
-                TextSpan(
-                  text: ' All rights reserved.\n Powered by ',
-                  style: TextStyle(
-                    fontSize: 11,
-                    color: Colors.black,
+                    fontFamily: FontStyles.FontFamily,
+                    fontWeight: FontWeight.w300,
                   ),
                 ),
                 TextSpan(
                   text: 'CityVariety Corporation.',
                   style: TextStyle(
-                    color: Color(0xFF00C3EB),
-                    fontSize: 11,
+                    color: Color(0xFFEB1717),
+                    fontSize: 12,
+                    fontFamily: FontStyles.FontFamily,
+                    fontWeight: FontWeight.w300,
                   ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {

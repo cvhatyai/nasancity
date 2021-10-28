@@ -1,10 +1,9 @@
-final String _base_url = "http://nasancity.thailocallink.com/";
-final String _base_url_api =
-    "http://nasancity.thailocallink.com/api/app_api_v1";
+final String _base_url = "https://www.nasancity.go.th/";
+final String _base_url_api = "https://www.nasancity.go.th/api/app_api_v1";
 
-final String _base_url_pity = "http://nasancity.thailocallink.com/";
+final String _base_url_pity = "https://www.nasancity.go.th/";
 final String _base_url_api_pity =
-    "http://nasancity.thailocallink.com/api/app_api_v1_pity";
+    "https://www.nasancity.go.th/api/app_api_v1_pity";
 
 class Info {
   String baseUrl = _base_url;

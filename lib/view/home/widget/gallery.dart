@@ -97,11 +97,11 @@ class _GalleryWidgetState extends State<GalleryWidget> {
   Color tabTextColorActive = Color(0xFF4283C4);
   BoxDecoration indicatorTabColorNormal = BoxDecoration(
     borderRadius: BorderRadius.circular(10),
-    color: Colors.white.withOpacity(0.5),
+    color: Color(0xFFEFEFEF).withOpacity(0),
   );
   BoxDecoration indicatorTabColorActive = BoxDecoration(
     borderRadius: BorderRadius.circular(10),
-    color: Colors.blue.shade300,
+    color: Color(0xFFEB1717),
   );
   bool isFirstTabActivated = true;
 
@@ -121,13 +121,24 @@ class _GalleryWidgetState extends State<GalleryWidget> {
       color: Color(0xFFf5f6fa).withOpacity(0.5),
       child: Container(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              // color: Colors.white,
-              padding: EdgeInsets.only(left: 8, top: 28),
-              alignment: Alignment.centerLeft,
+              decoration: BoxDecoration(
+                color: Color(0xFFEFEFEF),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20.0),
+                  topRight: Radius.circular(20.0),
+                  bottomRight: Radius.circular(20.0),
+                  bottomLeft: Radius.circular(20.0),
+                ),
+              ),
+              margin: EdgeInsets.only(left: 8),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   GestureDetector(
                     onTap: () {
@@ -139,12 +150,12 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                       children: [
                         Container(
                           padding: EdgeInsets.only(
-                              left: 25, right: 25, top: 5, bottom: 5),
+                              left: 25, right: 25, top: 10, bottom: 10),
                           decoration: (isFirstTabActivated)
                               ? indicatorTabColorActive
                               : indicatorTabColorNormal,
                           child: Text(
-                            "ภาพกิจกรรม",
+                            "ภาพ & วิดีโอ",
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
@@ -152,7 +163,7 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                               fontFamily: FontStyles.FontFamily,
                               color: (isFirstTabActivated)
                                   ? Colors.white
-                                  : Colors.grey,
+                                  : Colors.black,
                               fontSize: 16,
                             ),
                           ),
@@ -160,7 +171,6 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                       ],
                     ),
                   ),
-                  Padding(padding: EdgeInsets.all(5)),
                   GestureDetector(
                     onTap: () {
                       if (isFirstTabActivated) {
@@ -171,7 +181,7 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                       children: [
                         Container(
                           padding: EdgeInsets.only(
-                              left: 25, right: 25, top: 5, bottom: 5),
+                              left: 25, right: 25, top: 10, bottom: 10),
                           decoration: (!isFirstTabActivated)
                               ? indicatorTabColorActive
                               : indicatorTabColorNormal,
@@ -184,7 +194,7 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                               fontFamily: FontStyles.FontFamily,
                               color: (!isFirstTabActivated)
                                   ? Colors.white
-                                  : Colors.grey,
+                                  : Colors.black,
                               fontSize: 16,
                             ),
                           ),

@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nasancity/model/user.dart';
 import 'package:nasancity/style/font_style.dart';
 import 'package:nasancity/system/widht_device.dart';
@@ -64,7 +67,7 @@ class _FrontpageScreenState extends State<FrontpageScreen> {
               child: Column(
                 children: [
                   Container(
-                    height: 250,
+                    height: 370,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage("assets/bg/bg-frontpage.png"),
@@ -72,7 +75,7 @@ class _FrontpageScreenState extends State<FrontpageScreen> {
                         fit: BoxFit.fitWidth,
                       ),
                     ),
-                    child: Column(
+                    child: Stack(
                       children: [
                         Row(
                           children: [
@@ -226,16 +229,99 @@ class _FrontpageScreenState extends State<FrontpageScreen> {
                               ),
                             ),
                           ],
-                        )
+                        ),
+                        Positioned(
+                          bottom: 0,
+                          child: Container(
+                            width: MediaQuery.of(context).size.width,
+                            child: Container(
+                              margin:
+                                  EdgeInsets.only(left: 5, right: 5, bottom: 5),
+                              decoration: BoxDecoration(
+                                color: Color(0xFF0075CC).withOpacity(0.8),
+                                image: DecorationImage(
+                                  alignment: Alignment(0.95, -0.9),
+                                  scale: 3,
+                                  image: AssetImage(
+                                    'assets/bg/bg-massage.png',
+                                  ),
+                                ),
+                                borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(15.0),
+                                  topLeft: Radius.circular(15.0),
+                                  bottomRight: Radius.circular(15.0),
+                                  bottomLeft: Radius.circular(15.0),
+                                ),
+                              ),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            padding: EdgeInsets.all(10),
+                                            decoration: BoxDecoration(
+                                              color: Color(0xFFEB1717),
+                                              borderRadius: BorderRadius.only(
+                                                topRight: Radius.circular(15.0),
+                                                topLeft: Radius.circular(15.0),
+                                              ),
+                                            ),
+                                            child: Image.asset(
+                                                'assets/item/megaphone.png'),
+                                          ),
+                                        ),
+                                        Expanded(
+                                          flex: 6,
+                                          child: Container(
+                                            decoration: BoxDecoration(),
+                                            child: MassageWidget(),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 150,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        bottomRight: Radius.circular(15.0),
+                                        topRight: Radius.circular(15.0),
+                                        bottomLeft: Radius.circular(15.0),
+                                      ),
+                                      gradient: LinearGradient(
+                                        begin: Alignment.topCenter,
+                                        end: Alignment
+                                            .bottomCenter, // 10% of the width, so there are ten blinds.
+                                        colors: <Color>[
+                                          Color(0xffEB1717),
+                                          Color(0xffB10000)
+                                        ], // red to yellow
+                                        tileMode: TileMode
+                                            .repeated, // repeats the gradient over the canvas
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
                   Container(
                     width: MediaQuery.of(context).size.width,
-                    height: 270,
-                    margin: EdgeInsets.only(left: 5, right: 5),
+                    height: 250,
+                    // margin: EdgeInsets.only(left: 5, right: 5),
                     decoration: BoxDecoration(
                       color: Color(0xFF0075CC),
+                      image: DecorationImage(
+                        alignment: Alignment.topCenter,
+                        image: AssetImage('assets/bg/bg-fblive.png'),
+                      ),
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(20.0),
                         topRight: Radius.circular(20.0),
@@ -381,8 +467,8 @@ class _FrontpageScreenState extends State<FrontpageScreen> {
                   BannerWidget(),
                   NewsWidget(),
                   GalleryWidget(),
-                  ComplainFollowWidget(),
                   GreenMarketView(),
+                  // ComplainFollowWidget(),
                   TravelWidget(),
                   FooterWidget(),
                 ],
