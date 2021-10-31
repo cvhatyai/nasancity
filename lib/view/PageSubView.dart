@@ -47,7 +47,17 @@ class _PageSubViewState extends State<PageSubView> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xFFEB1717),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          stops: [0.2, 0.1],
+          colors: [
+            Color(0xFFEB1717),
+            Colors.white,
+          ],
+        ),
+      ),
       child: SafeArea(
         child: Center(
           child: Container(

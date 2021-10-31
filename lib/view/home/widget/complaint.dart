@@ -22,7 +22,7 @@ var data;
 
 class _ComplaintWidgetState extends State<ComplaintWidget> {
   List<String> list = [];
-  int perPageItem = 8;
+  int perPageItem = 6;
   int pageCount = 0;
   int selectedIndex = 0;
   int lastPageItemLength = 0;
@@ -103,26 +103,10 @@ class _ComplaintWidgetState extends State<ComplaintWidget> {
     /*24 is for notification bar on Android*/
 
     final double itemWidth = size.width / 2;
-    final double itemHeight = itemWidth * 1.2;
+    final double itemHeight = itemWidth * 3;
     return Container(
-      margin: EdgeInsets.only(top: 60),
       child: Column(
         children: [
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'แจ้งเรื่องร้องเรียน',
-                  style: TextStyle(
-                      fontFamily: FontStyles.FontFamily,
-                      color: Colors.white,
-                      fontSize: 18,
-                      height: 1),
-                )
-              ],
-            ),
-          ),
           AspectRatio(
             aspectRatio: 2 / 1.3,
             child: PageView.builder(
@@ -135,7 +119,7 @@ class _ComplaintWidgetState extends State<ComplaintWidget> {
               },
               itemBuilder: (_, pageIndex) {
                 return GridView.count(
-                  childAspectRatio: 2 / 2.4,
+                  childAspectRatio: 2 / 2,
                   physics: NeverScrollableScrollPhysics(),
                   // padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
                   primary: false,
@@ -143,7 +127,7 @@ class _ComplaintWidgetState extends State<ComplaintWidget> {
                   shrinkWrap: true,
                   crossAxisSpacing: 0,
                   mainAxisSpacing: 0,
-                  crossAxisCount: 4,
+                  crossAxisCount: 3,
                   children: List.generate(
                     (pageCount - 1) != pageIndex
                         ? perPageItem
@@ -190,10 +174,13 @@ class _ComplaintWidgetState extends State<ComplaintWidget> {
                                 width: 60,
                                 height: 60,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
+                                  // borderRadius: BorderRadius.circular(20),
+                                  shape: BoxShape.circle,
                                   color: Color(0xFFF5F6FA),
                                   border: Border.all(
-                                      width: 3, color: Color(0xFFDADADA)),
+                                    width: 3,
+                                    color: Color(0xFFDADADA),
+                                  ),
                                 ),
                                 padding: EdgeInsets.all(10),
                                 child: Image.network(
@@ -262,30 +249,6 @@ class _ComplaintWidgetState extends State<ComplaintWidget> {
                   },
                 ),
               ),
-              Padding(padding: EdgeInsets.all(10)),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => ComplainCateListView(
-                              isHaveArrow: 'true',
-                            )),
-                  );
-                },
-                child: Container(
-                  padding: EdgeInsets.only(left: 5, right: 5),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.yellow,
-                    border: Border.all(width: 3, color: Colors.white),
-                  ),
-                  child: Text(
-                    'ดูทั้งหมด',
-                    style: TextStyle(fontSize: 12),
-                  ),
-                ),
-              )
             ],
           ),
         ],

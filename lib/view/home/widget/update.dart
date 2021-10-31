@@ -17,7 +17,7 @@ class UpdateWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'บ้านเชี่ยวหลาน',
+                    'นาสาร',
                     style: TextStyle(
                         fontFamily: FontStyles.FontFamily,
                         fontSize: 20,

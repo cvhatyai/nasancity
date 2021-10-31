@@ -203,7 +203,7 @@ class _PollViewState extends State<PollView> {
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 24),
                   child: Text(
-                    'เทศบาลตำบลบ้านเชี่ยวหลาน',
+                    'เทศบาลเมืองนาสาร',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Color(0xFF78B10E),
@@ -235,7 +235,7 @@ class _PollViewState extends State<PollView> {
                   padding: EdgeInsets.symmetric(horizontal: 24),
                   margin: EdgeInsets.only(top: 16),
                   child: Text(
-                    "ทุกความคิดเห็นของคุณจะเป็นประโยชน์ให้เรา นำไปพัฒนาเทศบาลตำบลบ้านเชี่ยวหลานให้ดียิ่งขึ้น",
+                    "ทุกความคิดเห็นของคุณจะเป็นประโยชน์ให้เรา นำไปพัฒนาเทศบาลเมืองนาสารให้ดียิ่งขึ้น",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 12,
@@ -531,7 +531,7 @@ class _PollViewState extends State<PollView> {
                       Container(
                         margin: EdgeInsets.only(top: 32),
                         child: Text(
-                          "ทุกความคิดเห็นของคุณจะเป็นประโยชน์ให้เรา\nนำไปพัฒนาเทศบาลตำบลบ้านเชี่ยวหลานให้ดียิ่งขึ้น",
+                          "ทุกความคิดเห็นของคุณจะเป็นประโยชน์ให้เรา\nนำไปพัฒนาเทศบาลเมืองนาสารให้ดียิ่งขึ้น",
                           textAlign: TextAlign.center,
                         ),
                       ),

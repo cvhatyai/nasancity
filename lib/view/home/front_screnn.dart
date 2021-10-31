@@ -67,7 +67,7 @@ class _FrontpageScreenState extends State<FrontpageScreen> {
               child: Column(
                 children: [
                   Container(
-                    height: 370,
+                    height: 430,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage("assets/bg/bg-frontpage.png"),
@@ -406,12 +406,14 @@ class _FrontpageScreenState extends State<FrontpageScreen> {
                               Expanded(
                                 flex: 3,
                                 child: Container(
+                                  padding: EdgeInsets.only(top: 3),
                                   decoration: BoxDecoration(
                                     color: Color(0xFFEB1717),
                                     borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(30.0),
                                     ),
                                   ),
+                                  child: ComplaintWidget(),
                                 ),
                               ),
                             ],
@@ -420,9 +422,12 @@ class _FrontpageScreenState extends State<FrontpageScreen> {
                         Positioned(
                           bottom: 0,
                           left: 0,
-                          child: Image.asset(
-                            'assets/bg/bg-woman.png',
-                            height: 210,
+                          child: Container(
+                            // color: Colors.amber,
+                            child: Image.asset(
+                              'assets/bg/bg-woman.png',
+                              height: 180,
+                            ),
                           ),
                         ),
                         Positioned(

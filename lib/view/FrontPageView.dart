@@ -1,5 +1,6 @@
 import 'package:nasancity/style/font_style.dart';
 import 'package:nasancity/system/widht_device.dart';
+import 'package:nasancity/view/complain/ComplainCateListView.dart';
 import 'package:nasancity/view/home/front_screnn.dart';
 import 'package:nasancity/view/menu/MenuScreen.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -29,7 +30,7 @@ class _FrontPageViewState extends State<FrontPageView> {
   int selectedIndex = 0;
   List<Widget> _widgetOptions = [
     FrontpageScreen(),
-    NewsListView(),
+    ComplainCateListView(),
     ChatView(),
     NotiListView(),
     MenuScreen()
@@ -39,15 +40,22 @@ class _FrontPageViewState extends State<FrontPageView> {
   bool isLogin = false;
 
   TextStyle _textSelected = TextStyle(
-      color: Color(0XFF45494C), fontSize: 8, fontFamily: FontStyles.FontFamily);
+      color: Color(0XFF45494C),
+      fontSize: 10,
+      fontFamily: FontStyles.FontFamily,
+      height: 1);
   TextStyle _text = TextStyle(
-      color: Color(0XFF45494C), fontSize: 8, fontFamily: FontStyles.FontFamily);
+      color: Color(0XFF45494C),
+      fontSize: 10,
+      fontFamily: FontStyles.FontFamily,
+      height: 1);
 
   ShapeDecoration _shapeDecoration = ShapeDecoration(
     shape: CircleBorder(),
     gradient: LinearGradient(
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,
+      stops: [0.1, 0.9],
       colors: [
         Colors.white,
         Colors.grey.shade400,
@@ -72,7 +80,7 @@ class _FrontPageViewState extends State<FrontPageView> {
     if (isLogin) {
       _widgetOptions = [
         FrontpageScreen(),
-        NewsListView(),
+        ComplainCateListView(),
         ChatView(),
         NotiListView(),
         MenuScreen()
@@ -80,7 +88,7 @@ class _FrontPageViewState extends State<FrontPageView> {
     } else {
       _widgetOptions = [
         FrontpageScreen(),
-        NewsListView(),
+        ComplainCateListView(),
         ChatView(),
         LoginView(),
         MenuScreen()
@@ -133,7 +141,7 @@ class _FrontPageViewState extends State<FrontPageView> {
                             : BoxDecoration(),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Image.asset(
                               'assets/icon/menubar/menubar_home.png',
@@ -160,7 +168,7 @@ class _FrontPageViewState extends State<FrontPageView> {
                             : BoxDecoration(),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Image.asset(
                               'assets/icon/menubar/menubar_edit.png',
@@ -168,8 +176,9 @@ class _FrontPageViewState extends State<FrontPageView> {
                               width: 20,
                             ),
                             Text(
-                              'ร้องเรียน/ร้องทุกข์',
+                              'ร้องเรียน/\nร้องทุกข์',
                               style: selectedIndex == 1 ? _textSelected : _text,
+                              textAlign: TextAlign.center,
                             ),
                           ],
                         ),
@@ -217,12 +226,14 @@ class _FrontPageViewState extends State<FrontPageView> {
                             : BoxDecoration(),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Image.asset(
-                              'assets/icon/menubar/menubar_placeholder.png',
-                              fit: BoxFit.fitWidth,
-                              width: 20,
+                            Container(
+                              child: Image.asset(
+                                'assets/icon/menubar/menubar_placeholder.png',
+                                fit: BoxFit.fitWidth,
+                                width: 20,
+                              ),
                             ),
                             Text(
                               'ใกล้ฉัน',
@@ -244,12 +255,14 @@ class _FrontPageViewState extends State<FrontPageView> {
                             : BoxDecoration(),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Image.asset(
-                              'assets/icon/menubar/menubar_menu.png',
-                              fit: BoxFit.fitWidth,
-                              width: 20,
+                            Container(
+                              child: Image.asset(
+                                'assets/icon/menubar/menubar_menu.png',
+                                fit: BoxFit.fitWidth,
+                                width: 20,
+                              ),
                             ),
                             Text(
                               'เมนูอื่น ๆ',

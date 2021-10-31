@@ -118,7 +118,7 @@ class _GalleryWidgetState extends State<GalleryWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xFFf5f6fa).withOpacity(0.5),
+      // color: Color(0xFFf5f6fa).withOpacity(0.5),
       child: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

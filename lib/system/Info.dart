@@ -1,9 +1,8 @@
 final String _base_url = "https://www.nasancity.go.th/";
-final String _base_url_api = "https://www.nasancity.go.th/api/app_api_v1";
+final String _base_url_api = "https://www.nasancity.go.th/app_api_v1";
 
 final String _base_url_pity = "https://www.nasancity.go.th/";
-final String _base_url_api_pity =
-    "https://www.nasancity.go.th/api/app_api_v1_pity";
+final String _base_url_api_pity = "https://www.nasancity.go.th/app_api_v1_pity";
 
 class Info {
   String baseUrl = _base_url;
@@ -80,9 +79,9 @@ class Info {
   String checkHasUser = _base_url_api + '/checkHasUser';
   String checkConnectedUser = _base_url_api + '/checkConnectedUser';
   String cancelContectUser = _base_url_api + '/cancelContectUser';
-  String weatherApi = 'https://api.cityvariety.com/weather/json.php?id=1151449';
+  String weatherApi = 'https://api.cityvariety.com/weather/json.php?id=1156046';
   String weatherListApi =
-      'https://api.cityvariety.com/weather/json.php?type=forecast&fnList=tempList&id=1151449';
+      'https://api.cityvariety.com/weather/json.php?type=forecast&fnList=tempList&id=1156046';
 
   String cateListPity = _base_url_api_pity + '/cateListPity';
   String insertMarketAndProduct =

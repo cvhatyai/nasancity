@@ -237,10 +237,7 @@ class _MenuScreenState extends State<MenuScreen> {
                         decoration: BoxDecoration(
                           color: Color(0xFF6D8495),
                           image: DecorationImage(
-                            colorFilter: ColorFilter.mode(
-                                Color(0xFF6D8495).withOpacity(0.5),
-                                BlendMode.dstATop),
-                            image: AssetImage("assets/bg/menu.png"),
+                            image: AssetImage("assets/bg/bg-menu.png"),
                             fit: BoxFit.fitHeight,
                           ),
                         ),
@@ -765,7 +762,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 //         "ชำระภาษี/ค่าบริการ",
                 //         style: MenuStyle().txttopic,
                 //       ),
-                //       Icon(Icons.keyboard_arrow_down),
+                //       Icon(Icons.keyboard_arrow_down,color: Colors.white),
                 //     ],
                 //   ),
                 // ),
@@ -892,149 +889,149 @@ class _MenuScreenState extends State<MenuScreen> {
                 // ),
 
                 //title menu 2
-                if (user.userclass != "superadmin" && user.userclass != "admin")
-                  Container(
-                    padding: EdgeInsets.only(left: 16, right: 16),
-                    alignment: Alignment.centerLeft,
-                    decoration: MenuStyle().themeTopic,
-                    height: 40,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "สวัสดิการ/เบี้ยยังชีพ",
-                          style: MenuStyle().txttopic,
-                        ),
-                        Icon(Icons.keyboard_arrow_down),
-                      ],
-                    ),
-                  ),
+                // if (user.userclass != "superadmin" && user.userclass != "admin")
+                //   Container(
+                //     padding: EdgeInsets.only(left: 16, right: 16),
+                //     alignment: Alignment.centerLeft,
+                //     decoration: MenuStyle().themeTopic,
+                //     height: 40,
+                //     child: Row(
+                //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //       children: [
+                //         Text(
+                //           "สวัสดิการ/เบี้ยยังชีพ",
+                //           style: MenuStyle().txttopic,
+                //         ),
+                //         Icon(Icons.keyboard_arrow_down, color: Colors.white),
+                //       ],
+                //     ),
+                //   ),
                 //sub menu 2
                 // if (user.userclass != "superadmin" && user.userclass != "admin")
-                GestureDetector(
-                  onTap: () {
-                    _launchInBrowser(
-                        "http://nasancity.go.th/public/allowance/data/index/menu/646");
-                    // if (isLogin) {
-                    //   Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) => WebPageView(
-                    //         isHaveArrow: "1",
-                    //         title: "เบี้ยยังชีพผู้สูงอายุ",
-                    //         cmd:
-                    //             "http://nasancity.go.th/public/allowance/data/index/menu/646",
-                    //       ),
-                    //     ),
-                    //   );
-                    // } else {
-                    //   Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) => LoginView(
-                    //         isHaveArrow: "1",
-                    //       ),
-                    //     ),
-                    //   );
-                    // }
-                  },
-                  child: Column(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.only(left: 32),
-                        alignment: Alignment.centerLeft,
-                        color: Colors.transparent,
-                        height: 40,
-                        child: Row(
-                          children: [
-                            /*Image.asset(
-                              'assets/images/menu1.png',
-                              height: 22,
-                              width: 22,
-                            ),*/
-                            Image.asset(
-                              'assets/item/menu/m4.png',
-                              height: 18,
-                              width: 18,
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(left: 16),
-                              child: Text(
-                                "เบี้ยยังชีพผู้สูงอายุ",
-                                style: TextStyle(
-                                  fontSize: 15,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Divider(height: 1, indent: 8, endIndent: 8),
-                    ],
-                  ),
-                ),
-                if (user.userclass != "superadmin" && user.userclass != "admin")
-                  GestureDetector(
-                    onTap: () {
-                      _launchInBrowser(
-                          "http://nasancity.go.th/public/cripple/data/index/menu/647");
-                      // if (isLogin) {
-                      //   Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //       builder: (context) => WebPageView(
-                      //         isHaveArrow: "1",
-                      //         title: "เบี้ยยังชีพผู้พิการ",
-                      //         cmd: "disabled",
-                      //       ),
-                      //     ),
-                      //   );
-                      // } else {
-                      //   Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //       builder: (context) => LoginView(
-                      //         isHaveArrow: "1",
-                      //       ),
-                      //     ),
-                      //   );
-                      // }
-                    },
-                    child: Column(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(left: 32),
-                          alignment: Alignment.centerLeft,
-                          color: Colors.transparent,
-                          height: 40,
-                          child: Row(
-                            children: [
-                              /*Image.asset(
-                              'assets/images/menu1.png',
-                              height: 22,
-                              width: 22,
-                            ),*/
-                              Image.asset(
-                                'assets/item/menu/m5.png',
-                                height: 18,
-                                width: 18,
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(left: 16),
-                                child: Text(
-                                  "เบี้ยยังชีพผู้พิการ",
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Divider(height: 1, indent: 8, endIndent: 8),
-                      ],
-                    ),
-                  ),
+                // GestureDetector(
+                //   onTap: () {
+                //     _launchInBrowser(
+                //         "http://nasancity.go.th/public/allowance/data/index/menu/646");
+                // if (isLogin) {
+                //   Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //       builder: (context) => WebPageView(
+                //         isHaveArrow: "1",
+                //         title: "เบี้ยยังชีพผู้สูงอายุ",
+                //         cmd:
+                //             "http://nasancity.go.th/public/allowance/data/index/menu/646",
+                //       ),
+                //     ),
+                //   );
+                // } else {
+                //   Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //       builder: (context) => LoginView(
+                //         isHaveArrow: "1",
+                //       ),
+                //     ),
+                //   );
+                // }
+                //   },
+                //   child: Column(
+                //     children: [
+                //       Container(
+                //         padding: EdgeInsets.only(left: 32),
+                //         alignment: Alignment.centerLeft,
+                //         color: Colors.transparent,
+                //         height: 40,
+                //         child: Row(
+                //           children: [
+                //             /*Image.asset(
+                //               'assets/images/menu1.png',
+                //               height: 22,
+                //               width: 22,
+                //             ),*/
+                //             Image.asset(
+                //               'assets/item/menu/m4.png',
+                //               height: 18,
+                //               width: 18,
+                //             ),
+                //             Container(
+                //               margin: EdgeInsets.only(left: 16),
+                //               child: Text(
+                //                 "เบี้ยยังชีพผู้สูงอายุ",
+                //                 style: TextStyle(
+                //                   fontSize: 15,
+                //                 ),
+                //               ),
+                //             ),
+                //           ],
+                //         ),
+                //       ),
+                //       Divider(height: 1, indent: 8, endIndent: 8),
+                //     ],
+                //   ),
+                // ),
+                // if (user.userclass != "superadmin" && user.userclass != "admin")
+                //   GestureDetector(
+                //     onTap: () {
+                //       _launchInBrowser(
+                //           "http://nasancity.go.th/public/cripple/data/index/menu/647");
+                //       // if (isLogin) {
+                //       //   Navigator.push(
+                //       //     context,
+                //       //     MaterialPageRoute(
+                //       //       builder: (context) => WebPageView(
+                //       //         isHaveArrow: "1",
+                //       //         title: "เบี้ยยังชีพผู้พิการ",
+                //       //         cmd: "disabled",
+                //       //       ),
+                //       //     ),
+                //       //   );
+                //       // } else {
+                //       //   Navigator.push(
+                //       //     context,
+                //       //     MaterialPageRoute(
+                //       //       builder: (context) => LoginView(
+                //       //         isHaveArrow: "1",
+                //       //       ),
+                //       //     ),
+                //       //   );
+                //       // }
+                //     },
+                //     child: Column(
+                //       children: [
+                //         Container(
+                //           padding: EdgeInsets.only(left: 32),
+                //           alignment: Alignment.centerLeft,
+                //           color: Colors.transparent,
+                //           height: 40,
+                //           child: Row(
+                //             children: [
+                //               /*Image.asset(
+                //               'assets/images/menu1.png',
+                //               height: 22,
+                //               width: 22,
+                //             ),*/
+                //               Image.asset(
+                //                 'assets/item/menu/m5.png',
+                //                 height: 18,
+                //                 width: 18,
+                //               ),
+                //               Container(
+                //                 margin: EdgeInsets.only(left: 16),
+                //                 child: Text(
+                //                   "เบี้ยยังชีพผู้พิการ",
+                //                   style: TextStyle(
+                //                     fontSize: 15,
+                //                   ),
+                //                 ),
+                //               ),
+                //             ],
+                //           ),
+                //         ),
+                //         Divider(height: 1, indent: 8, endIndent: 8),
+                //       ],
+                //     ),
+                //   ),
 
                 //title menu 3
                 Container(
@@ -1049,7 +1046,7 @@ class _MenuScreenState extends State<MenuScreen> {
                         "ข้อมูลเกี่ยวกับเทศบาล",
                         style: MenuStyle().txttopic,
                       ),
-                      Icon(Icons.keyboard_arrow_down),
+                      Icon(Icons.keyboard_arrow_down, color: Colors.white),
                     ],
                   ),
                 ),
@@ -1688,7 +1685,7 @@ class _MenuScreenState extends State<MenuScreen> {
                         "ข้อมูลท่องเที่ยว",
                         style: MenuStyle().txttopic,
                       ),
-                      Icon(Icons.keyboard_arrow_down),
+                      Icon(Icons.keyboard_arrow_down, color: Colors.white),
                     ],
                   ),
                 ),
@@ -1971,7 +1968,7 @@ class _MenuScreenState extends State<MenuScreen> {
                         "ติดต่อ",
                         style: MenuStyle().txttopic,
                       ),
-                      Icon(Icons.keyboard_arrow_down),
+                      Icon(Icons.keyboard_arrow_down, color: Colors.white),
                     ],
                   ),
                 ),
@@ -2140,7 +2137,7 @@ class _MenuScreenState extends State<MenuScreen> {
                           "สำหรับเจ้าหน้าที่",
                           style: MenuStyle().txttopic,
                         ),
-                        Icon(Icons.keyboard_arrow_down),
+                        Icon(Icons.keyboard_arrow_down, color: Colors.white),
                       ],
                     ),
                   ),

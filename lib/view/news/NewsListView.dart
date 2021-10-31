@@ -284,11 +284,11 @@ class _NewsListViewState extends State<NewsListView> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
 
-    final double itemHeight = (size.height - kToolbarHeight - 24) / 3.2;
+    final double itemHeight = (size.height - kToolbarHeight - 24) / 3.4;
     final double itemWidth = size.width / 2;
 
     return PageSubView(
-      title: 'บ้านเชี่ยวหลานอัพเดท',
+      title: 'นาสารอัพเดท',
       isHaveArrow: widget.isHaveArrow,
       widget: Column(
         children: [
@@ -337,58 +337,67 @@ class _NewsListViewState extends State<NewsListView> {
                             );
                           },
                           child: Container(
-                            width: MediaQuery.of(context).size.width * 0.5,
-                            margin: EdgeInsets.symmetric(horizontal: 4),
-                            child: Stack(
-                              alignment: Alignment.topCenter,
+                            // width: MediaQuery.of(context).size.width * 0.5,
+                            margin: EdgeInsets.all(5),
+                            child: Column(
+                              // alignment: Alignment.topCenter,
                               children: [
-                                Image.network(
-                                  data[index]["display_image"],
-                                  fit: BoxFit.fill,
-                                ),
-                                Positioned(
-                                  bottom: 20,
+                                Expanded(
                                   child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Colors.grey.withOpacity(0.5),
-                                          spreadRadius: 1,
-                                          blurRadius: 7,
-                                          offset: Offset(
-                                            0,
-                                            1,
-                                          ), // changes position of shadow
-                                        ),
-                                      ],
+                                    color: Colors.grey,
+                                    child: Image.network(
+                                      data[index]["display_image"],
+                                      fit: BoxFit.contain,
                                     ),
-                                    alignment: Alignment.center,
-                                    width: MediaQuery.of(context).size.width *
-                                        0.42,
-                                    height: 85,
-                                    child: Container(
-                                      alignment: Alignment.centerLeft,
-                                      padding: EdgeInsets.all(8),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Expanded(
-                                            child: Text(
-                                              data[index]["subject"],
-                                              maxLines: 3,
-                                              overflow: TextOverflow.ellipsis,
-                                              style: TextStyle(fontSize: 11),
-                                            ),
+                                  ),
+                                ),
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.5),
+                                        spreadRadius: 1,
+                                        blurRadius: 7,
+                                        offset: Offset(
+                                          0,
+                                          1,
+                                        ), // changes position of shadow
+                                      ),
+                                    ],
+                                  ),
+                                  alignment: Alignment.center,
+                                  height: 85,
+                                  child: Container(
+                                    alignment: Alignment.centerLeft,
+                                    padding: EdgeInsets.all(8),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            data[index]["subject"],
+                                            maxLines: 3,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                height: 1.3,
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w300,
+                                                fontFamily:
+                                                    FontStyles.FontFamily),
                                           ),
-                                          Row(
+                                        ),
+                                        Container(
+                                          child: Row(
                                             children: [
                                               Expanded(
                                                 child: Text(
                                                   data[index]["create_date"],
                                                   style: TextStyle(
-                                                    fontSize: 10,
+                                                    fontSize: 12,
+                                                    fontFamily:
+                                                        FontStyles.FontFamily,
                                                     color: Color(0xFF6399C4),
                                                   ),
                                                 ),
@@ -407,6 +416,9 @@ class _NewsListViewState extends State<NewsListView> {
                                                       child: Text(
                                                         data[index]["hits2"],
                                                         style: TextStyle(
+                                                            fontFamily:
+                                                                FontStyles
+                                                                    .FontFamily,
                                                             fontSize: 12),
                                                       ),
                                                     ),
@@ -414,8 +426,8 @@ class _NewsListViewState extends State<NewsListView> {
                                               ),
                                             ],
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),

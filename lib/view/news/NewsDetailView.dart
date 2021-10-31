@@ -168,7 +168,7 @@ class _NewsDetailViewState extends State<NewsDetailView> {
   @override
   Widget build(BuildContext context) {
     return PageSubView(
-      title: "บ้านเชี่ยวหลานอัพเดท",
+      title: "นาสารอัพเดท",
       isHaveArrow: "1",
       widget: Container(
         width: double.infinity,
@@ -235,12 +235,15 @@ class _NewsDetailViewState extends State<NewsDetailView> {
                           bottom: 0,
                           child: Container(
                             width: MediaQuery.of(context).size.width,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: imgList.map((image) {
-                                int index = imgList.indexOf(image);
-                                return theIndicator(_currentPage, index);
-                              }).toList(),
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: imgList.map((image) {
+                                  int index = imgList.indexOf(image);
+                                  return theIndicator(_currentPage, index);
+                                }).toList(),
+                              ),
                             ),
                           ),
                         ),

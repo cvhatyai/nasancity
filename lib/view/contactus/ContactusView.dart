@@ -211,7 +211,7 @@ class _ContactusViewState extends State<ContactusView> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'เทศบาลตำบลบ้านเชี่ยวหลาน',
+                              'เทศบาลเมืองนาสาร',
                               style: TextStyle(
                                   fontFamily: FontStyles.FontFamily,
                                   fontSize: 20,

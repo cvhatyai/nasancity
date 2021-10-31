@@ -89,7 +89,7 @@ class _ComplainCateListViewState extends State<ComplainCateListView> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
 
-    final double itemHeight = (size.height - kToolbarHeight - 50) / 4.4;
+    final double itemHeight = (size.height - kToolbarHeight - 50) / 5;
     final double itemWidth = size.width / 3;
 
     return PageSubView(
@@ -98,14 +98,18 @@ class _ComplainCateListViewState extends State<ComplainCateListView> {
       widget: Column(
         children: [
           Container(
-            padding: EdgeInsets.only(bottom: 5),
+            padding: EdgeInsets.only(top: 20, bottom: 5),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: Color(0xFF34800C).withOpacity(0.5),
+                    color: Color(0xFFFFF700),
+                    border: Border.all(
+                      width: 1,
+                      color: Color(0xFFFF9100),
+                    ),
                   ),
                   padding:
                       EdgeInsets.only(left: 30, right: 30, top: 5, bottom: 5),
@@ -113,7 +117,7 @@ class _ComplainCateListViewState extends State<ComplainCateListView> {
                     "เลือกหมวดหมู่เพื่อแจ้งเรื่อง",
                     style: TextStyle(
                         fontSize: 16,
-                        color: Colors.white,
+                        color: Colors.black,
                         fontFamily: FontStyles.FontFamily,
                         fontWeight: FontWeight.w400),
                   ),
@@ -170,10 +174,21 @@ class _ComplainCateListViewState extends State<ComplainCateListView> {
                                     width: WidhtDevice().widht(context) / 5,
                                     height: WidhtDevice().widht(context) / 5,
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(30),
-                                      color: Color(0xFFF5F6FA),
+                                      shape: BoxShape.circle,
+                                      color: Colors.white,
                                       border: Border.all(
-                                          width: 3, color: Color(0xFFDADADA)),
+                                        width: 3,
+                                        color: Color(0xFFDADADA),
+                                      ),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.grey.withOpacity(0.5),
+                                          spreadRadius: 1,
+                                          blurRadius: 5,
+                                          offset: Offset(0,
+                                              2), // changes position of shadow
+                                        ),
+                                      ],
                                     ),
                                     padding: EdgeInsets.all(16),
                                     child: Image.network(
