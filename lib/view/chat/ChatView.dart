@@ -225,20 +225,52 @@ class _ChatViewState extends State<ChatView> {
 
     return Container(
       decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/bg/chat.png"),
-            alignment: Alignment.topCenter,
-            fit: BoxFit.fitWidth,
-          ),
-          color: Colors.white),
+        image: DecorationImage(
+          image: AssetImage("assets/bg/bg-chat.png"),
+          alignment: Alignment.topCenter,
+          fit: BoxFit.fitWidth,
+        ),
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment
+              .bottomCenter, // 10% of the width, so there are ten blinds.
+          colors: <Color>[
+            Color(0xffFBFBFB),
+            Color(0xffC4DAEF)
+          ], // red to yellow
+          tileMode: TileMode.repeated, // repeats the gradient over the canvas
+        ),
+      ),
       child: SafeArea(
         child: Scaffold(
           backgroundColor: Colors.white.withOpacity(0),
           body: Container(
             width: WidhtDevice().widht(context),
-            padding: EdgeInsets.only(top: 60),
             child: Stack(
               children: [
+                Positioned(
+                  bottom: 0,
+                  child: Container(
+                    height: 100,
+                    width: WidhtDevice().widht(context),
+                    decoration: BoxDecoration(
+                      color: Color(0xFFEB1717),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20.0),
+                        topRight: Radius.circular(20.0),
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  right: 0,
+                  bottom: 0,
+                  child: Container(
+                    width: WidhtDevice().widht(context) / 2,
+                    alignment: Alignment.bottomCenter,
+                    child: Image.asset('assets/item/chat4.png'),
+                  ),
+                ),
                 ListView(
                   padding: EdgeInsets.only(bottom: 200),
                   controller: _scrollController,
@@ -251,7 +283,7 @@ class _ChatViewState extends State<ChatView> {
                             child: Row(
                               children: [
                                 Container(
-                                  width: WidhtDevice().widht(context) / 10,
+                                  width: WidhtDevice().widht(context) / 8,
                                   alignment: Alignment.centerLeft,
                                   child: Image.asset(
                                     'assets/item/chat1.png',
@@ -316,7 +348,7 @@ class _ChatViewState extends State<ChatView> {
                                               bottomLeft: Radius.circular(16),
                                             ),
                                             border: Border.all(
-                                              color: Color(0xFF55BF1C),
+                                              color: Color(0xFF72797E),
                                               width: 1.0,
                                             ),
                                             boxShadow: [
@@ -414,105 +446,83 @@ class _ChatViewState extends State<ChatView> {
                   ],
                 ),
                 Positioned(
-                  bottom: 0,
+                  bottom: 20,
                   child: Container(
                     width: WidhtDevice().widht(context),
                     color: Colors.transparent,
-                    child: Stack(
-                      children: [
-                        Image.asset(
-                          'assets/bg/chatbottom.png',
-                        ),
-                        Positioned(
-                          bottom: 30,
-                          child: Container(
-                            padding: EdgeInsets.only(left: 8),
-                            width: MediaQuery.of(context).size.width,
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  flex: 3,
-                                  child: Container(
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 4),
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(4),
-                                        bottomRight: Radius.circular(4),
-                                        bottomLeft: Radius.circular(4),
+                    child: Container(
+                      padding: EdgeInsets.only(left: 8),
+                      width: MediaQuery.of(context).size.width,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            flex: 2,
+                            child: Container(
+                              padding: EdgeInsets.symmetric(horizontal: 4),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(4),
+                                  bottomRight: Radius.circular(4),
+                                  bottomLeft: Radius.circular(4),
+                                ),
+                                border: Border.all(
+                                  color: Color(0xFF55C3FF),
+                                  width: 1.0,
+                                ),
+                              ),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: TextField(
+                                      controller: questionText,
+                                      onChanged: (text) {
+                                        getHintSubject(text);
+                                      },
+                                      style: TextStyle(
+                                        fontSize: 12,
                                       ),
-                                      border: Border.all(
-                                        color: Color(0xFF55C3FF),
-                                        width: 1.0,
+                                      decoration: InputDecoration(
+                                        border: InputBorder.none,
+                                        focusedBorder: InputBorder.none,
+                                        contentPadding:
+                                            EdgeInsets.symmetric(horizontal: 8),
+                                        hintText: "พิมพ์คำถามของคุณที่นี่..",
                                       ),
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Expanded(
-                                          child: TextField(
-                                            controller: questionText,
-                                            onChanged: (text) {
-                                              getHintSubject(text);
-                                            },
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                            ),
-                                            decoration: InputDecoration(
-                                              border: InputBorder.none,
-                                              focusedBorder: InputBorder.none,
-                                              contentPadding:
-                                                  EdgeInsets.symmetric(
-                                                      horizontal: 8),
-                                              hintText:
-                                                  "พิมพ์คำถามของคุณที่นี่..",
-                                            ),
-                                          ),
-                                        ),
-                                        GestureDetector(
-                                          onTap: () {
-                                            letAskQuestion(questionText.text);
-                                          },
-                                          child: Container(
-                                            padding: EdgeInsets.symmetric(
-                                              horizontal: 16,
-                                              vertical: 8,
-                                            ),
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFF2DA3FF),
-                                              borderRadius: BorderRadius.only(
-                                                topLeft: Radius.circular(4),
-                                                bottomRight: Radius.circular(4),
-                                              ),
-                                            ),
-                                            child: Icon(
-                                              Icons.search,
-                                              color: Colors.white,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
                                     ),
                                   ),
-                                ),
-                                Expanded(
-                                  flex: 1,
-                                  child: Container(),
-                                ),
-                              ],
+                                  GestureDetector(
+                                    onTap: () {
+                                      letAskQuestion(questionText.text);
+                                    },
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 16,
+                                        vertical: 8,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFFEB1717),
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(4),
+                                          bottomRight: Radius.circular(4),
+                                        ),
+                                      ),
+                                      child: Icon(
+                                        Icons.search,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        Positioned(
-                          right: 0,
-                          bottom: 0,
-                          child: Container(
-                            width: WidhtDevice().widht(context) / 4.5,
-                            alignment: Alignment.bottomCenter,
-                            child: Image.asset('assets/item/chat4.png'),
+                          Expanded(
+                            flex: 1,
+                            child: Container(),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),

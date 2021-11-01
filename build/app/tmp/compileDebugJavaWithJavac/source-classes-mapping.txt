@@ -1,8 +1,0 @@
-io/flutter/plugins/GeneratedPluginRegistrant.java
- io.flutter.plugins.GeneratedPluginRegistrant
-th/go/nasancity/BuildConfig.java
- th.go.nasancity.BuildConfig
-th/go/nasancity/Application.java
- th.go.nasancity.Application
-th/go/nasancity/FirebaseCloudMessagingPluginRegistrant.java
- th.go.nasancity.FirebaseCloudMessagingPluginRegistrant

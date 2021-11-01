@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/flutter_line_sdk/intermediates/merged_res/release/animator/mtrl_btn_state_list_anim.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-3/357df4e46937808799b060f0a84e9402/transformed/material-1.0.0/res/animator/mtrl_btn_state_list_anim.xml"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/flutter_line_sdk/intermediates/merged_res/release/animator/mtrl_chip_state_list_anim.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-3/357df4e46937808799b060f0a84e9402/transformed/material-1.0.0/res/animator/mtrl_chip_state_list_anim.xml"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/flutter_line_sdk/intermediates/merged_res/release/animator/mtrl_fab_hide_motion_spec.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-3/357df4e46937808799b060f0a84e9402/transformed/material-1.0.0/res/animator/mtrl_fab_hide_motion_spec.xml"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/flutter_line_sdk/intermediates/merged_res/release/animator/mtrl_fab_transformation_sheet_expand_spec.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-3/357df4e46937808799b060f0a84e9402/transformed/material-1.0.0/res/animator/mtrl_fab_transformation_sheet_expand_spec.xml"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/flutter_line_sdk/intermediates/merged_res/release/animator/mtrl_fab_transformation_sheet_collapse_spec.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-3/357df4e46937808799b060f0a84e9402/transformed/material-1.0.0/res/animator/mtrl_fab_transformation_sheet_collapse_spec.xml"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/flutter_line_sdk/intermediates/merged_res/release/animator/mtrl_btn_unelevated_state_list_anim.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-3/357df4e46937808799b060f0a84e9402/transformed/material-1.0.0/res/animator/mtrl_btn_unelevated_state_list_anim.xml"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/flutter_line_sdk/intermediates/merged_res/release/animator/design_fab_hide_motion_spec.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-3/357df4e46937808799b060f0a84e9402/transformed/material-1.0.0/res/animator/design_fab_hide_motion_spec.xml"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/flutter_line_sdk/intermediates/merged_res/release/animator/design_fab_show_motion_spec.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-3/357df4e46937808799b060f0a84e9402/transformed/material-1.0.0/res/animator/design_fab_show_motion_spec.xml"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/flutter_line_sdk/intermediates/merged_res/release/animator/mtrl_fab_show_motion_spec.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-3/357df4e46937808799b060f0a84e9402/transformed/material-1.0.0/res/animator/mtrl_fab_show_motion_spec.xml"
+    }
+]

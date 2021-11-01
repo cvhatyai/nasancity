@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ทม.นาสาร</string>
-    <string name="facebook_app_id">3909128009196446</string>
-    <string name="fb_login_protocol_scheme">fb3909128009196446</string>
+    <string name="app_name">เทศบาลเมืองนาสาร</string>
+    <string name="facebook_app_id">633136704547400</string>
+    <string name="fb_login_protocol_scheme">fb633136704547400</string>
 </resources>

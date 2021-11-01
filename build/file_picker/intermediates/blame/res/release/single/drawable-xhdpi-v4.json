@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/file_picker/intermediates/res/merged/release/drawable-xhdpi-v4/notification_bg_low_normal.9.png",
+        "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/479491f0b00577a99bd18a87db694834/core-1.1.0/res/drawable-xhdpi-v4/notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/file_picker/intermediates/res/merged/release/drawable-xhdpi-v4/notification_bg_low_pressed.9.png",
+        "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/479491f0b00577a99bd18a87db694834/core-1.1.0/res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/file_picker/intermediates/res/merged/release/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png",
+        "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/479491f0b00577a99bd18a87db694834/core-1.1.0/res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/file_picker/intermediates/res/merged/release/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png",
+        "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/479491f0b00577a99bd18a87db694834/core-1.1.0/res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/file_picker/intermediates/res/merged/release/drawable-xhdpi-v4/notification_bg_normal.9.png",
+        "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/479491f0b00577a99bd18a87db694834/core-1.1.0/res/drawable-xhdpi-v4/notification_bg_normal.9.png"
+    }
+]

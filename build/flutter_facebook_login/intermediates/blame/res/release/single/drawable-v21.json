@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/flutter_facebook_login/intermediates/res/merged/release/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/15dfa4f1eff74615fb04094c37e500fd/appcompat-1.0.0/res/drawable-v21/abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/flutter_facebook_login/intermediates/res/merged/release/drawable-v21/abc_list_divider_material.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/15dfa4f1eff74615fb04094c37e500fd/appcompat-1.0.0/res/drawable-v21/abc_list_divider_material.xml"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/flutter_facebook_login/intermediates/res/merged/release/drawable-v21/abc_dialog_material_background.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/15dfa4f1eff74615fb04094c37e500fd/appcompat-1.0.0/res/drawable-v21/abc_dialog_material_background.xml"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/flutter_facebook_login/intermediates/res/merged/release/drawable-v21/notification_action_background.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/479491f0b00577a99bd18a87db694834/core-1.1.0/res/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/flutter_facebook_login/intermediates/res/merged/release/drawable-v21/abc_edit_text_material.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/15dfa4f1eff74615fb04094c37e500fd/appcompat-1.0.0/res/drawable-v21/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/flutter_facebook_login/intermediates/res/merged/release/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/15dfa4f1eff74615fb04094c37e500fd/appcompat-1.0.0/res/drawable-v21/abc_btn_colored_material.xml"
+    }
+]

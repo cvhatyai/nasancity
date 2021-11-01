@@ -1,0 +1,68 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/sign_in_with_apple/intermediates/merged_res/release/values-zh-rTW/values-zh-rTW.xml",
+            "map": [
+                {
+                    "source": "/Users/apple/.gradle/caches/transforms-3/5d13bbc733eac462d76227f0a618bd92/transformed/core-1.1.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "6",
+                        "startColumns": "4",
+                        "startOffsets": "424",
+                        "endColumns": "100",
+                        "endOffsets": "520"
+                    }
+                },
+                {
+                    "source": "/Users/apple/.gradle/caches/transforms-3/a0338d360e6fb02106aff2da31c9bfb9/transformed/browser-1.2.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,139,231,332",
+                        "endColumns": "83,91,100,91",
+                        "endOffsets": "134,226,327,419"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/sign_in_with_apple/intermediates/incremental/mergeReleaseResources/merged.dir/values-zh-rTW/values-zh-rTW.xml",
+            "map": [
+                {
+                    "source": "/Users/apple/.gradle/caches/transforms-3/5d13bbc733eac462d76227f0a618bd92/transformed/core-1.1.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "6",
+                        "startColumns": "4",
+                        "startOffsets": "424",
+                        "endColumns": "100",
+                        "endOffsets": "520"
+                    }
+                },
+                {
+                    "source": "/Users/apple/.gradle/caches/transforms-3/a0338d360e6fb02106aff2da31c9bfb9/transformed/browser-1.2.0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,139,231,332",
+                        "endColumns": "83,91,100,91",
+                        "endOffsets": "134,226,327,419"
+                    }
+                }
+            ]
+        }
+    ]
+}

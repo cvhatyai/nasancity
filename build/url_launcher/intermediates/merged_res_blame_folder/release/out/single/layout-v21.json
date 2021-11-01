@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/url_launcher/intermediates/merged_res/release/layout-v21/notification_action.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-3/5d13bbc733eac462d76227f0a618bd92/transformed/core-1.1.0/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/url_launcher/intermediates/merged_res/release/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-3/5d13bbc733eac462d76227f0a618bd92/transformed/core-1.1.0/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/url_launcher/intermediates/merged_res/release/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-3/5d13bbc733eac462d76227f0a618bd92/transformed/core-1.1.0/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/url_launcher/intermediates/merged_res/release/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-3/5d13bbc733eac462d76227f0a618bd92/transformed/core-1.1.0/res/layout-v21/notification_action_tombstone.xml"
+    }
+]

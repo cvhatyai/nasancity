@@ -108,7 +108,7 @@ class _MenuScreenState extends State<MenuScreen> {
 
   initFav() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    // arrFav = prefs.getStringList("favList");
+    arrFav = prefs.getStringList("favList");
     setState(() {
       if (arrFav != null) {
         favCount = arrFav.length;
@@ -1054,7 +1054,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 GestureDetector(
                   onTap: () {
                     _launchInBrowser(
-                        "http://nasancity.go.th/public/texteditor/data/index/menu/237");
+                        "https://www.nasancity.go.th/content/cate/90");
 
                     // Navigator.push(
                     //   context,
@@ -1620,21 +1620,21 @@ class _MenuScreenState extends State<MenuScreen> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    _launchInBrowser(
-                        "https://docs.google.com/forms/d/e/1FAIpQLScbrsfcCcNp8A8fas63H6m12Plzejpp6LUaUlm8g6rI7WHZNQ/viewform");
+                    // _launchInBrowser(
+                    //     "https://docs.google.com/forms/d/e/1FAIpQLScbrsfcCcNp8A8fas63H6m12Plzejpp6LUaUlm8g6rI7WHZNQ/viewform");
 
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => PollView(
-                    //       isHaveArrow: "1",
-                    //     ),
-                    //   ),
-                    // ).then((value) {
-                    //   setState(() {
-                    //     initFav();
-                    //   });
-                    // });
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PollView(
+                          isHaveArrow: "1",
+                        ),
+                      ),
+                    ).then((value) {
+                      setState(() {
+                        initFav();
+                      });
+                    });
                   },
                   child: Column(
                     children: [

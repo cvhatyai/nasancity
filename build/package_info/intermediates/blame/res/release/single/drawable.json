@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/package_info/intermediates/res/merged/release/drawable/notification_bg_low.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/479491f0b00577a99bd18a87db694834/core-1.1.0/res/drawable/notification_bg_low.xml"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/package_info/intermediates/res/merged/release/drawable/notification_icon_background.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/479491f0b00577a99bd18a87db694834/core-1.1.0/res/drawable/notification_icon_background.xml"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/package_info/intermediates/res/merged/release/drawable/notification_bg.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/479491f0b00577a99bd18a87db694834/core-1.1.0/res/drawable/notification_bg.xml"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/package_info/intermediates/res/merged/release/drawable/notification_tile_bg.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/479491f0b00577a99bd18a87db694834/core-1.1.0/res/drawable/notification_tile_bg.xml"
+    }
+]

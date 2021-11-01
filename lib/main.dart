@@ -306,7 +306,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xFF067ce0),
+      color: Color(0xFFEB1717),
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
       child: Center(
@@ -320,51 +320,51 @@ class _MyHomePageState extends State<MyHomePage> {
               fit: BoxFit.fitWidth,
             ),
           ),
-          child: Column(
-            children: [
-              Expanded(
-                  flex: 2,
-                  child: Container(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          padding: EdgeInsets.all(20),
-                          alignment: Alignment.bottomCenter,
-                          child: Image.asset(
-                            "assets/bg/splash2.png",
-                            fit: BoxFit.fitWidth,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(10),
-                        ),
-                        Container(
-                          padding: EdgeInsets.all(10),
-                          alignment: Alignment.bottomCenter,
-                          child: Image.asset(
-                            "assets/bg/splash1.png",
-                            fit: BoxFit.fitWidth,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(50),
-                        ),
-                      ],
-                    ),
-                  )),
-              Expanded(
-                flex: 1,
-                child: Container(
-                  alignment: Alignment.bottomCenter,
-                  child: Image.asset(
-                    "assets/bg/splash3.png",
-                    fit: BoxFit.fitWidth,
-                  ),
-                ),
-              )
-            ],
-          ),
+          // child: Column(
+          //   children: [
+          //     Expanded(
+          //         flex: 2,
+          //         child: Container(
+          //           child: Column(
+          //             mainAxisAlignment: MainAxisAlignment.center,
+          //             children: [
+          //               Container(
+          //                 padding: EdgeInsets.all(20),
+          //                 alignment: Alignment.bottomCenter,
+          //                 child: Image.asset(
+          //                   "assets/bg/splash2.png",
+          //                   fit: BoxFit.fitWidth,
+          //                 ),
+          //               ),
+          //               Padding(
+          //                 padding: EdgeInsets.all(10),
+          //               ),
+          //               Container(
+          //                 padding: EdgeInsets.all(10),
+          //                 alignment: Alignment.bottomCenter,
+          //                 child: Image.asset(
+          //                   "assets/bg/splash1.png",
+          //                   fit: BoxFit.fitWidth,
+          //                 ),
+          //               ),
+          //               Padding(
+          //                 padding: EdgeInsets.all(50),
+          //               ),
+          //             ],
+          //           ),
+          //         )),
+          //     Expanded(
+          //       flex: 1,
+          //       child: Container(
+          //         alignment: Alignment.bottomCenter,
+          //         child: Image.asset(
+          //           "assets/bg/splash3.png",
+          //           fit: BoxFit.fitWidth,
+          //         ),
+          //       ),
+          //     )
+          //   ],
+          // ),
         ),
       ),
     );

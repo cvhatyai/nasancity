@@ -8,6 +8,7 @@ class Info {
   String baseUrl = _base_url;
   String baseUrlPity = _base_url_pity;
 
+  String facebook_live = _base_url + 'facebook_live';
   //pity
   String newsList = _base_url_api + '/newsList';
   String faqList = _base_url_api + '/faqList';
@@ -79,6 +80,9 @@ class Info {
   String checkHasUser = _base_url_api + '/checkHasUser';
   String checkConnectedUser = _base_url_api + '/checkConnectedUser';
   String cancelContectUser = _base_url_api + '/cancelContectUser';
+
+  String nearMe = _base_url_api + '/nearMe';
+
   String weatherApi = 'https://api.cityvariety.com/weather/json.php?id=1156046';
   String weatherListApi =
       'https://api.cityvariety.com/weather/json.php?type=forecast&fnList=tempList&id=1156046';

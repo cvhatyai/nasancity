@@ -29,7 +29,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb3909128009196446</string>
+				<string>fb633136704547400</string>
 			</array>
 		</dict>
 		<dict>
@@ -37,7 +37,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.1001759427019-m4n65822q1h7ma4imilkf4bm0m15qebj</string>
+				<string>com.googleusercontent.apps.143351239822-64irbif4oo9ehdssvc1ug5ckdv952f99</string>
 			</array>
 		</dict>
 		<dict>
@@ -54,11 +54,11 @@
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>FacebookAppID</key>
-	<string>3909128009196446</string>
+	<string>633136704547400</string>
 	<key>FacebookClientToken</key>
-	<string>602eb0e6d6f3d0622af4ed0a08ad15aa</string>
+	<string>6508e305ac07348c9b1e329a802bd546</string>
 	<key>FacebookDisplayName</key>
-	<string>ทม.นาสาร</string>
+	<string>เทศบาลเมืองนาสาร</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -76,7 +76,6 @@
 		<string>fb-messenger-share-api</string>
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
-		<string>lineauth2</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

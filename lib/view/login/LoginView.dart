@@ -35,7 +35,7 @@ GoogleSignIn _googleSignIn = GoogleSignIn(
 
 class SignInLine {
   void lineSDKInit() async {
-    await LineSDK.instance.setup("1656320705").then((_) {
+    await LineSDK.instance.setup("1656590327").then((_) {
       print("LineSDK is Prepared");
     });
   }

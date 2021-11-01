@@ -10,6 +10,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:nasancity/model/user.dart';
 import 'package:nasancity/system/FirebaseNotification.dart';
 import 'package:nasancity/view/login/LoginView.dart';
+import 'package:nasancity/view/nearme/NearMeView.dart';
 import 'package:nasancity/view/news/NewsDetailView.dart';
 
 import 'package:nasancity/view/news/NewsListView.dart';
@@ -32,7 +33,7 @@ class _FrontPageViewState extends State<FrontPageView> {
     FrontpageScreen(),
     ComplainCateListView(),
     ChatView(),
-    NotiListView(),
+    NearMeView(),
     MenuScreen()
   ];
 
@@ -82,7 +83,7 @@ class _FrontPageViewState extends State<FrontPageView> {
         FrontpageScreen(),
         ComplainCateListView(),
         ChatView(),
-        NotiListView(),
+        NearMeView(),
         MenuScreen()
       ];
     } else {
@@ -90,7 +91,7 @@ class _FrontPageViewState extends State<FrontPageView> {
         FrontpageScreen(),
         ComplainCateListView(),
         ChatView(),
-        LoginView(),
+        NearMeView(),
         MenuScreen()
       ];
     }

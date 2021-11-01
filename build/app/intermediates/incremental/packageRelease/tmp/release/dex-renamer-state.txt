@@ -1,0 +1,4 @@
+#Mon Nov 01 23:35:13 ICT 2021
+base.0=/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/app/intermediates/transforms/r8/release/0/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/flutter_line_sdk/intermediates/res/merged/release/menu/menu_profile_info.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/01511783ba186154c40a1522c6be218b/jetified-linesdk-5.4.1/res/menu/menu_profile_info.xml"
+    },
+    {
+        "merged": "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/build/flutter_line_sdk/intermediates/res/merged/release/menu/menu_openchat_info.xml",
+        "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/01511783ba186154c40a1522c6be218b/jetified-linesdk-5.4.1/res/menu/menu_openchat_info.xml"
+    }
+]

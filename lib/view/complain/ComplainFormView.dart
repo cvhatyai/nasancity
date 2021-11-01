@@ -464,7 +464,7 @@ class _ComplainFormViewState extends State<ComplainFormView> {
                     Image.network(
                       widget.displayImage,
                       height: 36,
-                      color: Colors.white,
+                      // color: Colors.white,
                     ),
                     Expanded(
                       child: Container(
@@ -474,7 +474,7 @@ class _ComplainFormViewState extends State<ComplainFormView> {
                           style: TextStyle(
                             fontSize: 22,
                             fontFamily: FontStyles.FontFamily,
-                            color: Colors.white,
+                            // color: Colors.white,
                           ),
                         ),
                       ),
@@ -500,7 +500,7 @@ class _ComplainFormViewState extends State<ComplainFormView> {
                       hintText: 'หัวข้อ',
                       hintStyle: TextStyle(
                           fontFamily: FontStyles.FontFamily,
-                          color: Color(0xFF48BE00).withOpacity(0.5)),
+                          color: Colors.grey.withOpacity(0.5)),
                       errorText: _validateSubject ? 'กรุณากรอกหัวข้อ' : null,
                     ),
                   ),
@@ -526,7 +526,7 @@ class _ComplainFormViewState extends State<ComplainFormView> {
                       hintText: 'รายละเอียด',
                       hintStyle: TextStyle(
                           fontFamily: FontStyles.FontFamily,
-                          color: Color(0xFF48BE00).withOpacity(0.5)),
+                          color: Colors.grey.withOpacity(0.5)),
                       errorText: _validateDetail ? 'กรุณากรอกรายละเอียด' : null,
                     ),
                   ),
@@ -551,7 +551,7 @@ class _ComplainFormViewState extends State<ComplainFormView> {
                       hintText: 'สถานที่',
                       hintStyle: TextStyle(
                           fontFamily: FontStyles.FontFamily,
-                          color: Color(0xFF48BE00).withOpacity(0.5)),
+                          color: Colors.grey.withOpacity(0.5)),
                       errorText: _validatePlace ? 'กรุณากรอกสถานที่' : null,
                     ),
                   ),
@@ -561,7 +561,7 @@ class _ComplainFormViewState extends State<ComplainFormView> {
                 ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all<Color>(Color(0xFF40A800)),
+                        MaterialStateProperty.all<Color>(Colors.blue),
                   ),
                   onPressed: () {
                     showPlacePicker();

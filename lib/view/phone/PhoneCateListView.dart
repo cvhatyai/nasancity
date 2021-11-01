@@ -153,7 +153,7 @@ class _PhoneCateListViewState extends State<PhoneCateListView> {
           ),
           GestureDetector(
             onTap: () {
-              _makePhoneCall('tel:077346096');
+              _makePhoneCall('tel:077341021');
             },
             child: Container(
               margin: EdgeInsets.only(top: 16),
@@ -216,12 +216,12 @@ class _PhoneCateListViewState extends State<PhoneCateListView> {
                       Expanded(
                         flex: 2,
                         child: Text(
-                          "0 7734 6096",
+                          "0 7734 1021",
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 22,
+                            fontSize: 28,
                             fontFamily: FontStyles.FontFamily,
                             fontWeight: FontWeight.bold,
                           ),

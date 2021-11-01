@@ -4,6 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nasancity/model/user.dart';
 import 'package:nasancity/style/font_style.dart';
 import 'package:nasancity/system/widht_device.dart';
+import 'package:nasancity/view/complain/FollowComplainListView.dart';
+import 'package:nasancity/view/download/DownloadListView.dart';
 import 'package:nasancity/view/home/widget/GreenMarketView.dart';
 import 'package:nasancity/view/home/widget/banner.dart';
 import 'package:nasancity/view/home/widget/complainFollow.dart';
@@ -18,8 +20,11 @@ import 'package:nasancity/view/home/widget/travel.dart';
 import 'package:nasancity/view/home/widget/update.dart';
 import 'package:nasancity/view/home/widget/weather.dart';
 import 'package:nasancity/view/login/LoginView.dart';
+import 'package:nasancity/view/phone/PhoneCateListView.dart';
 import 'package:nasancity/view/setting/SettingView.dart';
 import 'package:flutter/material.dart';
+import 'package:nasancity/view/travel/TravelListView.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class FrontpageScreen extends StatefulWidget {
   const FrontpageScreen({Key key}) : super(key: key);
@@ -30,6 +35,8 @@ class FrontpageScreen extends StatefulWidget {
 
 class _FrontpageScreenState extends State<FrontpageScreen> {
   var user = User();
+  var favCount = 0;
+  List<String> arrFav = [];
   bool isLogin = false;
   getUsers() async {
     await user.init();
@@ -39,6 +46,16 @@ class _FrontpageScreenState extends State<FrontpageScreen> {
         String userFullname = user.fullname;
         String userAvatar = user.avatar;
         print("userAvataruserAvatar" + userAvatar);
+      }
+    });
+  }
+
+  initFav() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    arrFav = prefs.getStringList("favList");
+    setState(() {
+      if (arrFav != null) {
+        favCount = arrFav.length;
       }
     });
   }
@@ -210,6 +227,35 @@ class _FrontpageScreenState extends State<FrontpageScreen> {
                                                       ),
                                                     ),
                                                     GestureDetector(
+                                                      onTap: () {
+                                                        if (!isLogin) {
+                                                          Navigator.push(
+                                                            context,
+                                                            MaterialPageRoute(
+                                                              builder:
+                                                                  (context) =>
+                                                                      LoginView(
+                                                                isHaveArrow:
+                                                                    "1",
+                                                              ),
+                                                            ),
+                                                          );
+                                                        } else {
+                                                          Navigator.push(
+                                                            context,
+                                                            MaterialPageRoute(
+                                                              builder:
+                                                                  (context) =>
+                                                                      SettingView(
+                                                                isHaveArrow:
+                                                                    "1",
+                                                              ),
+                                                            ),
+                                                          ).then((value) {
+                                                            getUsers();
+                                                          });
+                                                        }
+                                                      },
                                                       child: Icon(
                                                         Icons.person_sharp,
                                                         size: 30,
@@ -302,6 +348,292 @@ class _FrontpageScreenState extends State<FrontpageScreen> {
                                         tileMode: TileMode
                                             .repeated, // repeats the gradient over the canvas
                                       ),
+                                    ),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Container(
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            'E-Service',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontFamily:
+                                                    FontStyles.FontFamily,
+                                                fontSize: 20),
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: Container(
+                                            padding: EdgeInsets.only(
+                                              bottom: 5,
+                                              top: 5,
+                                            ),
+                                            child: ListView(
+                                              scrollDirection: Axis.horizontal,
+                                              children: <Widget>[
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            DownloadListView(
+                                                          isHaveArrow: "1",
+                                                        ),
+                                                      ),
+                                                    );
+                                                  },
+                                                  child: Container(
+                                                    width: 100,
+                                                    child: Column(
+                                                      children: [
+                                                        Container(
+                                                          margin:
+                                                              EdgeInsets.only(
+                                                                  bottom: 10),
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  10),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            // borderRadius: BorderRadius.circular(20),
+                                                            shape:
+                                                                BoxShape.circle,
+                                                            color: Color(
+                                                                0xFFFFFFFF),
+                                                            border: Border.all(
+                                                              width: 3,
+                                                              color: Color(
+                                                                  0xFFDADADA),
+                                                            ),
+                                                          ),
+                                                          child: Image.asset(
+                                                            'assets/item/eservice-1.png',
+                                                            width: 50,
+                                                            height: 50,
+                                                            alignment: Alignment
+                                                                .center,
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          'เอกสาร',
+                                                          style: TextStyle(
+                                                              fontFamily:
+                                                                  FontStyles
+                                                                      .FontFamily,
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 14,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w300,
+                                                              height: 1),
+                                                        )
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            PhoneCateListView(
+                                                          isHaveArrow: "1",
+                                                        ),
+                                                      ),
+                                                    ).then((value) {
+                                                      setState(() {
+                                                        initFav();
+                                                      });
+                                                    });
+                                                  },
+                                                  child: Container(
+                                                    width: 100,
+                                                    child: Column(
+                                                      children: [
+                                                        Container(
+                                                          margin:
+                                                              EdgeInsets.only(
+                                                                  bottom: 10),
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  10),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            // borderRadius: BorderRadius.circular(20),
+                                                            shape:
+                                                                BoxShape.circle,
+                                                            color: Color(
+                                                                0xFFFFFFFF),
+                                                            border: Border.all(
+                                                              width: 3,
+                                                              color: Color(
+                                                                  0xFFDADADA),
+                                                            ),
+                                                          ),
+                                                          child: Image.asset(
+                                                            'assets/item/eservice-2.png',
+                                                            width: 50,
+                                                            height: 50,
+                                                            alignment: Alignment
+                                                                .center,
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          'เบอร์โทรสำคัญ ',
+                                                          style: TextStyle(
+                                                              fontFamily:
+                                                                  FontStyles
+                                                                      .FontFamily,
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 14,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w300,
+                                                              height: 1),
+                                                        )
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            TravelListView(
+                                                          isHaveArrow: "1",
+                                                          title: "ที่เที่ยว",
+                                                          tid: "1",
+                                                        ),
+                                                      ),
+                                                    ).then((value) {
+                                                      setState(() {
+                                                        initFav();
+                                                      });
+                                                    });
+                                                  },
+                                                  child: Container(
+                                                    width: 100,
+                                                    child: Column(
+                                                      children: [
+                                                        Container(
+                                                          margin:
+                                                              EdgeInsets.only(
+                                                                  bottom: 10),
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  10),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            // borderRadius: BorderRadius.circular(20),
+                                                            shape:
+                                                                BoxShape.circle,
+                                                            color: Color(
+                                                                0xFFFFFFFF),
+                                                            border: Border.all(
+                                                              width: 3,
+                                                              color: Color(
+                                                                  0xFFDADADA),
+                                                            ),
+                                                          ),
+                                                          child: Image.asset(
+                                                            'assets/item/eservice-4.png',
+                                                            width: 50,
+                                                            height: 50,
+                                                            alignment: Alignment
+                                                                .center,
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          'ที่เที่ยวแนะนำ',
+                                                          style: TextStyle(
+                                                              fontFamily:
+                                                                  FontStyles
+                                                                      .FontFamily,
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 14,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w300,
+                                                              height: 1),
+                                                        )
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                // GestureDetector(
+                                                //   child: Container(
+                                                //     width: 100,
+                                                //     child: Column(
+                                                //       children: [
+                                                //         Container(
+                                                //           margin:
+                                                //               EdgeInsets.only(
+                                                //                   bottom: 10),
+                                                //           padding:
+                                                //               EdgeInsets.all(
+                                                //                   10),
+                                                //           alignment:
+                                                //               Alignment.center,
+                                                //           decoration:
+                                                //               BoxDecoration(
+                                                //             // borderRadius: BorderRadius.circular(20),
+                                                //             shape:
+                                                //                 BoxShape.circle,
+                                                //             color: Color(
+                                                //                 0xFFFFFFFF),
+                                                //             border: Border.all(
+                                                //               width: 3,
+                                                //               color: Color(
+                                                //                   0xFFDADADA),
+                                                //             ),
+                                                //           ),
+                                                //           child: Image.asset(
+                                                //             'assets/item/eservice-3.png',
+                                                //             width: 50,
+                                                //             height: 50,
+                                                //             alignment: Alignment
+                                                //                 .center,
+                                                //           ),
+                                                //         ),
+                                                //         Text(
+                                                //           'เบี้ยยังชีพ',
+                                                //           style: TextStyle(
+                                                //               fontFamily:
+                                                //                   FontStyles
+                                                //                       .FontFamily,
+                                                //               color:
+                                                //                   Colors.white,
+                                                //               fontSize: 14,
+                                                //               fontWeight:
+                                                //                   FontWeight
+                                                //                       .w300,
+                                                //               height: 1),
+                                                //         )
+                                                //       ],
+                                                //     ),
+                                                //   ),
+                                                // ),
+                                              ],
+                                            ),
+                                          ),
+                                        )
+                                      ],
                                     ),
                                   )
                                 ],
@@ -433,36 +765,61 @@ class _FrontpageScreenState extends State<FrontpageScreen> {
                         Positioned(
                           bottom: 0,
                           right: 0,
-                          child: Container(
-                            padding: EdgeInsets.only(
-                              left: 20,
-                              right: 5,
-                              top: 5,
-                              bottom: 5,
-                            ),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20.0),
-                              ),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  '  ติดตามเรื่องร้องเรียน  ',
-                                  style: TextStyle(
-                                    fontFamily: FontStyles.FontFamily,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w300,
+                          child: GestureDetector(
+                            onTap: () {
+                              if (!isLogin) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => LoginView(
+                                      isHaveArrow: "1",
+                                    ),
                                   ),
+                                );
+                              } else {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        FollowComplainListView(
+                                      isHaveArrow: "1",
+                                    ),
+                                  ),
+                                );
+                              }
+                            },
+                            child: Container(
+                              padding: EdgeInsets.only(
+                                left: 20,
+                                right: 5,
+                                top: 5,
+                                bottom: 5,
+                              ),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20.0),
                                 ),
-                                Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: Color(0xFFEB1717),
-                                  size: 16,
-                                )
-                              ],
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    '  ติดตามเรื่องร้องเรียน  ',
+                                    style: TextStyle(
+                                      fontFamily: FontStyles.FontFamily,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w300,
+                                    ),
+                                  ),
+                                  Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: Color(0xFFEB1717),
+                                    size: 16,
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ),
