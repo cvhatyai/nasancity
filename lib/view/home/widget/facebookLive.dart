@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:nasancity/system/Info.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class FacebookLiveWidget extends StatefulWidget {
@@ -26,7 +27,7 @@ class _FacebookLiveWidgetState extends State<FacebookLiveWidget> {
       isLoading = true;
     });
     final http.Response response = await http.post(
-      Uri.parse('https://cityvariety.co.th/facebook_live/cvtest'),
+      Uri.parse(Info().facebook_live),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },

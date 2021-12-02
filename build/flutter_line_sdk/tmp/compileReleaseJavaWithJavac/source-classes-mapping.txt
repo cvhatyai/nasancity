@@ -1,2 +1,0 @@
-com/linecorp/flutter_line_sdk/BuildConfig.java
- com.linecorp.flutter_line_sdk.BuildConfig
