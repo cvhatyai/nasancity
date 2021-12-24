@@ -164,8 +164,11 @@ class _FooterWidgetState extends State<FooterWidget> {
               ),
               GestureDetector(
                 onTap: () {
-                  Toast.show("ไม่มีข้อมูล", context,
-                      duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+                  launch("fb://page/266856016823629");
+                  // _launchInBrowser(
+                  //     'https://www.facebook.com/nasanmunicipality/');
+                  // Toast.show("ไม่มีข้อมูล", context,
+                  //     duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
                   // if (faceLink != "") {
                   //   _launchInBrowser(faceLink);
                   // } else {

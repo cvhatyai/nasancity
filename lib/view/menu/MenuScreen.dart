@@ -353,19 +353,31 @@ class _MenuScreenState extends State<MenuScreen> {
                                             ),
                                             GestureDetector(
                                               onTap: () {
-                                                Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        FavoriteView(
-                                                      isHaveArrow: "1",
+                                                if (!isLogin) {
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          LoginView(
+                                                        isHaveArrow: "1",
+                                                      ),
                                                     ),
-                                                  ),
-                                                ).then((value) {
-                                                  setState(() {
-                                                    initFav();
+                                                  );
+                                                } else {
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          FavoriteView(
+                                                        isHaveArrow: "1",
+                                                      ),
+                                                    ),
+                                                  ).then((value) {
+                                                    setState(() {
+                                                      initFav();
+                                                    });
                                                   });
-                                                });
+                                                }
                                               },
                                               child: Stack(
                                                 children: [

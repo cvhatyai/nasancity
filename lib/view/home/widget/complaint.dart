@@ -108,7 +108,7 @@ class _ComplaintWidgetState extends State<ComplaintWidget> {
       child: Column(
         children: [
           AspectRatio(
-            aspectRatio: 2 / 1.3,
+            aspectRatio: 2 / 1.5,
             child: PageView.builder(
               controller: pageController,
               itemCount: pageCount,
@@ -119,7 +119,7 @@ class _ComplaintWidgetState extends State<ComplaintWidget> {
               },
               itemBuilder: (_, pageIndex) {
                 return GridView.count(
-                  childAspectRatio: 2 / 2,
+                  childAspectRatio: 2 / 2.3,
                   physics: NeverScrollableScrollPhysics(),
                   // padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
                   primary: false,
@@ -170,23 +170,26 @@ class _ComplaintWidgetState extends State<ComplaintWidget> {
                           alignment: Alignment.center,
                           child: Column(
                             children: [
-                              Container(
-                                width: 60,
-                                height: 60,
-                                decoration: BoxDecoration(
-                                  // borderRadius: BorderRadius.circular(20),
-                                  shape: BoxShape.circle,
-                                  color: Color(0xFFF5F6FA),
-                                  border: Border.all(
-                                    width: 3,
-                                    color: Color(0xFFDADADA),
+                              SingleChildScrollView(
+                                scrollDirection: Axis.vertical,
+                                child: Container(
+                                  width: 60,
+                                  height: 60,
+                                  decoration: BoxDecoration(
+                                    // borderRadius: BorderRadius.circular(20),
+                                    shape: BoxShape.circle,
+                                    color: Color(0xFFF5F6FA),
+                                    border: Border.all(
+                                      width: 3,
+                                      color: Color(0xFFDADADA),
+                                    ),
                                   ),
-                                ),
-                                padding: EdgeInsets.all(10),
-                                child: Image.network(
-                                  data[index + (pageIndex * perPageItem)]
-                                      ['display_image'],
-                                  fit: BoxFit.fitHeight,
+                                  padding: EdgeInsets.all(10),
+                                  child: Image.network(
+                                    data[index + (pageIndex * perPageItem)]
+                                        ['display_image'],
+                                    fit: BoxFit.fitHeight,
+                                  ),
                                 ),
                               ),
                               Padding(padding: EdgeInsets.all(2)),

@@ -129,60 +129,65 @@ class _GreenMarketViewState extends State<GreenMarketView> {
                 ),
                 Expanded(
                   flex: 1,
-                  child: GestureDetector(
-                      onTap: () {
-                        if (!isLogin) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => LoginView(
-                                isHaveArrow: "1",
-                              ),
+                  child: Container(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: GestureDetector(
+                          onTap: () {
+                            if (!isLogin) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LoginView(
+                                    isHaveArrow: "1",
+                                  ),
+                                ),
+                              );
+                            } else {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => GreenMarketAddView(),
+                                ),
+                              );
+                            }
+                          },
+                          child: Container(
+                            padding: EdgeInsets.only(
+                                left: 3, right: 3, top: 5, bottom: 5),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              color: Colors.white,
+                              border: Border.all(
+                                  width: 1.0, color: Color(0xFFEB1717)),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 2,
+                                  blurRadius: 2,
+                                  offset: Offset(
+                                      0, 2), // changes position of shadow
+                                ),
+                              ],
                             ),
-                          );
-                        } else {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => GreenMarketAddView(),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  'สมัครขายสินค้า',
+                                  style: TextStyle(
+                                      fontFamily: FontStyles.FontFamily,
+                                      fontSize: 12),
+                                ),
+                                Icon(
+                                  Icons.arrow_forward_ios,
+                                  size: 14,
+                                )
+                              ],
                             ),
-                          );
-                        }
-                      },
-                      child: Container(
-                        padding: EdgeInsets.only(
-                            left: 3, right: 3, top: 5, bottom: 5),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: Colors.white,
-                          border:
-                              Border.all(width: 1.0, color: Color(0xFFEB1717)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 2,
-                              blurRadius: 2,
-                              offset:
-                                  Offset(0, 2), // changes position of shadow
-                            ),
-                          ],
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              'สมัครขายสินค้า',
-                              style: TextStyle(
-                                  fontFamily: FontStyles.FontFamily,
-                                  fontSize: 14),
-                            ),
-                            Icon(
-                              Icons.arrow_forward_ios,
-                              size: 18,
-                            )
-                          ],
-                        ),
-                      )),
+                          )),
+                    ),
+                  ),
                 ),
               ],
             ),

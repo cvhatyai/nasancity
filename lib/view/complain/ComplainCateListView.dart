@@ -168,51 +168,56 @@ class _ComplainCateListViewState extends State<ComplainCateListView> {
                                 top: 8,
                               ),
                               //decoration: boxWhite(),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    width: WidhtDevice().widht(context) / 5,
-                                    height: WidhtDevice().widht(context) / 5,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.white,
-                                      border: Border.all(
-                                        width: 3,
-                                        color: Color(0xFFDADADA),
-                                      ),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Colors.grey.withOpacity(0.5),
-                                          spreadRadius: 1,
-                                          blurRadius: 5,
-                                          offset: Offset(0,
-                                              2), // changes position of shadow
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      width: WidhtDevice().widht(context) / 5,
+                                      height: WidhtDevice().widht(context) / 5,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Colors.white,
+                                        border: Border.all(
+                                          width: 3,
+                                          color: Color(0xFFDADADA),
                                         ),
-                                      ],
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.5),
+                                            spreadRadius: 1,
+                                            blurRadius: 5,
+                                            offset: Offset(0,
+                                                2), // changes position of shadow
+                                          ),
+                                        ],
+                                      ),
+                                      padding: EdgeInsets.all(16),
+                                      child: Image.network(
+                                        data[index]["display_image"],
+                                      ),
                                     ),
-                                    padding: EdgeInsets.all(16),
-                                    child: Image.network(
-                                      data[index]["display_image"],
+                                    Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.4,
+                                      alignment: Alignment.center,
+                                      padding: EdgeInsets.all(6),
+                                      child: SingleChildScrollView(
+                                        scrollDirection: Axis.vertical,
+                                        child: Text(
+                                          data[index]["subject"],
+                                          maxLines: 2,
+                                          textAlign: TextAlign.center,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              height: 1.2,
+                                              fontFamily: FontStyles.FontFamily,
+                                              fontWeight: FontWeight.normal),
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                  Container(
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.4,
-                                    alignment: Alignment.center,
-                                    padding: EdgeInsets.all(6),
-                                    child: Text(
-                                      data[index]["subject"],
-                                      maxLines: 2,
-                                      textAlign: TextAlign.center,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                          fontSize: 12,
-                                          height: 1.2,
-                                          fontFamily: FontStyles.FontFamily,
-                                          fontWeight: FontWeight.normal),
-                                    ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ),

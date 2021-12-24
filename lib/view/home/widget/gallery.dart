@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:nasancity/style/font_style.dart';
 import 'package:nasancity/system/Info.dart';
 import 'package:nasancity/system/widht_device.dart';
+import 'package:nasancity/view/calendar/CalendarDetailView.dart';
+import 'package:nasancity/view/calendar/CalendarListView.dart';
 import 'package:nasancity/view/gallery/GalleryDetailView.dart';
 import 'package:nasancity/view/gallery/GalleryListView.dart';
 import 'package:flutter/material.dart';
@@ -370,7 +372,7 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                     children: [
                       Container(
                         padding: EdgeInsets.all(8),
-                        height: 240,
+                        height: 220,
                         margin: EdgeInsets.only(top: 8),
                         child: Column(
                           children: [
@@ -432,27 +434,54 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                                                       horizontal: 8),
                                                   child: Column(
                                                     children: [
-                                                      Row(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Text(
-                                                            data2[index]
-                                                                ["sdate"],
-                                                            style: TextStyle(
-                                                              fontSize: 16,
-                                                              color: Colors
-                                                                  .deepOrange,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                            ),
+                                                      Container(
+                                                        child:
+                                                            SingleChildScrollView(
+                                                          scrollDirection:
+                                                              Axis.horizontal,
+                                                          child: Row(
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .end,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            children: [
+                                                              Text(
+                                                                int.parse(data2[
+                                                                            index]
+                                                                        [
+                                                                        "sdate"])
+                                                                    .toString(),
+                                                                style:
+                                                                    TextStyle(
+                                                                  fontSize: 20,
+                                                                  color: Colors
+                                                                      .deepOrange,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                ),
+                                                              ),
+                                                              Text(
+                                                                "-" +
+                                                                    int.parse(data2[index]
+                                                                            [
+                                                                            "edate"])
+                                                                        .toString(),
+                                                                style:
+                                                                    TextStyle(
+                                                                  fontSize: 16,
+                                                                  color: Colors
+                                                                      .black,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                ),
+                                                              ),
+                                                            ],
                                                           ),
-                                                          Text("-" +
-                                                              data2[index]
-                                                                  ["edate"]),
-                                                        ],
+                                                        ),
                                                       ),
                                                       Container(
                                                         alignment: Alignment
@@ -505,17 +534,17 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                                                 flex: 4,
                                                 child: GestureDetector(
                                                   onTap: () {
-                                                    // Navigator.push(
-                                                    //   context,
-                                                    //   MaterialPageRoute(
-                                                    //     builder: (context) =>
-                                                    //         CalendarDetailView(
-                                                    //             topicID: data2[
-                                                    //                         index]
-                                                    //                     ["id"]
-                                                    //                 .toString()),
-                                                    //   ),
-                                                    // );
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            CalendarDetailView(
+                                                                topicID: data2[
+                                                                            index]
+                                                                        ["id"]
+                                                                    .toString()),
+                                                      ),
+                                                    );
                                                   },
                                                   child: Container(
                                                     height: 70,
@@ -534,12 +563,21 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                                                             horizontal: 8),
                                                     padding: EdgeInsets.all(6),
                                                     child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
                                                       children: [
                                                         Expanded(
                                                           child: Column(
                                                             crossAxisAlignment:
                                                                 CrossAxisAlignment
                                                                     .start,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
                                                             children: [
                                                               Text(
                                                                 data2[index]
@@ -547,27 +585,32 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                                                                 overflow:
                                                                     TextOverflow
                                                                         .ellipsis,
-                                                                maxLines: 2,
+                                                                maxLines: 3,
                                                                 style:
                                                                     TextStyle(
                                                                         height:
                                                                             1),
                                                               ),
-                                                              Container(
-                                                                margin: EdgeInsets
-                                                                    .only(
-                                                                        top: 4),
-                                                                child: Text(
-                                                                  data2[index][
-                                                                      "location"],
-                                                                  overflow:
-                                                                      TextOverflow
-                                                                          .ellipsis,
-                                                                  style: TextStyle(
-                                                                      fontSize:
-                                                                          10),
-                                                                ),
-                                                              ),
+                                                              data2[index][
+                                                                          "location"] !=
+                                                                      ""
+                                                                  ? Container(
+                                                                      margin: EdgeInsets
+                                                                          .only(
+                                                                              top: 4),
+                                                                      child:
+                                                                          Text(
+                                                                        data2[index]
+                                                                            [
+                                                                            "location"],
+                                                                        overflow:
+                                                                            TextOverflow.ellipsis,
+                                                                        style: TextStyle(
+                                                                            fontSize:
+                                                                                10),
+                                                                      ),
+                                                                    )
+                                                                  : Container(),
                                                             ],
                                                           ),
                                                         ),
@@ -598,25 +641,33 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                       ),
                       if (data2 != null && data2.length != 0)
                         Container(
-                          padding: EdgeInsets.all(8),
                           alignment: Alignment.centerRight,
                           child: GestureDetector(
                             onTap: () {
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //     builder: (context) => CalendarListView(
-                              //       isHaveArrow: "1",
-                              //     ),
-                              //   ),
-                              // );
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => CalendarListView(
+                                    isHaveArrow: "1",
+                                  ),
+                                ),
+                              );
                             },
-                            child: Image.asset(
-                              'assets/images/main/more.png',
-                              height: 24,
+                            child: Container(
+                              padding: EdgeInsets.all(5),
+                              margin: EdgeInsets.only(right: 5),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Color(0xFFEB1717),
+                              ),
+                              child: Text(
+                                'ดูทั้งหมด',
+                                style: TextStyle(
+                                    fontSize: 12, color: Colors.white),
+                              ),
                             ),
                           ),
-                        )
+                        ),
                     ],
                   )
           ],

@@ -183,52 +183,57 @@ class _NewsDetailViewState extends State<NewsDetailView> {
                 if (imgcount > 0)
                   Stack(
                     children: [
-                      CarouselSlider(
-                        options: CarouselOptions(
-                            height: MediaQuery.of(context).size.height * 0.3,
-                            viewportFraction: 1,
-                            enableInfiniteScroll: false,
-                            onPageChanged: (index, reason) {
-                              setState(() {
-                                _currentPage = index;
-                              });
-                            }),
-                        items: imgList.map((image) {
-                          return Builder(
-                            builder: (BuildContext context) {
-                              return Stack(
-                                children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      _launchInBrowser(image.trim());
-                                    },
-                                    child: Container(
-                                      padding: EdgeInsets.all(1),
-                                      width: MediaQuery.of(context).size.width *
-                                          0.97,
-                                      decoration: BoxDecoration(
-                                        color: Colors.black,
-                                        borderRadius: BorderRadius.all(
-                                          Radius.circular(9.0),
+                      Container(
+                        height: 250,
+                        child: CarouselSlider(
+                          options: CarouselOptions(
+                              height: MediaQuery.of(context).size.height * 0.3,
+                              viewportFraction: 1,
+                              enableInfiniteScroll: false,
+                              onPageChanged: (index, reason) {
+                                setState(() {
+                                  _currentPage = index;
+                                });
+                              }),
+                          items: imgList.map((image) {
+                            return Builder(
+                              builder: (BuildContext context) {
+                                return Stack(
+                                  children: [
+                                    GestureDetector(
+                                      onTap: () {
+                                        _launchInBrowser(image.trim());
+                                      },
+                                      child: Container(
+                                        padding: EdgeInsets.all(1),
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.97,
+                                        decoration: BoxDecoration(
+                                          // color: Colors.grey,
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(9.0),
+                                          ),
                                         ),
+                                        child: Image.network(
+                                          image.trim(),
+                                          fit: BoxFit.cover,
+                                        ),
+                                        alignment: Alignment.center,
                                       ),
-                                      child: Image.network(
-                                        image.trim(),
+                                    ),
+                                    /*Text(
+                                      imgList.indexOf(image).toString(),
+                                      style: TextStyle(
+                                        color: Colors.white,
                                       ),
-                                      alignment: Alignment.center,
-                                    ),
-                                  ),
-                                  /*Text(
-                                    imgList.indexOf(image).toString(),
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                    ),
-                                  ),*/
-                                ],
-                              );
-                            },
-                          );
-                        }).toList(),
+                                    ),*/
+                                  ],
+                                );
+                              },
+                            );
+                          }).toList(),
+                        ),
                       ),
                       if (imgList.length > 1)
                         Positioned(

@@ -154,7 +154,7 @@ class _BannerWidgetState extends State<BannerWidget> {
                                   image: NetworkImage(
                                     image.trim(),
                                   ),
-                                  fit: BoxFit.contain),
+                                  fit: BoxFit.cover),
                             ),
                             // child: Image.network(
                             //   image.trim(),

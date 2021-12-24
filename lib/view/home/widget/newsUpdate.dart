@@ -100,7 +100,8 @@ class _NewsWidgetState extends State<NewsWidget> {
         ),
         Container(
           margin: EdgeInsets.only(top: 16, bottom: 10),
-          height: 260,
+          height: 220,
+          // color: Colors.amber,
           child: (data != null && data.length != 0)
               ? ListView(
                   scrollDirection: Axis.horizontal,
@@ -198,7 +199,8 @@ class _NewsWidgetState extends State<NewsWidget> {
               );
             },
             child: Container(
-              padding: EdgeInsets.only(left: 5, right: 5),
+              padding: EdgeInsets.all(5),
+              margin: EdgeInsets.only(right: 5),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Color(0xFFEB1717),

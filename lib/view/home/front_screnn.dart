@@ -84,7 +84,7 @@ class _FrontpageScreenState extends State<FrontpageScreen> {
               child: Column(
                 children: [
                   Container(
-                    height: 430,
+                    height: 390,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage("assets/bg/bg-frontpage.png"),
@@ -118,54 +118,57 @@ class _FrontpageScreenState extends State<FrontpageScreen> {
                                             bottomLeft: Radius.circular(20.0),
                                           ),
                                         ),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Container(
-                                              child: Image.asset(
-                                                'assets/logo/logo-1.png',
-                                                fit: BoxFit.contain,
-                                                width: 45,
+                                        child: SingleChildScrollView(
+                                          scrollDirection: Axis.horizontal,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Container(
+                                                child: Image.asset(
+                                                  'assets/logo/logo-1.png',
+                                                  fit: BoxFit.contain,
+                                                  width: 45,
+                                                ),
                                               ),
-                                            ),
-                                            Container(
-                                              child: Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                children: [
-                                                  Text(
-                                                    'ทม.นาสาร',
-                                                    style: TextStyle(
-                                                      fontFamily:
-                                                          FontStyles.FontFamily,
-                                                      color: Colors.white,
-                                                      fontSize: 20,
-                                                      height: 1,
-                                                      fontWeight:
-                                                          FontWeight.w500,
+                                              Container(
+                                                child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Text(
+                                                      'ทม.นาสาร',
+                                                      style: TextStyle(
+                                                        fontFamily: FontStyles
+                                                            .FontFamily,
+                                                        color: Colors.white,
+                                                        fontSize: 16,
+                                                        height: 1,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
                                                     ),
-                                                  ),
-                                                  Text(
-                                                    'สุราษฎร์ธานี',
-                                                    style: TextStyle(
-                                                      fontFamily:
-                                                          FontStyles.FontFamily,
-                                                      color: Colors.white,
-                                                      fontSize: 16,
-                                                      height: 1,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                    ),
-                                                  )
-                                                ],
+                                                    Text(
+                                                      'สุราษฎร์ธานี',
+                                                      style: TextStyle(
+                                                        fontFamily: FontStyles
+                                                            .FontFamily,
+                                                        color: Colors.white,
+                                                        fontSize: 12,
+                                                        height: 1,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                    )
+                                                  ],
+                                                ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -371,265 +374,275 @@ class _FrontpageScreenState extends State<FrontpageScreen> {
                                               bottom: 5,
                                               top: 5,
                                             ),
-                                            child: ListView(
-                                              scrollDirection: Axis.horizontal,
-                                              children: <Widget>[
-                                                GestureDetector(
-                                                  onTap: () {
-                                                    Navigator.push(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            DownloadListView(
-                                                          isHaveArrow: "1",
-                                                        ),
-                                                      ),
-                                                    );
-                                                  },
-                                                  child: Container(
-                                                    width: 100,
-                                                    child: Column(
-                                                      children: [
-                                                        Container(
-                                                          margin:
-                                                              EdgeInsets.only(
-                                                                  bottom: 10),
-                                                          padding:
-                                                              EdgeInsets.all(
-                                                                  10),
-                                                          alignment:
-                                                              Alignment.center,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            // borderRadius: BorderRadius.circular(20),
-                                                            shape:
-                                                                BoxShape.circle,
-                                                            color: Color(
-                                                                0xFFFFFFFF),
-                                                            border: Border.all(
-                                                              width: 3,
-                                                              color: Color(
-                                                                  0xFFDADADA),
-                                                            ),
+                                            child: Center(
+                                              child: ListView(
+                                                shrinkWrap: true,
+                                                scrollDirection:
+                                                    Axis.horizontal,
+                                                children: <Widget>[
+                                                  GestureDetector(
+                                                    onTap: () {
+                                                      Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              DownloadListView(
+                                                            isHaveArrow: "1",
                                                           ),
-                                                          child: Image.asset(
-                                                            'assets/item/eservice-1.png',
-                                                            width: 50,
-                                                            height: 50,
+                                                        ),
+                                                      );
+                                                    },
+                                                    child: Container(
+                                                      width: 100,
+                                                      child: Column(
+                                                        children: [
+                                                          Container(
+                                                            margin:
+                                                                EdgeInsets.only(
+                                                                    bottom: 10),
+                                                            padding:
+                                                                EdgeInsets.all(
+                                                                    10),
                                                             alignment: Alignment
                                                                 .center,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              // borderRadius: BorderRadius.circular(20),
+                                                              shape: BoxShape
+                                                                  .circle,
+                                                              color: Color(
+                                                                  0xFFFFFFFF),
+                                                              border:
+                                                                  Border.all(
+                                                                width: 3,
+                                                                color: Color(
+                                                                    0xFFDADADA),
+                                                              ),
+                                                            ),
+                                                            child: Image.asset(
+                                                              'assets/item/eservice-1.png',
+                                                              width: 50,
+                                                              height: 50,
+                                                              alignment:
+                                                                  Alignment
+                                                                      .center,
+                                                            ),
                                                           ),
-                                                        ),
-                                                        Text(
-                                                          'เอกสาร',
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  FontStyles
-                                                                      .FontFamily,
-                                                              color:
-                                                                  Colors.white,
-                                                              fontSize: 14,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w300,
-                                                              height: 1),
-                                                        )
-                                                      ],
+                                                          Text(
+                                                            'เอกสาร',
+                                                            style: TextStyle(
+                                                                fontFamily:
+                                                                    FontStyles
+                                                                        .FontFamily,
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 14,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w300,
+                                                                height: 1),
+                                                          )
+                                                        ],
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                                GestureDetector(
-                                                  onTap: () {
-                                                    Navigator.push(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            PhoneCateListView(
-                                                          isHaveArrow: "1",
+                                                  GestureDetector(
+                                                    onTap: () {
+                                                      Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              PhoneCateListView(
+                                                            isHaveArrow: "1",
+                                                          ),
                                                         ),
-                                                      ),
-                                                    ).then((value) {
-                                                      setState(() {
-                                                        initFav();
+                                                      ).then((value) {
+                                                        setState(() {
+                                                          initFav();
+                                                        });
                                                       });
-                                                    });
-                                                  },
-                                                  child: Container(
-                                                    width: 100,
-                                                    child: Column(
-                                                      children: [
-                                                        Container(
-                                                          margin:
-                                                              EdgeInsets.only(
-                                                                  bottom: 10),
-                                                          padding:
-                                                              EdgeInsets.all(
-                                                                  10),
-                                                          alignment:
-                                                              Alignment.center,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            // borderRadius: BorderRadius.circular(20),
-                                                            shape:
-                                                                BoxShape.circle,
-                                                            color: Color(
-                                                                0xFFFFFFFF),
-                                                            border: Border.all(
-                                                              width: 3,
-                                                              color: Color(
-                                                                  0xFFDADADA),
-                                                            ),
-                                                          ),
-                                                          child: Image.asset(
-                                                            'assets/item/eservice-2.png',
-                                                            width: 50,
-                                                            height: 50,
+                                                    },
+                                                    child: Container(
+                                                      width: 100,
+                                                      child: Column(
+                                                        children: [
+                                                          Container(
+                                                            margin:
+                                                                EdgeInsets.only(
+                                                                    bottom: 10),
+                                                            padding:
+                                                                EdgeInsets.all(
+                                                                    10),
                                                             alignment: Alignment
                                                                 .center,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              // borderRadius: BorderRadius.circular(20),
+                                                              shape: BoxShape
+                                                                  .circle,
+                                                              color: Color(
+                                                                  0xFFFFFFFF),
+                                                              border:
+                                                                  Border.all(
+                                                                width: 3,
+                                                                color: Color(
+                                                                    0xFFDADADA),
+                                                              ),
+                                                            ),
+                                                            child: Image.asset(
+                                                              'assets/item/eservice-2.png',
+                                                              width: 50,
+                                                              height: 50,
+                                                              alignment:
+                                                                  Alignment
+                                                                      .center,
+                                                            ),
                                                           ),
-                                                        ),
-                                                        Text(
-                                                          'เบอร์โทรสำคัญ ',
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  FontStyles
-                                                                      .FontFamily,
-                                                              color:
-                                                                  Colors.white,
-                                                              fontSize: 14,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w300,
-                                                              height: 1),
-                                                        )
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                                GestureDetector(
-                                                  onTap: () {
-                                                    Navigator.push(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            TravelListView(
-                                                          isHaveArrow: "1",
-                                                          title: "ที่เที่ยว",
-                                                          tid: "1",
-                                                        ),
+                                                          Text(
+                                                            'เบอร์โทรสำคัญ ',
+                                                            style: TextStyle(
+                                                                fontFamily:
+                                                                    FontStyles
+                                                                        .FontFamily,
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 14,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w300,
+                                                                height: 1),
+                                                          )
+                                                        ],
                                                       ),
-                                                    ).then((value) {
-                                                      setState(() {
-                                                        initFav();
-                                                      });
-                                                    });
-                                                  },
-                                                  child: Container(
-                                                    width: 100,
-                                                    child: Column(
-                                                      children: [
-                                                        Container(
-                                                          margin:
-                                                              EdgeInsets.only(
-                                                                  bottom: 10),
-                                                          padding:
-                                                              EdgeInsets.all(
-                                                                  10),
-                                                          alignment:
-                                                              Alignment.center,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            // borderRadius: BorderRadius.circular(20),
-                                                            shape:
-                                                                BoxShape.circle,
-                                                            color: Color(
-                                                                0xFFFFFFFF),
-                                                            border: Border.all(
-                                                              width: 3,
-                                                              color: Color(
-                                                                  0xFFDADADA),
-                                                            ),
-                                                          ),
-                                                          child: Image.asset(
-                                                            'assets/item/eservice-4.png',
-                                                            width: 50,
-                                                            height: 50,
-                                                            alignment: Alignment
-                                                                .center,
-                                                          ),
-                                                        ),
-                                                        Text(
-                                                          'ที่เที่ยวแนะนำ',
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  FontStyles
-                                                                      .FontFamily,
-                                                              color:
-                                                                  Colors.white,
-                                                              fontSize: 14,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w300,
-                                                              height: 1),
-                                                        )
-                                                      ],
                                                     ),
                                                   ),
-                                                ),
-                                                // GestureDetector(
-                                                //   child: Container(
-                                                //     width: 100,
-                                                //     child: Column(
-                                                //       children: [
-                                                //         Container(
-                                                //           margin:
-                                                //               EdgeInsets.only(
-                                                //                   bottom: 10),
-                                                //           padding:
-                                                //               EdgeInsets.all(
-                                                //                   10),
-                                                //           alignment:
-                                                //               Alignment.center,
-                                                //           decoration:
-                                                //               BoxDecoration(
-                                                //             // borderRadius: BorderRadius.circular(20),
-                                                //             shape:
-                                                //                 BoxShape.circle,
-                                                //             color: Color(
-                                                //                 0xFFFFFFFF),
-                                                //             border: Border.all(
-                                                //               width: 3,
-                                                //               color: Color(
-                                                //                   0xFFDADADA),
-                                                //             ),
-                                                //           ),
-                                                //           child: Image.asset(
-                                                //             'assets/item/eservice-3.png',
-                                                //             width: 50,
-                                                //             height: 50,
-                                                //             alignment: Alignment
-                                                //                 .center,
-                                                //           ),
-                                                //         ),
-                                                //         Text(
-                                                //           'เบี้ยยังชีพ',
-                                                //           style: TextStyle(
-                                                //               fontFamily:
-                                                //                   FontStyles
-                                                //                       .FontFamily,
-                                                //               color:
-                                                //                   Colors.white,
-                                                //               fontSize: 14,
-                                                //               fontWeight:
-                                                //                   FontWeight
-                                                //                       .w300,
-                                                //               height: 1),
-                                                //         )
-                                                //       ],
-                                                //     ),
-                                                //   ),
-                                                // ),
-                                              ],
+                                                  GestureDetector(
+                                                    onTap: () {
+                                                      Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              TravelListView(
+                                                            isHaveArrow: "1",
+                                                            title: "ที่เที่ยว",
+                                                            tid: "1",
+                                                          ),
+                                                        ),
+                                                      ).then((value) {
+                                                        setState(() {
+                                                          initFav();
+                                                        });
+                                                      });
+                                                    },
+                                                    child: Container(
+                                                      width: 100,
+                                                      child: Column(
+                                                        children: [
+                                                          Container(
+                                                            margin:
+                                                                EdgeInsets.only(
+                                                                    bottom: 10),
+                                                            padding:
+                                                                EdgeInsets.all(
+                                                                    10),
+                                                            alignment: Alignment
+                                                                .center,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              // borderRadius: BorderRadius.circular(20),
+                                                              shape: BoxShape
+                                                                  .circle,
+                                                              color: Color(
+                                                                  0xFFFFFFFF),
+                                                              border:
+                                                                  Border.all(
+                                                                width: 3,
+                                                                color: Color(
+                                                                    0xFFDADADA),
+                                                              ),
+                                                            ),
+                                                            child: Image.asset(
+                                                              'assets/item/eservice-4.png',
+                                                              width: 50,
+                                                              height: 50,
+                                                              alignment:
+                                                                  Alignment
+                                                                      .center,
+                                                            ),
+                                                          ),
+                                                          Text(
+                                                            'ที่เที่ยวแนะนำ',
+                                                            style: TextStyle(
+                                                                fontFamily:
+                                                                    FontStyles
+                                                                        .FontFamily,
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 14,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w300,
+                                                                height: 1),
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  // GestureDetector(
+                                                  //   child: Container(
+                                                  //     width: 100,
+                                                  //     child: Column(
+                                                  //       children: [
+                                                  //         Container(
+                                                  //           margin:
+                                                  //               EdgeInsets.only(
+                                                  //                   bottom: 10),
+                                                  //           padding:
+                                                  //               EdgeInsets.all(
+                                                  //                   10),
+                                                  //           alignment:
+                                                  //               Alignment.center,
+                                                  //           decoration:
+                                                  //               BoxDecoration(
+                                                  //             // borderRadius: BorderRadius.circular(20),
+                                                  //             shape:
+                                                  //                 BoxShape.circle,
+                                                  //             color: Color(
+                                                  //                 0xFFFFFFFF),
+                                                  //             border: Border.all(
+                                                  //               width: 3,
+                                                  //               color: Color(
+                                                  //                   0xFFDADADA),
+                                                  //             ),
+                                                  //           ),
+                                                  //           child: Image.asset(
+                                                  //             'assets/item/eservice-3.png',
+                                                  //             width: 50,
+                                                  //             height: 50,
+                                                  //             alignment: Alignment
+                                                  //                 .center,
+                                                  //           ),
+                                                  //         ),
+                                                  //         Text(
+                                                  //           'เบี้ยยังชีพ',
+                                                  //           style: TextStyle(
+                                                  //               fontFamily:
+                                                  //                   FontStyles
+                                                  //                       .FontFamily,
+                                                  //               color:
+                                                  //                   Colors.white,
+                                                  //               fontSize: 14,
+                                                  //               fontWeight:
+                                                  //                   FontWeight
+                                                  //                       .w300,
+                                                  //               height: 1),
+                                                  //         )
+                                                  //       ],
+                                                  //     ),
+                                                  //   ),
+                                                  // ),
+                                                ],
+                                              ),
                                             ),
                                           ),
                                         )
@@ -758,7 +771,7 @@ class _FrontpageScreenState extends State<FrontpageScreen> {
                             // color: Colors.amber,
                             child: Image.asset(
                               'assets/bg/bg-woman.png',
-                              height: 180,
+                              height: 150,
                             ),
                           ),
                         ),
