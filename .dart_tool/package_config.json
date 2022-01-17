@@ -225,7 +225,7 @@
     },
     {
       "name": "flutter_webview_plugin",
-      "rootUri": "file:///Users/apple/Development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_webview_plugin-0.3.11",
+      "rootUri": "file:///Users/apple/Development/flutter/.pub-cache/git/flutter_webview_plugin-f85db45aedefeab4c1df75cfc4c35f62d3c1c629/",
       "packageUri": "lib/",
       "languageVersion": "2.0"
     },
@@ -620,7 +620,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-12-11T17:10:29.747768Z",
+  "generated": "2022-01-07T02:30:14.565352Z",
   "generator": "pub",
   "generatorVersion": "2.13.1"
 }

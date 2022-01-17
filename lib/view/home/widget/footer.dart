@@ -228,7 +228,7 @@ class _FooterWidgetState extends State<FooterWidget> {
                 ),
               ],
             ),
-          )
+          ),
 
           /*TextSpan(
             children: [
@@ -241,6 +241,10 @@ class _FooterWidgetState extends State<FooterWidget> {
               ),
             ],
           ),*/
+          Text("ขนาดจออุปกรณ์นี้ " +
+              MediaQuery.of(context).size.width.toString() +
+              " X " +
+              MediaQuery.of(context).size.height.toString())
         ],
       ),
     );

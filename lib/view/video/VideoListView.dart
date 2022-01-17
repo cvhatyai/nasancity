@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:nasancity/system/widht_device.dart';
 import 'package:nasancity/view/PageSubView.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -134,7 +135,7 @@ class _VideoListViewState extends State<VideoListView> {
         child: (data != null && data.length != 0)
             ? GridView.count(
                 childAspectRatio: (itemWidth / itemHeight),
-                crossAxisCount: 2,
+                crossAxisCount: WidhtDevice().widht(context) >= 768 ? 3 : 2,
                 children: List.generate(data.length, (index) {
                   return GestureDetector(
                     onTap: () {
@@ -142,17 +143,38 @@ class _VideoListViewState extends State<VideoListView> {
                       updateVideoHit(data[index]["id"]);
                     },
                     child: Container(
-                      width: MediaQuery.of(context).size.width * 0.5,
-                      margin: EdgeInsets.symmetric(horizontal: 4),
-                      child: Stack(
-                        alignment: Alignment.topCenter,
+                      width: WidhtDevice().widht(context) * 0.4,
+                      margin: EdgeInsets.all(5),
+                      child: Column(
                         children: [
-                          Image.network(
-                            data[index]["display_image"],
-                            fit: BoxFit.fill,
+                          Expanded(
+                            flex: 3,
+                            child: Container(
+                              width: WidhtDevice().widht(context) * 0.4,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  colorFilter: new ColorFilter.mode(
+                                      Colors.white.withOpacity(0.3),
+                                      BlendMode.dstATop),
+                                  image: new NetworkImage(
+                                    data[index]["display_image"],
+                                  ),
+                                ),
+                              ),
+                              child: Center(
+                                child: Container(
+                                  child: Image.network(
+                                    data[index]["display_image"],
+                                    fit: BoxFit.fitHeight,
+                                  ),
+                                ),
+                              ),
+                            ),
                           ),
-                          Positioned(
-                            bottom: 20,
+                          Expanded(
+                            flex: 2,
                             child: Container(
                               decoration: BoxDecoration(
                                 color: Colors.white,
@@ -169,8 +191,8 @@ class _VideoListViewState extends State<VideoListView> {
                                 ],
                               ),
                               alignment: Alignment.center,
-                              width: MediaQuery.of(context).size.width * 0.42,
-                              height: 80,
+                              width: WidhtDevice().widht(context) * 0.4,
+                              // height: 85,
                               child: Container(
                                 alignment: Alignment.centerLeft,
                                 padding: EdgeInsets.all(8),
@@ -226,6 +248,8 @@ class _VideoListViewState extends State<VideoListView> {
                     ),
                   );
                 }),
+
+                //----
               )
             : Center(
                 child: Text("ไม่มีข้อมูล"),

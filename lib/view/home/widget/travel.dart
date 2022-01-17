@@ -140,8 +140,8 @@ class _TravelWidgetState extends State<TravelWidget> {
         child: Stack(
           children: [
             Container(
+              width: MediaQuery.of(context).size.width,
               height: 230,
-              width: WidhtDevice().widht(context),
               child: Image.asset(
                 'assets/bg/bg-travel.png',
                 fit: BoxFit.cover,
@@ -195,23 +195,19 @@ class _TravelWidgetState extends State<TravelWidget> {
                             child: Row(
                               children: [
                                 if (iconWeather != "")
-                                  Expanded(
-                                    child: Image.network(
-                                      iconWeather,
-                                      height: 36,
-                                    ),
+                                  Image.network(
+                                    iconWeather,
+                                    height: 36,
                                   ),
-                                Expanded(
-                                  child: Text(
-                                    "$tempWeather°",
-                                    style: TextStyle(
-                                      fontSize: 22,
-                                      color: Colors.white,
-                                      fontFamily: FontStyles.FontFamily,
-                                    ),
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
+                                Text(
+                                  "$tempWeather°",
+                                  style: TextStyle(
+                                    fontSize: 22,
+                                    color: Colors.white,
+                                    fontFamily: FontStyles.FontFamily,
                                   ),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
                               ],
                             ),

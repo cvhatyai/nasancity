@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:nasancity/style/font_style.dart';
+import 'package:nasancity/system/widht_device.dart';
 import 'package:nasancity/view/PageSubView.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -211,57 +212,70 @@ class _NewsStyleListViewState extends State<NewsStyleListView> {
           Visibility(
             visible: widget.isHasCate ? true : false,
             child: Container(
+              width: WidhtDevice().widht(context) >= 768
+                  ? MediaQuery.of(context).size.width / 1.2
+                  : MediaQuery.of(context).size.width,
               margin: EdgeInsets.only(top: 16),
               padding: EdgeInsets.only(left: 16, right: 16),
               child: dropDownCate(),
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 16),
-            padding: EdgeInsets.only(left: 16, right: 16),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.only(left: 16, right: 16),
-                    padding: EdgeInsets.only(left: 16, right: 16),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.8),
-                      borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(20.0),
-                        topLeft: Radius.circular(20.0),
-                        bottomRight: Radius.circular(20.0),
-                        bottomLeft: Radius.circular(20.0),
-                      ),
-                    ),
-                    child: TextField(
-                      controller: keyword,
-                      decoration: InputDecoration(
-                        hintText: 'พิมพ์คำค้นหา เช่น ชื่อโครงการ',
-                        hintStyle: TextStyle(
-                          fontSize: 14,
-                          fontFamily: FontStyles.FontFamily,
-                          fontWeight: FontWeight.w300,
+            child: Center(
+              child: Container(
+                width: WidhtDevice().widht(context) >= 768
+                    ? MediaQuery.of(context).size.width / 1.2
+                    : MediaQuery.of(context).size.width,
+                margin: EdgeInsets.only(top: 16),
+                padding: EdgeInsets.only(left: 16, right: 16),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        margin: EdgeInsets.only(left: 16, right: 16),
+                        padding: EdgeInsets.only(left: 16, right: 16),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.8),
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(20.0),
+                            topLeft: Radius.circular(20.0),
+                            bottomRight: Radius.circular(20.0),
+                            bottomLeft: Radius.circular(20.0),
+                          ),
                         ),
-                        suffixIcon: IconButton(
-                          onPressed: () {
-                            getNewsList();
-                          },
-                          icon: Icon(
-                            Icons.search,
-                            color: Color(0xFF00B9FF),
-                            size: 36,
+                        child: TextField(
+                          controller: keyword,
+                          decoration: InputDecoration(
+                            hintText: 'พิมพ์คำค้นหา เช่น ชื่อโครงการ',
+                            hintStyle: TextStyle(
+                              fontSize: 14,
+                              fontFamily: FontStyles.FontFamily,
+                              fontWeight: FontWeight.w300,
+                            ),
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                getNewsList();
+                              },
+                              icon: Icon(
+                                Icons.search,
+                                color: Color(0xFF00B9FF),
+                                size: 36,
+                              ),
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
           Expanded(
             child: Container(
+              width: WidhtDevice().widht(context) >= 768
+                  ? MediaQuery.of(context).size.width / 1.2
+                  : MediaQuery.of(context).size.width,
               margin: EdgeInsets.only(top: 8),
               padding: EdgeInsets.only(left: 8, right: 8),
               child: (data != null && data.length != 0)

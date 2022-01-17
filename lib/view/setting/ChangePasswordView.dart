@@ -6,6 +6,8 @@ import 'package:http/http.dart' as http;
 import 'package:nasancity/model/AllList.dart';
 import 'package:nasancity/model/user.dart';
 import 'package:nasancity/system/Info.dart';
+import 'package:nasancity/system/widht_device.dart';
+import 'package:nasancity/view/PageSubView.dart';
 import 'package:toast/toast.dart';
 
 import '../AppBarView.dart';
@@ -86,135 +88,137 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
-      appBar: AppBarView(
-        title: "เปลี่ยนรหัสผ่าน",
-        isHaveArrow: "1",
-      ),
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        color: Colors.white,
-        child: SingleChildScrollView(
-          child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 32),
-            margin: EdgeInsets.only(top: 8),
-            child: Column(
-              children: [
-                //passwordOld
-                Container(
-                  height: 50,
-                  margin: EdgeInsets.only(top: 16),
-                  child: TextField(
-                    controller: _password1,
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      isDense: true,
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey, width: 1),
+    return PageSubView(
+      title: 'เปลี่ยนรหัสผ่าน',
+      isHaveArrow: "1",
+      widget: Center(
+        child: Container(
+          alignment: Alignment.topCenter,
+          width: WidhtDevice().widht(context) >= 768
+              ? MediaQuery.of(context).size.width / 1.5
+              : double.infinity,
+          height: double.infinity,
+          color: Colors.white,
+          child: SingleChildScrollView(
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 32),
+              margin: EdgeInsets.only(top: 8),
+              child: Column(
+                children: [
+                  //passwordOld
+                  Container(
+                    height: 50,
+                    margin: EdgeInsets.only(top: 16),
+                    child: TextField(
+                      controller: _password1,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        isDense: true,
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1),
+                        ),
+                        hintText: 'รหัสผ่านเดิม',
+                        errorText:
+                            _validatePassword1 ? 'กรุณากรอกรหัสผ่าน' : null,
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey, width: 1),
-                      ),
-                      hintText: 'รหัสผ่านเดิม',
-                      errorText:
-                          _validatePassword1 ? 'กรุณากรอกรหัสผ่าน' : null,
                     ),
                   ),
-                ),
 
-                //passwordNew
-                Container(
-                  height: 50,
-                  margin: EdgeInsets.only(top: 16),
-                  child: TextField(
-                    controller: _password2,
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      isDense: true,
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey, width: 1),
+                  //passwordNew
+                  Container(
+                    height: 50,
+                    margin: EdgeInsets.only(top: 16),
+                    child: TextField(
+                      controller: _password2,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        isDense: true,
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1),
+                        ),
+                        hintText: 'รหัสผ่านใหม่',
+                        errorText:
+                            _validatePassword2 ? 'กรุณากรอกรหัสผ่าน' : null,
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey, width: 1),
-                      ),
-                      hintText: 'รหัสผ่านใหม่',
-                      errorText:
-                          _validatePassword2 ? 'กรุณากรอกรหัสผ่าน' : null,
                     ),
                   ),
-                ),
 
-                //passwordNew
-                Container(
-                  height: 50,
-                  margin: EdgeInsets.only(top: 16),
-                  child: TextField(
-                    controller: _password3,
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      isDense: true,
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey, width: 1),
+                  //passwordNew
+                  Container(
+                    height: 50,
+                    margin: EdgeInsets.only(top: 16),
+                    child: TextField(
+                      controller: _password3,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        isDense: true,
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey, width: 1),
+                        ),
+                        hintText: 'ยืนยันรหัสผ่านใหม่',
+                        errorText:
+                            _validatePassword3 ? 'กรุณากรอกรหัสผ่าน' : null,
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey, width: 1),
-                      ),
-                      hintText: 'ยืนยันรหัสผ่านใหม่',
-                      errorText:
-                          _validatePassword3 ? 'กรุณากรอกรหัสผ่าน' : null,
                     ),
                   ),
-                ),
 
-                //btnLogin
-                Container(
-                  margin: EdgeInsets.only(top: 16),
-                  height: 40,
-                  width: MediaQuery.of(context).size.width,
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Color(0xFF65A5D8)),
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        _password1.text.isEmpty
-                            ? _validatePassword1 = true
-                            : _validatePassword1 = false;
-                        _password2.text.isEmpty
-                            ? _validatePassword2 = true
-                            : _validatePassword2 = false;
-                        _password3.text.isEmpty
-                            ? _validatePassword3 = true
-                            : _validatePassword3 = false;
-                        if (!_validatePassword1 &&
-                            !_validatePassword2 &&
-                            !_validatePassword3) {
-                          if (_password2.text != _password3.text) {
-                            if (FocusScope.of(context).isFirstFocus) {
-                              FocusScope.of(context)
-                                  .requestFocus(new FocusNode());
+                  //btnLogin
+                  Container(
+                    margin: EdgeInsets.only(top: 16),
+                    height: 40,
+                    width: MediaQuery.of(context).size.width,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Color(0xFF65A5D8)),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _password1.text.isEmpty
+                              ? _validatePassword1 = true
+                              : _validatePassword1 = false;
+                          _password2.text.isEmpty
+                              ? _validatePassword2 = true
+                              : _validatePassword2 = false;
+                          _password3.text.isEmpty
+                              ? _validatePassword3 = true
+                              : _validatePassword3 = false;
+                          if (!_validatePassword1 &&
+                              !_validatePassword2 &&
+                              !_validatePassword3) {
+                            if (_password2.text != _password3.text) {
+                              if (FocusScope.of(context).isFirstFocus) {
+                                FocusScope.of(context)
+                                    .requestFocus(new FocusNode());
+                              }
+                              Toast.show("รหัสผ่านไม่ตรงกัน", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            } else {
+                              EasyLoading.show(status: 'loading...');
+                              changePassword();
                             }
-                            Toast.show("รหัสผ่านไม่ตรงกัน", context,
-                                duration: Toast.LENGTH_LONG,
-                                gravity: Toast.BOTTOM);
-                          } else {
-                            EasyLoading.show(status: 'loading...');
-                            changePassword();
                           }
-                        }
-                      });
-                    },
-                    child: Text("ดำเนินการต่อ"),
+                        });
+                      },
+                      child: Text("ดำเนินการต่อ"),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
       ),
-    ));
+    );
   }
 }

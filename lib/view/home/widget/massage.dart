@@ -47,15 +47,15 @@ class _MassageWidgetState extends State<MassageWidget> {
       // padding: EdgeInsets.only(left: 20, right: 20),
       child: Container(
         height: 20,
-        // child: Marquee(
-        //   text: msg,
-        //   blankSpace: 20.0,
-        //   style: TextStyle(
-        //     fontFamily: FontStyles.FontFamily,
-        //     color: Colors.white,
-        //     fontSize: 16,
-        //   ),
-        // ),
+        child: Marquee(
+          text: msg,
+          blankSpace: 20.0,
+          style: TextStyle(
+            fontFamily: FontStyles.FontFamily,
+            color: Colors.white,
+            fontSize: 16,
+          ),
+        ),
       ),
     );
   }

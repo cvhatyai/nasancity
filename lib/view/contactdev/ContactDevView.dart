@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:nasancity/style/font_style.dart';
+import 'package:nasancity/system/widht_device.dart';
 import 'package:nasancity/view/PageSubView.dart';
 import 'package:device_info/device_info.dart';
 import 'package:flutter/material.dart';
@@ -206,6 +207,9 @@ class _ContactDevViewState extends State<ContactDevView> {
           child: Column(
             children: [
               Container(
+                width: WidhtDevice().widht(context) >= 768
+                    ? MediaQuery.of(context).size.width / 1.5
+                    : MediaQuery.of(context).size.width,
                 margin: EdgeInsets.all(16),
                 padding: EdgeInsets.all(16),
                 decoration: BoxDecoration(

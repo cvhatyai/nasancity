@@ -107,7 +107,7 @@ class _GalleryListViewState extends State<GalleryListView> {
         child: (data != null && data.length != 0)
             ? GridView.count(
                 childAspectRatio: (itemWidth / itemHeight),
-                crossAxisCount: 2,
+                crossAxisCount: WidhtDevice().widht(context) >= 768 ? 3 : 2,
                 children: List.generate(data.length, (index) {
                   return GestureDetector(
                     onTap: () {
@@ -121,7 +121,7 @@ class _GalleryListViewState extends State<GalleryListView> {
                     },
                     child: Container(
                       width: WidhtDevice().widht(context) * 0.4,
-                      margin: EdgeInsets.symmetric(horizontal: 4),
+                      margin: EdgeInsets.all(5),
                       child: Column(
                         children: [
                           Expanded(

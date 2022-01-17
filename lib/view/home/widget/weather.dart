@@ -47,33 +47,27 @@ class _WeatherWidgetState extends State<WeatherWidget> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(
-          flex: 3,
+        Container(
           child: Row(
             children: [
               if (iconWeather != "")
-                Expanded(
-                  child: Image.network(
-                    iconWeather,
-                    height: 36,
-                  ),
+                Image.network(
+                  iconWeather,
+                  height: 36,
                 ),
-              Expanded(
-                child: Text(
-                  "$tempWeather°",
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white,
-                  ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+              Text(
+                "$tempWeather°",
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.white,
                 ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ],
           ),
         ),
-        Expanded(
-          flex: 2,
+        Container(
           child: Text(
             textWeather,
             style: TextStyle(

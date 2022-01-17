@@ -185,6 +185,255 @@ class _ContactusViewState extends State<ContactusView> {
     }
   }
 
+  Widget _form() {
+    return Container(
+      width: WidhtDevice().widht(context) >= 768
+          ? MediaQuery.of(context).size.width / 2.5
+          : MediaQuery.of(context).size.width,
+      child: Column(
+          //phone
+          children: [
+            Container(
+              margin: EdgeInsets.only(top: 16),
+              child: TextField(
+                controller: _phone,
+                decoration: new InputDecoration(
+                  isDense: true,
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey, width: 1),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey, width: 1),
+                  ),
+                  hintText: 'เบอร์โทรศัพท์',
+                  errorText: _validatePhone ? 'กรุณากรอกเบอร์โทรศัพท์' : null,
+                ),
+              ),
+            ),
+            //name
+            Container(
+              margin: EdgeInsets.only(top: 16),
+              child: TextField(
+                controller: _fullname,
+                decoration: new InputDecoration(
+                  isDense: true,
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey, width: 1),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey, width: 1),
+                  ),
+                  hintText: 'ชื่อ-สกุล',
+                  errorText: _validateFullname ? 'กรุณากรอกชื่อ-สกุล' : null,
+                ),
+              ),
+            ),
+            //fax
+            /*Container(
+                          margin: EdgeInsets.only(top: 16),
+                          child: TextField(
+                            controller: _fax,
+                            decoration: new InputDecoration(
+                              isDense: true,
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.grey, width: 1),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.grey, width: 1),
+                              ),
+                              hintText: 'โทรสาร(เว้นว่างได้)',
+                            ),
+                          ),
+                        ),*/
+            //subject
+            Container(
+              margin: EdgeInsets.only(top: 16),
+              child: TextField(
+                controller: _subject,
+                decoration: new InputDecoration(
+                  isDense: true,
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey, width: 1),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey, width: 1),
+                  ),
+                  hintText: 'ชื่อเรื่อง',
+                  errorText: _validateSubject ? 'กรุณากรอกชื่อเรื่อง' : null,
+                ),
+              ),
+            ),
+            //address
+            Container(
+              margin: EdgeInsets.only(top: 16),
+              child: TextField(
+                controller: _address,
+                decoration: new InputDecoration(
+                  isDense: true,
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey, width: 1),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey, width: 1),
+                  ),
+                  hintText: 'ที่อยู่',
+                  errorText: _validateAddress ? 'กรุณากรอกที่อยู่' : null,
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 16),
+              height: 5 * 24.0,
+              child: TextField(
+                controller: _detail,
+                maxLines: 5,
+                decoration: new InputDecoration(
+                  isDense: true,
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey, width: 1),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey, width: 1),
+                  ),
+                  hintText: 'รายละเอียด',
+                  errorText: _validateDetail ? 'กรุณากรอกรายละเอียด' : null,
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 16),
+              width: double.infinity,
+              child: RaisedButton(
+                onPressed: () {
+                  setState(() {
+                    _detail.text.isEmpty
+                        ? _validateDetail = true
+                        : _validateDetail = false;
+                    _subject.text.isEmpty
+                        ? _validateSubject = true
+                        : _validateSubject = false;
+                    _address.text.isEmpty
+                        ? _validateAddress = true
+                        : _validateAddress = false;
+                    _fullname.text.isEmpty
+                        ? _validateFullname = true
+                        : _validateFullname = false;
+                    _phone.text.isEmpty
+                        ? _validatePhone = true
+                        : _validatePhone = false;
+
+                    if (!_validateDetail &&
+                        !_validateFullname &&
+                        !_validateAddress &&
+                        !_validatePhone) {
+                      EasyLoading.show(status: 'loading...');
+                      insertData();
+                    }
+                  });
+                },
+                textColor: Colors.white,
+                padding: const EdgeInsets.all(0.0),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(80.0)),
+                child: Container(
+                  width: 300,
+                  decoration: new BoxDecoration(
+                    borderRadius: BorderRadius.circular(25.0),
+                    gradient: new LinearGradient(
+                      colors: [
+                        Colors.blue,
+                        Colors.lightBlueAccent,
+                      ],
+                    ),
+                  ),
+                  padding: EdgeInsets.only(top: 8, bottom: 8),
+                  child: Text(
+                    "ตกลง",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ]),
+    );
+  }
+
+  Widget _map() {
+    return Container(
+      width: WidhtDevice().widht(context) >= 768
+          ? MediaQuery.of(context).size.width / 2
+          : MediaQuery.of(context).size.width,
+      child: Column(
+        children: [
+//map
+          if (lat != 0)
+            Container(
+              margin: EdgeInsets.only(top: 32),
+              height: MediaQuery.of(context).size.height * 0.3,
+              child: GoogleMap(
+                myLocationEnabled: false,
+                myLocationButtonEnabled: false,
+                initialCameraPosition: CameraPosition(
+                  target: LatLng(lat, lng),
+                  zoom: 18,
+                ),
+                key: ValueKey('uniqueey'),
+                onMapCreated: _onMapCreated,
+                markers: {
+                  Marker(
+                      markerId: MarkerId('anyUniqueId'),
+                      position: LatLng(lat, lng),
+                      infoWindow: InfoWindow(title: 'Some Location'))
+                },
+              ),
+            ),
+          if (lat != 0)
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: ElevatedButton(
+                onPressed: () {
+                  var urlMap =
+                      "https://www.google.com/maps/dir/?api=1&destination=" +
+                          lat.toString() +
+                          "," +
+                          lng.toString();
+                  _launchInBrowser(urlMap);
+                },
+                child: Text('นำทาง'),
+              ),
+            ),
+
+          Container(
+            width: MediaQuery.of(context).size.width,
+            child: ElevatedButton(
+              onPressed: () {
+                // var urlMap = Info().baseUrl;
+                _launchInBrowser('http://nasancity.go.th/public/');
+              },
+              child: Text('เข้าสู่เว็บไซต์เทศบาล'),
+            ),
+          ),
+
+          Container(
+            width: MediaQuery.of(context).size.width,
+            child: ElevatedButton(
+              onPressed: () {
+                var urlMap = "https://www.facebook.com/Bannasancity?fref=nf";
+                _launchInBrowser(urlMap);
+              },
+              child: Text('Facebookเทศบาล'),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return PageSubView(
@@ -203,7 +452,9 @@ class _ContactusViewState extends State<ContactusView> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
-                          width: WidhtDevice().widht(context) * 0.20,
+                          width: WidhtDevice().widht(context) >= 768
+                              ? WidhtDevice().widht(context) / 5
+                              : WidhtDevice().widht(context) * 0.20,
                           child: Image.asset('assets/logo/logo-1.png'),
                         ),
                         Column(
@@ -306,251 +557,24 @@ class _ContactusViewState extends State<ContactusView> {
                     ),
                   ],
                 ),
-                child: Column(
-                  children: [
-                    //phone
-                    Container(
-                      margin: EdgeInsets.only(top: 16),
-                      child: TextField(
-                        controller: _phone,
-                        decoration: new InputDecoration(
-                          isDense: true,
-                          focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.grey, width: 1),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.grey, width: 1),
-                          ),
-                          hintText: 'เบอร์โทรศัพท์',
-                          errorText:
-                              _validatePhone ? 'กรุณากรอกเบอร์โทรศัพท์' : null,
+                //     width: WidhtDevice().widht(context) >= 768
+                // ? MediaQuery.of(context).size.width / 2
+                // : MediaQuery.of(context).size.width,
+                child: Container(
+                  child: WidhtDevice().widht(context) >= 768
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            _form(),
+                            _map(),
+                          ],
+                        )
+                      : Column(
+                          children: [
+                            _form(),
+                            _map(),
+                          ],
                         ),
-                      ),
-                    ),
-                    //name
-                    Container(
-                      margin: EdgeInsets.only(top: 16),
-                      child: TextField(
-                        controller: _fullname,
-                        decoration: new InputDecoration(
-                          isDense: true,
-                          focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.grey, width: 1),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.grey, width: 1),
-                          ),
-                          hintText: 'ชื่อ-สกุล',
-                          errorText:
-                              _validateFullname ? 'กรุณากรอกชื่อ-สกุล' : null,
-                        ),
-                      ),
-                    ),
-                    //fax
-                    /*Container(
-                      margin: EdgeInsets.only(top: 16),
-                      child: TextField(
-                        controller: _fax,
-                        decoration: new InputDecoration(
-                          isDense: true,
-                          focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.grey, width: 1),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.grey, width: 1),
-                          ),
-                          hintText: 'โทรสาร(เว้นว่างได้)',
-                        ),
-                      ),
-                    ),*/
-                    //subject
-                    Container(
-                      margin: EdgeInsets.only(top: 16),
-                      child: TextField(
-                        controller: _subject,
-                        decoration: new InputDecoration(
-                          isDense: true,
-                          focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.grey, width: 1),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.grey, width: 1),
-                          ),
-                          hintText: 'ชื่อเรื่อง',
-                          errorText:
-                              _validateSubject ? 'กรุณากรอกชื่อเรื่อง' : null,
-                        ),
-                      ),
-                    ),
-                    //address
-                    Container(
-                      margin: EdgeInsets.only(top: 16),
-                      child: TextField(
-                        controller: _address,
-                        decoration: new InputDecoration(
-                          isDense: true,
-                          focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.grey, width: 1),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.grey, width: 1),
-                          ),
-                          hintText: 'ที่อยู่',
-                          errorText:
-                              _validateAddress ? 'กรุณากรอกที่อยู่' : null,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 16),
-                      height: 5 * 24.0,
-                      child: TextField(
-                        controller: _detail,
-                        maxLines: 5,
-                        decoration: new InputDecoration(
-                          isDense: true,
-                          focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.grey, width: 1),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.grey, width: 1),
-                          ),
-                          hintText: 'รายละเอียด',
-                          errorText:
-                              _validateDetail ? 'กรุณากรอกรายละเอียด' : null,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 16),
-                      width: double.infinity,
-                      child: RaisedButton(
-                        onPressed: () {
-                          setState(() {
-                            _detail.text.isEmpty
-                                ? _validateDetail = true
-                                : _validateDetail = false;
-                            _subject.text.isEmpty
-                                ? _validateSubject = true
-                                : _validateSubject = false;
-                            _address.text.isEmpty
-                                ? _validateAddress = true
-                                : _validateAddress = false;
-                            _fullname.text.isEmpty
-                                ? _validateFullname = true
-                                : _validateFullname = false;
-                            _phone.text.isEmpty
-                                ? _validatePhone = true
-                                : _validatePhone = false;
-
-                            if (!_validateDetail &&
-                                !_validateFullname &&
-                                !_validateAddress &&
-                                !_validatePhone) {
-                              EasyLoading.show(status: 'loading...');
-                              insertData();
-                            }
-                          });
-                        },
-                        textColor: Colors.white,
-                        padding: const EdgeInsets.all(0.0),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(80.0)),
-                        child: Container(
-                          width: 300,
-                          decoration: new BoxDecoration(
-                            borderRadius: BorderRadius.circular(25.0),
-                            gradient: new LinearGradient(
-                              colors: [
-                                Colors.blue,
-                                Colors.lightBlueAccent,
-                              ],
-                            ),
-                          ),
-                          padding: EdgeInsets.only(top: 8, bottom: 8),
-                          child: Text(
-                            "ตกลง",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    //map
-                    if (lat != 0)
-                      Container(
-                        margin: EdgeInsets.only(top: 32),
-                        height: MediaQuery.of(context).size.height * 0.3,
-                        child: GoogleMap(
-                          myLocationEnabled: false,
-                          myLocationButtonEnabled: false,
-                          initialCameraPosition: CameraPosition(
-                            target: LatLng(lat, lng),
-                            zoom: 18,
-                          ),
-                          key: ValueKey('uniqueey'),
-                          onMapCreated: _onMapCreated,
-                          markers: {
-                            Marker(
-                                markerId: MarkerId('anyUniqueId'),
-                                position: LatLng(lat, lng),
-                                infoWindow: InfoWindow(title: 'Some Location'))
-                          },
-                        ),
-                      ),
-                    if (lat != 0)
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            var urlMap =
-                                "https://www.google.com/maps/dir/?api=1&destination=" +
-                                    lat.toString() +
-                                    "," +
-                                    lng.toString();
-                            _launchInBrowser(urlMap);
-                          },
-                          child: Text('นำทาง'),
-                        ),
-                      ),
-
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          // var urlMap = Info().baseUrl;
-                          _launchInBrowser('http://nasancity.go.th/public/');
-                        },
-                        child: Text('เข้าสู่เว็บไซต์เทศบาล'),
-                      ),
-                    ),
-
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          var urlMap =
-                              "https://www.facebook.com/Bannasancity?fref=nf";
-                          _launchInBrowser(urlMap);
-                        },
-                        child: Text('Facebookเทศบาล'),
-                      ),
-                    )
-                  ],
                 ),
               ),
             ],

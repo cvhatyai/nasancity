@@ -10,6 +10,7 @@ import 'package:nasancity/view/login/LoginView.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:http/http.dart' as http;
+import 'package:nasancity/system/widht_device.dart';
 
 class ComplaintWidget extends StatefulWidget {
   const ComplaintWidget({Key key}) : super(key: key);
@@ -103,12 +104,12 @@ class _ComplaintWidgetState extends State<ComplaintWidget> {
     /*24 is for notification bar on Android*/
 
     final double itemWidth = size.width / 2;
-    final double itemHeight = itemWidth * 3;
+    final double itemHeight = WidhtDevice().widht(context) >= 1024 ?itemWidth * 2 :itemWidth * 3;
     return Container(
       child: Column(
         children: [
           AspectRatio(
-            aspectRatio: 2 / 1.5,
+            aspectRatio: WidhtDevice().widht(context) >= 1024 ?2 / 1 :2 / 1.5,
             child: PageView.builder(
               controller: pageController,
               itemCount: pageCount,
@@ -119,7 +120,7 @@ class _ComplaintWidgetState extends State<ComplaintWidget> {
               },
               itemBuilder: (_, pageIndex) {
                 return GridView.count(
-                  childAspectRatio: 2 / 2.3,
+                  childAspectRatio: WidhtDevice().widht(context) >= 1024 ?2 / 1.6 : 2 / 2.3,
                   physics: NeverScrollableScrollPhysics(),
                   // padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
                   primary: false,
@@ -225,7 +226,7 @@ class _ComplaintWidgetState extends State<ComplaintWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                height: 15,
+                height:WidhtDevice().widht(context) >= 1024 ? 20 : 15,
                 child: ListView.builder(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,

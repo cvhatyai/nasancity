@@ -232,8 +232,10 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                                         );
                                       },
                                       child: Container(
-                                        width:
-                                            WidhtDevice().widht(context) * 0.5,
+                                        width: WidhtDevice().widht(context) >= 768
+                                            ? WidhtDevice().widht(context) / 5
+                                            : WidhtDevice().widht(context) *
+                                                0.5,
                                         margin:
                                             EdgeInsets.symmetric(horizontal: 4),
                                         child: Column(
@@ -490,7 +492,12 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                                                           data2[index]
                                                               ["smonth"],
                                                           style: TextStyle(
-                                                              fontSize: 9),
+                                                              fontSize: WidhtDevice()
+                                                                          .size(
+                                                                              context) ==
+                                                                      "m"
+                                                                  ? 18
+                                                                  : 9),
                                                         ),
                                                       ),
                                                     ],

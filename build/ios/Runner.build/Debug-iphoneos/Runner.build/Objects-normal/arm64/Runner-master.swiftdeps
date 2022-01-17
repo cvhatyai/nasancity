@@ -1,4 +1,5 @@
 version: "Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)"
 options: "fc82271ac5a6b9922fe00579a1fb8cd5"
-build_time: [1639242688, 293789000]
+build_time: [1641279518, 21232000]
 inputs:
+  "/Users/apple/Documents/Harzan/PJ_flutter/nasancity/ios/Runner/AppDelegate.swift": [1635738143, 333765309]

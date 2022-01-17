@@ -1066,7 +1066,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 GestureDetector(
                   onTap: () {
                     _launchInBrowser(
-                        "https://www.nasancity.go.th/content/cate/90");
+                        "https://www.nasancity.go.th/demo/content/general");
 
                     // Navigator.push(
                     //   context,
@@ -1112,6 +1112,300 @@ class _MenuScreenState extends State<MenuScreen> {
                     ],
                   ),
                 ),
+                GestureDetector(
+                  onTap: () {
+                    _launchInBrowser(
+                        "https://www.nasancity.go.th/demo/content/history");
+
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => GeneralView(
+                    //       isHaveArrow: "1",
+                    //     ),
+                    //   ),
+                    // );
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(left: 32),
+                        alignment: Alignment.centerLeft,
+                        color: Colors.transparent,
+                        height: 40,
+                        child: Row(
+                          children: [
+                            /*Image.asset(
+                              'assets/images/menu1.png',
+                              height: 22,
+                              width: 22,
+                            ),*/
+                            Image.asset(
+                              'assets/item/menu/m13.png',
+                              height: 18,
+                              width: 18,
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(left: 16),
+                              child: Text(
+                                "ประวัติความเป็นมา",
+                                style: TextStyle(
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Divider(height: 1, indent: 8, endIndent: 8),
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    _launchInBrowser(
+                        "https://www.nasancity.go.th/demo/content/cate/8");
+
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => GeneralView(
+                    //       isHaveArrow: "1",
+                    //     ),
+                    //   ),
+                    // );
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(left: 32),
+                        alignment: Alignment.centerLeft,
+                        color: Colors.transparent,
+                        height: 40,
+                        child: Row(
+                          children: [
+                            /*Image.asset(
+                              'assets/images/menu1.png',
+                              height: 22,
+                              width: 22,
+                            ),*/
+                            Image.asset(
+                              'assets/item/menu/m13.png',
+                              height: 18,
+                              width: 18,
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(left: 16),
+                              child: Text(
+                                "บทบาทหน้าที่",
+                                style: TextStyle(
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Divider(height: 1, indent: 8, endIndent: 8),
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    _launchInBrowser(
+                        "https://www.nasancity.go.th/demo/content/vision");
+
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => GeneralView(
+                    //       isHaveArrow: "1",
+                    //     ),
+                    //   ),
+                    // );
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(left: 32),
+                        alignment: Alignment.centerLeft,
+                        color: Colors.transparent,
+                        height: 40,
+                        child: Row(
+                          children: [
+                            /*Image.asset(
+                              'assets/images/menu1.png',
+                              height: 22,
+                              width: 22,
+                            ),*/
+                            Image.asset(
+                              'assets/item/menu/m13.png',
+                              height: 18,
+                              width: 18,
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(left: 16),
+                              child: Text(
+                                "วิสัยทัศน์/พันธกิจ",
+                                style: TextStyle(
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Divider(height: 1, indent: 8, endIndent: 8),
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    _launchInBrowser(
+                        "https://www.nasancity.go.th/demo/content/cate/4");
+
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => GeneralView(
+                    //       isHaveArrow: "1",
+                    //     ),
+                    //   ),
+                    // );
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(left: 32),
+                        alignment: Alignment.centerLeft,
+                        color: Colors.transparent,
+                        height: 40,
+                        child: Row(
+                          children: [
+                            /*Image.asset(
+                              'assets/images/menu1.png',
+                              height: 22,
+                              width: 22,
+                            ),*/
+                            Image.asset(
+                              'assets/item/menu/m13.png',
+                              height: 18,
+                              width: 18,
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(left: 16),
+                              child: Text(
+                                "นโยบาย",
+                                style: TextStyle(
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Divider(height: 1, indent: 8, endIndent: 8),
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    _launchInBrowser("https://nasancity.go.th/demo/news_tran");
+
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => GeneralView(
+                    //       isHaveArrow: "1",
+                    //     ),
+                    //   ),
+                    // );
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(left: 32),
+                        alignment: Alignment.centerLeft,
+                        color: Colors.transparent,
+                        height: 40,
+                        child: Row(
+                          children: [
+                            /*Image.asset(
+                              'assets/images/menu1.png',
+                              height: 22,
+                              width: 22,
+                            ),*/
+                            Image.asset(
+                              'assets/item/menu/m13.png',
+                              height: 18,
+                              width: 18,
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(left: 16),
+                              child: Text(
+                                "ประกาศนโยบายคุณธรรมและความโปร่งใส",
+                                style: TextStyle(
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Divider(height: 1, indent: 8, endIndent: 8),
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    _launchInBrowser(
+                        "https://www.nasancity.go.th/demo/contactus/location");
+
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => GeneralView(
+                    //       isHaveArrow: "1",
+                    //     ),
+                    //   ),
+                    // );
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(left: 32),
+                        alignment: Alignment.centerLeft,
+                        color: Colors.transparent,
+                        height: 40,
+                        child: Row(
+                          children: [
+                            /*Image.asset(
+                              'assets/images/menu1.png',
+                              height: 22,
+                              width: 22,
+                            ),*/
+                            Image.asset(
+                              'assets/item/menu/m13.png',
+                              height: 18,
+                              width: 18,
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(left: 16),
+                              child: Text(
+                                "สำนักงาน",
+                                style: TextStyle(
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Divider(height: 1, indent: 8, endIndent: 8),
+                    ],
+                  ),
+                ),
+
                 GestureDetector(
                   onTap: () {
                     Navigator.push(

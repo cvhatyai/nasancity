@@ -103,14 +103,14 @@ class _WebPageViewState extends State<WebPageView> {
           user.authen_token +
           "&redirect=" +
           Info().baseUrl +
-          "tax_request/showListWeb?app=1";
+          "demo/tax_request/showListWeb?app=1";
     } else if (widget.cmd == "taxHistory") {
       url = Info().baseUrl +
           'app_api_v1/authentication?authen_token=' +
           user.authen_token +
           "&redirect=" +
           Info().baseUrl +
-          "tax_request/showListWeb?app=1";
+          "demo/tax_request/showListWeb?app=1";
 
       setState(() {
         isUploadFile = true;
@@ -122,7 +122,7 @@ class _WebPageViewState extends State<WebPageView> {
             user.authen_token +
             "&redirect=" +
             Info().baseUrl +
-            "garbage/showListWeb?app=1";
+            "demo/garbage/showListWeb?app=1";
 
         setState(() {
           isUploadFile = true;
@@ -133,7 +133,7 @@ class _WebPageViewState extends State<WebPageView> {
             user.authen_token +
             "&redirect=" +
             Info().baseUrl +
-            "behind/garbage/edit/" +
+            "demo/behind/garbage/edit/" +
             widget.edit +
             "?app=1";
 
@@ -147,7 +147,7 @@ class _WebPageViewState extends State<WebPageView> {
           user.authen_token +
           "&redirect=" +
           Info().baseUrl +
-          "form_elder?app=1";
+          "demo/form_elder?app=1";
 
       setState(() {
         isUploadFile = true;
@@ -158,7 +158,7 @@ class _WebPageViewState extends State<WebPageView> {
           user.authen_token +
           "&redirect=" +
           Info().baseUrl +
-          "form_disabled?app=1";
+          "demo/form_disabled?app=1";
 
       setState(() {
         isUploadFile = true;
@@ -169,14 +169,14 @@ class _WebPageViewState extends State<WebPageView> {
           user.authen_token +
           "&redirect=" +
           Info().baseUrl +
-          "inform2/showMap?app=1";
+          "demo/inform2/showMap?app=1";
     } else if (widget.cmd == "graph_complain") {
       url = Info().baseUrl +
           'app_api_v1/authentication?authen_token=' +
           user.authen_token +
           "&redirect=" +
           Info().baseUrl +
-          "inform2/graphList/graph1?app=1";
+          "demo/inform2/graphList/graph1?app=1";
     } else if (widget.cmd == "tax_admin") {
       if (widget.edit != "") {
         url = Info().baseUrl +
@@ -184,7 +184,7 @@ class _WebPageViewState extends State<WebPageView> {
             user.authen_token +
             "&redirect=" +
             Info().baseUrl +
-            "behind/tax_request/edit/" +
+            "demo/behind/tax_request/edit/" +
             widget.edit +
             "?app=1";
       } else {
@@ -193,7 +193,7 @@ class _WebPageViewState extends State<WebPageView> {
             user.authen_token +
             "&redirect=" +
             Info().baseUrl +
-            "behind/tax_request/showList?app=1";
+            "demo/behind/tax_request/showList?app=1";
       }
       setState(() {
         isUploadFile = true;
@@ -205,7 +205,7 @@ class _WebPageViewState extends State<WebPageView> {
             user.authen_token +
             "&redirect=" +
             Info().baseUrl +
-            "behind/garbage/edit" +
+            "demo/behind/garbage/edit" +
             widget.edit +
             "?app=1";
       } else {
@@ -214,7 +214,7 @@ class _WebPageViewState extends State<WebPageView> {
             user.authen_token +
             "&redirect=" +
             Info().baseUrl +
-            "behind/garbage/showList?app=1";
+            "demo/behind/garbage/showList?app=1";
       }
 
       setState(() {

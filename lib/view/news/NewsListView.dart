@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:nasancity/style/font_style.dart';
+import 'package:nasancity/system/widht_device.dart';
 import 'package:nasancity/view/PageSubView.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -324,7 +325,8 @@ class _NewsListViewState extends State<NewsListView> {
               child: (data != null && data.length != 0)
                   ? GridView.count(
                       childAspectRatio: (itemWidth / itemHeight),
-                      crossAxisCount: 2,
+                      crossAxisCount:
+                          WidhtDevice().widht(context) >= 768 ? 3 : 2,
                       children: List.generate(data.length, (index) {
                         return GestureDetector(
                           onTap: () {
@@ -337,6 +339,18 @@ class _NewsListViewState extends State<NewsListView> {
                             );
                           },
                           child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              image: DecorationImage(
+                                fit: BoxFit.cover,
+                                colorFilter: new ColorFilter.mode(
+                                    Colors.white.withOpacity(0.3),
+                                    BlendMode.dstATop),
+                                image: new NetworkImage(
+                                  data[index]["display_image"],
+                                ),
+                              ),
+                            ),
                             // width: MediaQuery.of(context).size.width * 0.5,
                             margin: EdgeInsets.all(5),
                             child: Column(

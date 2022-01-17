@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:nasancity/system/widht_device.dart';
 import 'package:nasancity/view/PageSubView.dart';
 import 'package:nasancity/view/setting/StyleSeting.dart';
 import 'package:file_picker/file_picker.dart';
@@ -804,187 +805,156 @@ class _SettingViewState extends State<SettingView> {
       title: 'ตั้งค่าบัญชี',
       isHaveArrow: widget.isHaveArrow,
       widget: Container(
-        child: SingleChildScrollView(
-          child: Container(
-            margin: EdgeInsets.only(top: 8),
-            child: Column(
-              children: [
-                //avatar
-                ClipOval(
-                  child: Container(
-                    width: 124,
-                    height: 124,
-                    color: Color(0xFFA6D6F2),
-                    child: (_images != null)
-                        ? Image.file(
-                            File(_images.values.toList()[0]),
-                            fit: BoxFit.cover,
-                          )
-                        : Image.network(
-                            userAvatar,
-                            fit: BoxFit.cover,
-                          ),
-                  ),
-                ),
-                //avatarEdit
-                Container(
-                  margin: EdgeInsets.only(top: 16),
-                  child: GestureDetector(
-                    onTap: () {
-                      _handleClickFiles();
-                    },
-                    child: Text("แก้ไข"),
-                  ),
-                ),
-                //userFullname
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
-                  child: Row(
-                    children: [
-                      Text(
-                        "ชื่อ-สกุล",
-                        style: StyleSetting().textEdit,
-                      ),
-                      Expanded(
-                        child: Container(
-                          child: TextField(
-                            controller: _fullname,
-                            textAlign: TextAlign.right,
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              disabledBorder: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                              errorText: _validateFullname
-                                  ? 'กรุณากรอกชื่อ-นามสกุล'
-                                  : null,
-                              suffixIcon: IconButton(
-                                icon: Icon(
-                                  Icons.edit,
-                                  color: Colors.blue,
-                                ),
-                              ),
+        alignment: Alignment.topCenter,
+        child: Container(
+          width: WidhtDevice().widht(context) >= 768
+              ? MediaQuery.of(context).size.width / 1.5
+              : MediaQuery.of(context).size.width,
+          child: SingleChildScrollView(
+            child: Container(
+              margin: EdgeInsets.only(top: 8),
+              child: Column(
+                children: [
+                  //avatar
+                  ClipOval(
+                    child: Container(
+                      width: 124,
+                      height: 124,
+                      color: Color(0xFFA6D6F2),
+                      child: (_images != null)
+                          ? Image.file(
+                              File(_images.values.toList()[0]),
+                              fit: BoxFit.cover,
+                            )
+                          : Image.network(
+                              userAvatar,
+                              fit: BoxFit.cover,
                             ),
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                ),
-                Divider(),
-
-                //phone
-                if (user.password != "" && user.password != "null")
+                  //avatarEdit
+                  Container(
+                    margin: EdgeInsets.only(top: 16),
+                    child: GestureDetector(
+                      onTap: () {
+                        _handleClickFiles();
+                      },
+                      child: Text("แก้ไข"),
+                    ),
+                  ),
+                  //userFullname
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 16),
                     child: Row(
                       children: [
                         Text(
-                          "เปลี่ยนเบอร์โทรศัพท์",
+                          "ชื่อ-สกุล",
                           style: StyleSetting().textEdit,
                         ),
                         Expanded(
                           child: Container(
-                            alignment: Alignment.centerRight,
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => ChangePhoneView(),
+                            child: TextField(
+                              controller: _fullname,
+                              textAlign: TextAlign.right,
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                disabledBorder: InputBorder.none,
+                                focusedBorder: InputBorder.none,
+                                errorText: _validateFullname
+                                    ? 'กรุณากรอกชื่อ-นามสกุล'
+                                    : null,
+                                suffixIcon: IconButton(
+                                  icon: Icon(
+                                    Icons.edit,
+                                    color: Colors.blue,
                                   ),
-                                );
-                              },
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Text(user.username),
-                                  IconButton(
-                                    icon: Icon(
-                                      Icons.edit,
-                                      color: Colors.blue,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Divider(),
+
+                  //phone
+                  if (user.password != "" && user.password != "null")
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 16),
+                      child: Row(
+                        children: [
+                          Text(
+                            "เปลี่ยนเบอร์โทรศัพท์",
+                            style: StyleSetting().textEdit,
+                          ),
+                          Expanded(
+                            child: Container(
+                              alignment: Alignment.centerRight,
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => ChangePhoneView(),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                if (user.password != "" && user.password != "null") Divider(),
-
-                //idCard
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 2,
-                        child: Text(
-                          "หมายเลขบัตรประชาชน",
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: StyleSetting().textEdit,
-                        ),
-                      ),
-                      Expanded(
-                        flex: 3,
-                        child: Container(
-                          child: TextField(
-                            controller: _idCard,
-                            maxLength: 13,
-                            keyboardType: TextInputType.number,
-                            textAlign: TextAlign.right,
-                            decoration: InputDecoration(
-                              counterText: "",
-                              border: InputBorder.none,
-                              disabledBorder: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                              errorText: _validateIdCard
-                                  ? 'กรุณากรอกหมายเลขบัตรประชาชน'
-                                  : null,
-                              suffixIcon: IconButton(
-                                icon: Icon(
-                                  Icons.edit,
-                                  color: Colors.blue,
+                                  );
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(user.username),
+                                    IconButton(
+                                      icon: Icon(
+                                        Icons.edit,
+                                        color: Colors.blue,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
                           ),
-                        ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
-                Divider(),
+                    ),
+                  if (user.password != "" && user.password != "null") Divider(),
 
-                //pass
-                if (user.password != "" && user.password != "null")
+                  //idCard
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 16),
                     child: Row(
                       children: [
-                        Text(
-                          "เปลี่ยนรหัสผ่าน",
-                          style: StyleSetting().textEdit,
+                        Expanded(
+                          flex: 2,
+                          child: Text(
+                            "หมายเลขบัตรประชาชน",
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: StyleSetting().textEdit,
+                          ),
                         ),
                         Expanded(
+                          flex: 3,
                           child: Container(
-                            alignment: Alignment.centerRight,
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => ChangePasswordView(),
+                            child: TextField(
+                              controller: _idCard,
+                              maxLength: 13,
+                              keyboardType: TextInputType.number,
+                              textAlign: TextAlign.right,
+                              decoration: InputDecoration(
+                                counterText: "",
+                                border: InputBorder.none,
+                                disabledBorder: InputBorder.none,
+                                focusedBorder: InputBorder.none,
+                                errorText: _validateIdCard
+                                    ? 'กรุณากรอกหมายเลขบัตรประชาชน'
+                                    : null,
+                                suffixIcon: IconButton(
+                                  icon: Icon(
+                                    Icons.edit,
+                                    color: Colors.blue,
                                   ),
-                                );
-                              },
-                              child: IconButton(
-                                icon: Icon(
-                                  Icons.edit,
-                                  color: Colors.blue,
                                 ),
                               ),
                             ),
@@ -993,221 +963,59 @@ class _SettingViewState extends State<SettingView> {
                       ],
                     ),
                   ),
-                if (user.password != "" && user.password != "null") Divider(),
+                  Divider(),
 
-                //social
-                Visibility(
-                  visible: (isBlindBlock == "") ? true : false,
-                  child: Container(
-                    child: Column(
-                      children: [
-                        //facebook
-                        Container(
-                          padding: EdgeInsets.symmetric(horizontal: 16),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                'assets/images/facebook-ic.png',
-                                height: 48,
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Container(
-                                  padding: EdgeInsets.only(right: 16),
-                                  child: Text(
-                                    "Facebook",
-                                    style: StyleSetting().textNameSocial,
+                  //pass
+                  if (user.password != "" && user.password != "null")
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 16),
+                      child: Row(
+                        children: [
+                          Text(
+                            "เปลี่ยนรหัสผ่าน",
+                            style: StyleSetting().textEdit,
+                          ),
+                          Expanded(
+                            child: Container(
+                              alignment: Alignment.centerRight,
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          ChangePasswordView(),
+                                    ),
+                                  );
+                                },
+                                child: IconButton(
+                                  icon: Icon(
+                                    Icons.edit,
+                                    color: Colors.blue,
                                   ),
                                 ),
                               ),
-                              (userFaceID == "null" || userFaceID == "")
-                                  ? Expanded(
-                                      flex: 1,
-                                      child: ElevatedButton(
-                                        onPressed: () {
-                                          checkFaceID();
-                                        },
-                                        style: ButtonStyle(
-                                          backgroundColor:
-                                              MaterialStateProperty.all<Color>(
-                                                  Colors.green),
-                                        ),
-                                        child: Text(
-                                          "เชื่อมต่อ",
-                                          style: TextStyle(
-                                            fontSize: 12,
-                                          ),
-                                          overflow: TextOverflow.ellipsis,
-                                          maxLines: 1,
-                                        ),
-                                      ),
-                                    )
-                                  : Expanded(
-                                      flex: 1,
-                                      child: ElevatedButton(
-                                        onPressed: () {
-                                          showAlertBox(userFaceID, "facebook");
-                                        },
-                                        style: ButtonStyle(
-                                          backgroundColor:
-                                              MaterialStateProperty.all<Color>(
-                                                  Colors.grey),
-                                        ),
-                                        child: Text(
-                                          "ยกเลิกการเชื่อมต่อ",
-                                          style: TextStyle(
-                                            fontSize: 12,
-                                          ),
-                                          overflow: TextOverflow.ellipsis,
-                                          maxLines: 1,
-                                        ),
-                                      ),
-                                    )
-                            ],
+                            ),
                           ),
-                        ),
-                        Divider(),
-                        //google
-                        Container(
-                          padding: EdgeInsets.symmetric(horizontal: 16),
-                          child: Row(
-                            children: [
-                              Image.asset(
-                                'assets/images/google-ic.png',
-                                height: 48,
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Container(
-                                  padding: EdgeInsets.only(right: 16),
-                                  child: Text(
-                                    "Google",
-                                    style: StyleSetting().textNameSocial,
-                                  ),
-                                ),
-                              ),
-                              (userGoogleID == "null" || userGoogleID == "")
-                                  ? Expanded(
-                                      flex: 1,
-                                      child: ElevatedButton(
-                                        onPressed: () {
-                                          checkGoogleID();
-                                        },
-                                        style: ButtonStyle(
-                                          backgroundColor:
-                                              MaterialStateProperty.all<Color>(
-                                                  Colors.green),
-                                        ),
-                                        child: Text(
-                                          "เชื่อมต่อ",
-                                          style: TextStyle(
-                                            fontSize: 12,
-                                          ),
-                                          overflow: TextOverflow.ellipsis,
-                                          maxLines: 1,
-                                        ),
-                                      ),
-                                    )
-                                  : Expanded(
-                                      flex: 1,
-                                      child: ElevatedButton(
-                                        onPressed: () {
-                                          showAlertBox(userGoogleID, "google");
-                                        },
-                                        style: ButtonStyle(
-                                          backgroundColor:
-                                              MaterialStateProperty.all<Color>(
-                                                  Colors.grey),
-                                        ),
-                                        child: Text(
-                                          "ยกเลิกการเชื่อมต่อ",
-                                          style: TextStyle(
-                                            fontSize: 12,
-                                          ),
-                                          overflow: TextOverflow.ellipsis,
-                                          maxLines: 1,
-                                        ),
-                                      ),
-                                    )
-                            ],
-                          ),
-                        ),
-                        Divider(),
-                        //line
-                        Container(
-                          padding: EdgeInsets.symmetric(horizontal: 16),
-                          child: Row(
-                            children: [
-                              Image.asset(
-                                'assets/images/line-ic.png',
-                                height: 48,
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Container(
-                                  padding: EdgeInsets.only(right: 16),
-                                  child: Text(
-                                    "LINE",
-                                    style: StyleSetting().textNameSocial,
-                                  ),
-                                ),
-                              ),
-                              (userLineID == "null" || userLineID == "")
-                                  ? Expanded(
-                                      flex: 1,
-                                      child: ElevatedButton(
-                                        onPressed: () {
-                                          checkLineID();
-                                        },
-                                        style: ButtonStyle(
-                                          backgroundColor:
-                                              MaterialStateProperty.all<Color>(
-                                                  Colors.green),
-                                        ),
-                                        child: Text(
-                                          "เชื่อมต่อ",
-                                          style: TextStyle(
-                                            fontSize: 12,
-                                          ),
-                                          overflow: TextOverflow.ellipsis,
-                                          maxLines: 1,
-                                        ),
-                                      ),
-                                    )
-                                  : Expanded(
-                                      flex: 1,
-                                      child: ElevatedButton(
-                                        onPressed: () {
-                                          showAlertBox(userLineID, "line");
-                                        },
-                                        style: ButtonStyle(
-                                          backgroundColor:
-                                              MaterialStateProperty.all<Color>(
-                                                  Colors.grey),
-                                        ),
-                                        child: Text(
-                                          "ยกเลิกการเชื่อมต่อ",
-                                          style: TextStyle(
-                                            fontSize: 12,
-                                          ),
-                                          overflow: TextOverflow.ellipsis,
-                                          maxLines: 1,
-                                        ),
-                                      ),
-                                    )
-                            ],
-                          ),
-                        ),
-                        Divider(),
-                        //apple
-                        if (platform == "ios")
+                        ],
+                      ),
+                    ),
+                  if (user.password != "" && user.password != "null") Divider(),
+
+                  //social
+                  Visibility(
+                    visible: (isBlindBlock == "") ? true : false,
+                    child: Container(
+                      child: Column(
+                        children: [
+                          //facebook
                           Container(
                             padding: EdgeInsets.symmetric(horizontal: 16),
                             child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Image.asset(
-                                  'assets/images/apple-btn-sign.png',
+                                  'assets/images/facebook-ic.png',
                                   height: 48,
                                 ),
                                 Expanded(
@@ -1215,17 +1023,17 @@ class _SettingViewState extends State<SettingView> {
                                   child: Container(
                                     padding: EdgeInsets.only(right: 16),
                                     child: Text(
-                                      "Apple",
+                                      "Facebook",
                                       style: StyleSetting().textNameSocial,
                                     ),
                                   ),
                                 ),
-                                (userAppleID == "null" || userAppleID == "")
+                                (userFaceID == "null" || userFaceID == "")
                                     ? Expanded(
                                         flex: 1,
                                         child: ElevatedButton(
                                           onPressed: () {
-                                            checkAppleID();
+                                            checkFaceID();
                                           },
                                           style: ButtonStyle(
                                             backgroundColor:
@@ -1246,7 +1054,8 @@ class _SettingViewState extends State<SettingView> {
                                         flex: 1,
                                         child: ElevatedButton(
                                           onPressed: () {
-                                            showAlertBox(userAppleID, "apple");
+                                            showAlertBox(
+                                                userFaceID, "facebook");
                                           },
                                           style: ButtonStyle(
                                             backgroundColor:
@@ -1263,94 +1072,296 @@ class _SettingViewState extends State<SettingView> {
                                           ),
                                         ),
                                       )
-                                /*Expanded(
-                                    child: ElevatedButton(
-                                      onPressed: () {
-
-                                      },
-                                      style: ButtonStyle(
-                                        backgroundColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.green),
-                                      ),
-                                      child: Text(
-                                        "เชื่อมต่อ",
-                                        style: TextStyle(
-                                          fontSize: 12,
-                                        ),
-                                        overflow: TextOverflow.ellipsis,
-                                        maxLines: 1,
-                                      ),
-                                    ),
-                                  )*/
                               ],
                             ),
                           ),
-                        if (platform == "ios") Divider(),
+                          Divider(),
+                          //google
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 16),
+                            child: Row(
+                              children: [
+                                Image.asset(
+                                  'assets/images/google-ic.png',
+                                  height: 48,
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    padding: EdgeInsets.only(right: 16),
+                                    child: Text(
+                                      "Google",
+                                      style: StyleSetting().textNameSocial,
+                                    ),
+                                  ),
+                                ),
+                                (userGoogleID == "null" || userGoogleID == "")
+                                    ? Expanded(
+                                        flex: 1,
+                                        child: ElevatedButton(
+                                          onPressed: () {
+                                            checkGoogleID();
+                                          },
+                                          style: ButtonStyle(
+                                            backgroundColor:
+                                                MaterialStateProperty.all<
+                                                    Color>(Colors.green),
+                                          ),
+                                          child: Text(
+                                            "เชื่อมต่อ",
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                            ),
+                                            overflow: TextOverflow.ellipsis,
+                                            maxLines: 1,
+                                          ),
+                                        ),
+                                      )
+                                    : Expanded(
+                                        flex: 1,
+                                        child: ElevatedButton(
+                                          onPressed: () {
+                                            showAlertBox(
+                                                userGoogleID, "google");
+                                          },
+                                          style: ButtonStyle(
+                                            backgroundColor:
+                                                MaterialStateProperty.all<
+                                                    Color>(Colors.grey),
+                                          ),
+                                          child: Text(
+                                            "ยกเลิกการเชื่อมต่อ",
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                            ),
+                                            overflow: TextOverflow.ellipsis,
+                                            maxLines: 1,
+                                          ),
+                                        ),
+                                      )
+                              ],
+                            ),
+                          ),
+                          Divider(),
+                          //line
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 16),
+                            child: Row(
+                              children: [
+                                Image.asset(
+                                  'assets/images/line-ic.png',
+                                  height: 48,
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    padding: EdgeInsets.only(right: 16),
+                                    child: Text(
+                                      "LINE",
+                                      style: StyleSetting().textNameSocial,
+                                    ),
+                                  ),
+                                ),
+                                (userLineID == "null" || userLineID == "")
+                                    ? Expanded(
+                                        flex: 1,
+                                        child: ElevatedButton(
+                                          onPressed: () {
+                                            checkLineID();
+                                          },
+                                          style: ButtonStyle(
+                                            backgroundColor:
+                                                MaterialStateProperty.all<
+                                                    Color>(Colors.green),
+                                          ),
+                                          child: Text(
+                                            "เชื่อมต่อ",
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                            ),
+                                            overflow: TextOverflow.ellipsis,
+                                            maxLines: 1,
+                                          ),
+                                        ),
+                                      )
+                                    : Expanded(
+                                        flex: 1,
+                                        child: ElevatedButton(
+                                          onPressed: () {
+                                            showAlertBox(userLineID, "line");
+                                          },
+                                          style: ButtonStyle(
+                                            backgroundColor:
+                                                MaterialStateProperty.all<
+                                                    Color>(Colors.grey),
+                                          ),
+                                          child: Text(
+                                            "ยกเลิกการเชื่อมต่อ",
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                            ),
+                                            overflow: TextOverflow.ellipsis,
+                                            maxLines: 1,
+                                          ),
+                                        ),
+                                      )
+                              ],
+                            ),
+                          ),
+                          Divider(),
+                          //apple
+                          if (platform == "ios")
+                            Container(
+                              padding: EdgeInsets.symmetric(horizontal: 16),
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    'assets/images/apple-btn-sign.png',
+                                    height: 48,
+                                  ),
+                                  Expanded(
+                                    flex: 1,
+                                    child: Container(
+                                      padding: EdgeInsets.only(right: 16),
+                                      child: Text(
+                                        "Apple",
+                                        style: StyleSetting().textNameSocial,
+                                      ),
+                                    ),
+                                  ),
+                                  (userAppleID == "null" || userAppleID == "")
+                                      ? Expanded(
+                                          flex: 1,
+                                          child: ElevatedButton(
+                                            onPressed: () {
+                                              checkAppleID();
+                                            },
+                                            style: ButtonStyle(
+                                              backgroundColor:
+                                                  MaterialStateProperty.all<
+                                                      Color>(Colors.green),
+                                            ),
+                                            child: Text(
+                                              "เชื่อมต่อ",
+                                              style: TextStyle(
+                                                fontSize: 12,
+                                              ),
+                                              overflow: TextOverflow.ellipsis,
+                                              maxLines: 1,
+                                            ),
+                                          ),
+                                        )
+                                      : Expanded(
+                                          flex: 1,
+                                          child: ElevatedButton(
+                                            onPressed: () {
+                                              showAlertBox(
+                                                  userAppleID, "apple");
+                                            },
+                                            style: ButtonStyle(
+                                              backgroundColor:
+                                                  MaterialStateProperty.all<
+                                                      Color>(Colors.grey),
+                                            ),
+                                            child: Text(
+                                              "ยกเลิกการเชื่อมต่อ",
+                                              style: TextStyle(
+                                                fontSize: 12,
+                                              ),
+                                              overflow: TextOverflow.ellipsis,
+                                              maxLines: 1,
+                                            ),
+                                          ),
+                                        )
+                                  /*Expanded(
+                                      child: ElevatedButton(
+                                        onPressed: () {
+
+                                        },
+                                        style: ButtonStyle(
+                                          backgroundColor:
+                                              MaterialStateProperty.all<Color>(
+                                                  Colors.green),
+                                        ),
+                                        child: Text(
+                                          "เชื่อมต่อ",
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                          ),
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 1,
+                                        ),
+                                      ),
+                                    )*/
+                                ],
+                              ),
+                            ),
+                          if (platform == "ios") Divider(),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  //noti
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    child: Row(
+                      children: [
+                        Expanded(child: Text("การแจ้งเตือน")),
+                        Switch(
+                          value: isSwitched,
+                          onChanged: (value) {
+                            setState(() {
+                              isSwitched = value;
+                              print(isSwitched);
+                            });
+                          },
+                        ),
                       ],
                     ),
                   ),
-                ),
-
-                //noti
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
-                  child: Row(
-                    children: [
-                      Expanded(child: Text("การแจ้งเตือน")),
-                      Switch(
-                        value: isSwitched,
-                        onChanged: (value) {
-                          setState(() {
-                            isSwitched = value;
-                            print(isSwitched);
-                          });
-                        },
+                  Divider(),
+                  //save
+                  ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        _fullname.text.isEmpty
+                            ? _validateFullname = true
+                            : _validateFullname = false;
+                        _idCard.text.isEmpty
+                            ? _validateIdCard = true
+                            : _validateIdCard = false;
+                        if (!_validateFullname && !_validateIdCard) {
+                          EasyLoading.show(status: 'loading...');
+                          updateData();
+                        }
+                      });
+                    },
+                    style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(9),
                       ),
-                    ],
-                  ),
-                ),
-                Divider(),
-                //save
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      _fullname.text.isEmpty
-                          ? _validateFullname = true
-                          : _validateFullname = false;
-                      _idCard.text.isEmpty
-                          ? _validateIdCard = true
-                          : _validateIdCard = false;
-                      if (!_validateFullname && !_validateIdCard) {
-                        EasyLoading.show(status: 'loading...');
-                        updateData();
-                      }
-                    });
-                  },
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.zero,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(9),
                     ),
-                  ),
-                  child: Ink(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [Colors.lightBlue, Colors.blue],
+                    child: Ink(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Colors.lightBlue, Colors.blue],
+                        ),
+                        borderRadius: BorderRadius.circular(9),
                       ),
-                      borderRadius: BorderRadius.circular(9),
-                    ),
-                    child: Container(
-                      width: 150,
-                      height: 40,
-                      alignment: Alignment.center,
-                      child: Text(
-                        'บันทึก',
+                      child: Container(
+                        width: 150,
+                        height: 40,
+                        alignment: Alignment.center,
+                        child: Text(
+                          'บันทึก',
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

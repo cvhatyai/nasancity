@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:nasancity/style/font_style.dart';
+import 'package:nasancity/system/widht_device.dart';
 import 'package:nasancity/view/PageSubView.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
@@ -453,542 +454,561 @@ class _ComplainFormViewState extends State<ComplainFormView> {
       title: "แจ้งเรื่องร้องเรียน",
       isHaveArrow: "1",
       widget: Container(
-        child: SingleChildScrollView(
+        child: Center(
           child: Container(
-            margin: EdgeInsets.only(top: 20, left: 16, right: 16),
-            child: Column(
-              children: [
-                //header
-                Row(
+            alignment: Alignment.topCenter,
+            width: WidhtDevice().widht(context) >= 768
+                ? MediaQuery.of(context).size.width / 1.5
+                : MediaQuery.of(context).size.width,
+            child: SingleChildScrollView(
+              child: Container(
+                alignment: Alignment.topCenter,
+                margin: EdgeInsets.only(top: 20, left: 16, right: 16),
+                child: Column(
                   children: [
-                    Image.network(
-                      widget.displayImage,
-                      height: 36,
-                      // color: Colors.white,
-                    ),
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.only(left: 16),
-                        child: Text(
-                          widget.subjectTitle,
-                          style: TextStyle(
-                            fontSize: 22,
-                            fontFamily: FontStyles.FontFamily,
-                            // color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                //หัวข้อ
-                Container(
-                  height: 50,
-                  margin: EdgeInsets.only(top: 16),
-                  child: TextField(
-                    controller: _subject,
-                    decoration: new InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white.withOpacity(0.9),
-                      isDense: true,
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey, width: 1),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey, width: 1),
-                      ),
-                      hintText: 'หัวข้อ',
-                      hintStyle: TextStyle(
-                          fontFamily: FontStyles.FontFamily,
-                          color: Colors.grey.withOpacity(0.5)),
-                      errorText: _validateSubject ? 'กรุณากรอกหัวข้อ' : null,
-                    ),
-                  ),
-                ),
-
-                //รายละเอียด
-                Container(
-                  height: 5 * 24.0,
-                  margin: EdgeInsets.only(top: 16),
-                  child: TextField(
-                    controller: _detail,
-                    maxLines: 5,
-                    decoration: new InputDecoration(
-                      isDense: true,
-                      filled: true,
-                      fillColor: Colors.white.withOpacity(0.9),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey, width: 1),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey, width: 1),
-                      ),
-                      hintText: 'รายละเอียด',
-                      hintStyle: TextStyle(
-                          fontFamily: FontStyles.FontFamily,
-                          color: Colors.grey.withOpacity(0.5)),
-                      errorText: _validateDetail ? 'กรุณากรอกรายละเอียด' : null,
-                    ),
-                  ),
-                ),
-
-                //สถานที่
-                Container(
-                  height: 50,
-                  margin: EdgeInsets.only(top: 16),
-                  child: TextField(
-                    controller: _place,
-                    decoration: new InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white.withOpacity(0.9),
-                      isDense: true,
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey, width: 1),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey, width: 1),
-                      ),
-                      hintText: 'สถานที่',
-                      hintStyle: TextStyle(
-                          fontFamily: FontStyles.FontFamily,
-                          color: Colors.grey.withOpacity(0.5)),
-                      errorText: _validatePlace ? 'กรุณากรอกสถานที่' : null,
-                    ),
-                  ),
-                ),
-
-                //หรือปักหมุดจากแผนที่
-                ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.blue),
-                  ),
-                  onPressed: () {
-                    showPlacePicker();
-                  },
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                    //header
+                    Row(
                       children: [
-                        Icon(Icons.location_pin),
-                        Container(
-                          child: Text("หรือปักหมุดจากแผนที่"),
-                          margin: EdgeInsets.symmetric(horizontal: 8),
+                        Image.network(
+                          widget.displayImage,
+                          height: 36,
+                          // color: Colors.white,
                         ),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          size: 16,
-                        ),
-                      ],
-                    ),
-                    width: MediaQuery.of(context).size.width,
-                  ),
-                ),
-                //location
-                if (location != "")
-                  Container(
-                    height: 50,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(9.0),
-                      ),
-                      color: Color(0xFFb2d5f1),
-                    ),
-                    child: Row(
-                      children: [
                         Expanded(
                           child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 16),
+                            margin: EdgeInsets.only(left: 16),
                             child: Text(
-                              location,
+                              widget.subjectTitle,
                               style: TextStyle(
-                                color: Colors.white,
+                                fontSize: 22,
+                                fontFamily: FontStyles.FontFamily,
+                                // color: Colors.white,
                               ),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(right: 8),
-                          child: GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                location = "";
-                                Lat = "";
-                                Lng = "";
-                              });
-                            },
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.white,
-                              size: 24,
                             ),
                           ),
                         ),
                       ],
                     ),
-                  ),
+                    //หัวข้อ
+                    Container(
+                      height: 50,
+                      margin: EdgeInsets.only(top: 16),
+                      child: TextField(
+                        controller: _subject,
+                        decoration: new InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white.withOpacity(0.9),
+                          isDense: true,
+                          focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.grey, width: 1),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.grey, width: 1),
+                          ),
+                          hintText: 'หัวข้อ',
+                          hintStyle: TextStyle(
+                              fontFamily: FontStyles.FontFamily,
+                              color: Colors.grey.withOpacity(0.5)),
+                          errorText:
+                              _validateSubject ? 'กรุณากรอกหัวข้อ' : null,
+                        ),
+                      ),
+                    ),
 
-                //แนบไฟล์หลักฐาน
-                Container(
-                  margin: EdgeInsets.only(top: 16),
-                  alignment: Alignment.centerLeft,
-                  child: Text("แนบไฟล์หลักฐาน"),
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 8),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: () {
-                            _openFileImagesExplorer();
-                          },
-                          child: Container(
-                            margin: EdgeInsets.symmetric(horizontal: 2),
-                            padding: EdgeInsets.all(14),
-                            decoration: BoxDecoration(
-                              color: Color(0xFF1C6FC4),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(9.0),
-                              ),
-                              border: Border.all(
-                                width: 5,
-                                color: Color(0xFF0078F3),
-                              ),
-                            ),
-                            child: Column(
-                              children: [
-                                Icon(
-                                  Icons.image,
-                                  color: Colors.white,
-                                  size: 48,
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(top: 8),
-                                  child: Text(
-                                    "รูปภาพ/วีดีโอ",
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      fontSize: 11,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
+                    //รายละเอียด
+                    Container(
+                      height: 5 * 24.0,
+                      margin: EdgeInsets.only(top: 16),
+                      child: TextField(
+                        controller: _detail,
+                        maxLines: 5,
+                        decoration: new InputDecoration(
+                          isDense: true,
+                          filled: true,
+                          fillColor: Colors.white.withOpacity(0.9),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.grey, width: 1),
                           ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.grey, width: 1),
+                          ),
+                          hintText: 'รายละเอียด',
+                          hintStyle: TextStyle(
+                              fontFamily: FontStyles.FontFamily,
+                              color: Colors.grey.withOpacity(0.5)),
+                          errorText:
+                              _validateDetail ? 'กรุณากรอกรายละเอียด' : null,
                         ),
                       ),
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: () {
-                            _openCameraExplorer(ImageSource.camera,
-                                context: context);
-                          },
-                          child: Container(
-                            margin: EdgeInsets.symmetric(horizontal: 2),
-                            padding: EdgeInsets.all(14),
-                            decoration: BoxDecoration(
-                              color: Color(0xFF1C6FC4),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(9.0),
-                              ),
-                              border: Border.all(
-                                width: 5,
-                                color: Color(0xFF0078F3),
-                              ),
-                            ),
-                            child: Column(
-                              children: [
-                                Icon(
-                                  Icons.camera_alt,
-                                  color: Colors.white,
-                                  size: 48,
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(top: 8),
-                                  child: Text(
-                                    "กล้อง",
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      fontSize: 11,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: () {
-                            _openFilesExplorer();
-                          },
-                          child: Container(
-                            margin: EdgeInsets.symmetric(horizontal: 2),
-                            padding: EdgeInsets.all(14),
-                            decoration: BoxDecoration(
-                              color: Color(0xFF1C6FC4),
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(9.0),
-                              ),
-                              border: Border.all(
-                                width: 5,
-                                color: Color(0xFF0078F3),
-                              ),
-                            ),
-                            child: Column(
-                              children: [
-                                Icon(
-                                  Icons.file_present,
-                                  color: Colors.white,
-                                  size: 48,
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(top: 8),
-                                  child: Text(
-                                    "เอกสาร",
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      fontSize: 11,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                    ),
 
-                if (_images != null || _images != null)
-                  SizedBox(
-                    height: 120.0,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(
-                            color: Color(0xFFDFDFDF),
+                    //สถานที่
+                    Container(
+                      height: 50,
+                      margin: EdgeInsets.only(top: 16),
+                      child: TextField(
+                        controller: _place,
+                        decoration: new InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white.withOpacity(0.9),
+                          isDense: true,
+                          focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.grey, width: 1),
                           ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.grey, width: 1),
+                          ),
+                          hintText: 'สถานที่',
+                          hintStyle: TextStyle(
+                              fontFamily: FontStyles.FontFamily,
+                              color: Colors.grey.withOpacity(0.5)),
+                          errorText: _validatePlace ? 'กรุณากรอกสถานที่' : null,
                         ),
                       ),
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: _images.length,
-                        padding: const EdgeInsets.all(2.0),
-                        itemBuilder: (context, index) {
-                          var filePath =
-                              _images.values.toList()[index].toString();
-                          var fileName = _images.values
-                              .toList()[index]
-                              .split('/')
-                              .last
-                              .toString();
-                          return Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Stack(
-                              children: <Widget>[
-                                Container(
-                                  width: 104.0,
-                                  child: Column(
-                                    children: <Widget>[
-                                      Expanded(
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.all(
-                                              Radius.circular(6.0),
-                                            ),
-                                            border: Border.all(
-                                              color: Colors.grey[300],
-                                              width: 1.0,
-                                            ),
-                                          ),
-                                          child: Image.file(
-                                            File(
-                                                _images.values.toList()[index]),
-                                            fit: BoxFit.cover,
-                                            width: 104.0,
-                                          ),
+                    ),
+
+                    //หรือปักหมุดจากแผนที่
+                    ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.blue),
+                      ),
+                      onPressed: () {
+                        showPlacePicker();
+                      },
+                      child: Container(
+                        alignment: Alignment.center,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.location_pin),
+                            Container(
+                              child: Text("หรือปักหมุดจากแผนที่"),
+                              margin: EdgeInsets.symmetric(horizontal: 8),
+                            ),
+                            Icon(
+                              Icons.arrow_forward_ios,
+                              size: 16,
+                            ),
+                          ],
+                        ),
+                        width: MediaQuery.of(context).size.width,
+                      ),
+                    ),
+                    //location
+                    if (location != "")
+                      Container(
+                        height: 50,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(9.0),
+                          ),
+                          color: Color(0xFFb2d5f1),
+                        ),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                padding: EdgeInsets.symmetric(horizontal: 16),
+                                child: Text(
+                                  location,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(right: 8),
+                              child: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    location = "";
+                                    Lat = "";
+                                    Lng = "";
+                                  });
+                                },
+                                child: Icon(
+                                  Icons.close,
+                                  color: Colors.white,
+                                  size: 24,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                    //แนบไฟล์หลักฐาน
+                    Container(
+                      margin: EdgeInsets.only(top: 16),
+                      alignment: Alignment.centerLeft,
+                      child: Text("แนบไฟล์หลักฐาน"),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 8),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                _openFileImagesExplorer();
+                              },
+                              child: Container(
+                                margin: EdgeInsets.symmetric(horizontal: 2),
+                                padding: EdgeInsets.all(14),
+                                decoration: BoxDecoration(
+                                  color: Color(0xFF1C6FC4),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(9.0),
+                                  ),
+                                  border: Border.all(
+                                    width: 5,
+                                    color: Color(0xFF0078F3),
+                                  ),
+                                ),
+                                child: Column(
+                                  children: [
+                                    Icon(
+                                      Icons.image,
+                                      color: Colors.white,
+                                      size: 48,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 8),
+                                      child: Text(
+                                        "รูปภาพ/วีดีโอ",
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          fontSize: 11,
+                                          color: Colors.white,
                                         ),
                                       ),
-                                      Text(
-                                        fileName,
-                                        maxLines: 1,
-                                        textScaleFactor: 1.0,
-                                        style: TextStyle(fontSize: 11.0),
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                                Positioned(
-                                  top: -10,
-                                  right: -10,
-                                  child: IconButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        _images.removeWhere(
-                                            (key, value) => value == filePath);
-                                        filesImageTotal = _images.length;
-                                        fileAllTotal =
-                                            filesTotal + filesImageTotal;
-                                        if (filesImageTotal == 0) {
-                                          _images = null;
-                                        }
-                                      });
-                                    },
-                                    icon: Icon(Icons.cancel),
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
-                          );
-                        },
+                          ),
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                _openCameraExplorer(ImageSource.camera,
+                                    context: context);
+                              },
+                              child: Container(
+                                margin: EdgeInsets.symmetric(horizontal: 2),
+                                padding: EdgeInsets.all(14),
+                                decoration: BoxDecoration(
+                                  color: Color(0xFF1C6FC4),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(9.0),
+                                  ),
+                                  border: Border.all(
+                                    width: 5,
+                                    color: Color(0xFF0078F3),
+                                  ),
+                                ),
+                                child: Column(
+                                  children: [
+                                    Icon(
+                                      Icons.camera_alt,
+                                      color: Colors.white,
+                                      size: 48,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 8),
+                                      child: Text(
+                                        "กล้อง",
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          fontSize: 11,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                _openFilesExplorer();
+                              },
+                              child: Container(
+                                margin: EdgeInsets.symmetric(horizontal: 2),
+                                padding: EdgeInsets.all(14),
+                                decoration: BoxDecoration(
+                                  color: Color(0xFF1C6FC4),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(9.0),
+                                  ),
+                                  border: Border.all(
+                                    width: 5,
+                                    color: Color(0xFF0078F3),
+                                  ),
+                                ),
+                                child: Column(
+                                  children: [
+                                    Icon(
+                                      Icons.file_present,
+                                      color: Colors.white,
+                                      size: 48,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 8),
+                                      child: Text(
+                                        "เอกสาร",
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          fontSize: 11,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  ),
 
-                if (_files != null || _files != null)
-                  SizedBox(
-                    height: 120.0,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(
-                            color: Color(0xFFDFDFDF),
+                    if (_images != null || _images != null)
+                      SizedBox(
+                        height: 120.0,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color: Color(0xFFDFDFDF),
+                              ),
+                            ),
+                          ),
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: _images.length,
+                            padding: const EdgeInsets.all(2.0),
+                            itemBuilder: (context, index) {
+                              var filePath =
+                                  _images.values.toList()[index].toString();
+                              var fileName = _images.values
+                                  .toList()[index]
+                                  .split('/')
+                                  .last
+                                  .toString();
+                              return Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: Stack(
+                                  children: <Widget>[
+                                    Container(
+                                      width: 104.0,
+                                      child: Column(
+                                        children: <Widget>[
+                                          Expanded(
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.all(
+                                                  Radius.circular(6.0),
+                                                ),
+                                                border: Border.all(
+                                                  color: Colors.grey[300],
+                                                  width: 1.0,
+                                                ),
+                                              ),
+                                              child: Image.file(
+                                                File(_images.values
+                                                    .toList()[index]),
+                                                fit: BoxFit.cover,
+                                                width: 104.0,
+                                              ),
+                                            ),
+                                          ),
+                                          Text(
+                                            fileName,
+                                            maxLines: 1,
+                                            textScaleFactor: 1.0,
+                                            style: TextStyle(fontSize: 11.0),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Positioned(
+                                      top: -10,
+                                      right: -10,
+                                      child: IconButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            _images.removeWhere((key, value) =>
+                                                value == filePath);
+                                            filesImageTotal = _images.length;
+                                            fileAllTotal =
+                                                filesTotal + filesImageTotal;
+                                            if (filesImageTotal == 0) {
+                                              _images = null;
+                                            }
+                                          });
+                                        },
+                                        icon: Icon(Icons.cancel),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
                           ),
                         ),
                       ),
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: _files.length,
-                        padding: const EdgeInsets.all(2.0),
-                        itemBuilder: (context, index) {
-                          var filePath =
-                              _files.values.toList()[index].toString();
-                          var fileName = _files.values
-                              .toList()[index]
-                              .split('/')
-                              .last
-                              .toString();
-                          var extensions = fileName.split('.').last.toString();
-                          //print(extensions);
-                          return Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Stack(
-                              children: <Widget>[
-                                Container(
-                                  width: 104.0,
-                                  child: Column(
-                                    children: <Widget>[
-                                      Expanded(
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.all(
-                                              Radius.circular(6.0),
-                                            ),
-                                            border: Border.all(
-                                              color: Colors.grey[300],
-                                              width: 1.0,
-                                            ),
-                                          ),
-                                          child: Center(
-                                            child: Image(
-                                              image: AssetImage(
-                                                  "assets/images/$extensions.png"),
-                                              width: 80.0,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Text(
-                                        fileName,
-                                        maxLines: 1,
-                                        textScaleFactor: 1.0,
-                                        style: TextStyle(fontSize: 11.0),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Positioned(
-                                  top: -10,
-                                  right: -10,
-                                  child: IconButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        _files.removeWhere(
-                                            (key, value) => value == filePath);
-                                        filesTotal = _files.length;
-                                        fileAllTotal =
-                                            filesTotal + filesImageTotal;
-                                        if (filesTotal == 0) {
-                                          _files = null;
-                                        }
-                                      });
-                                    },
-                                    icon: Icon(Icons.cancel),
-                                  ),
-                                ),
-                              ],
+
+                    if (_files != null || _files != null)
+                      SizedBox(
+                        height: 120.0,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color: Color(0xFFDFDFDF),
+                              ),
                             ),
-                          );
-                        },
-                      ),
-                    ),
-                  ),
-
-                //sendData
-                Container(
-                  alignment: Alignment.centerRight,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        _detail.text.isEmpty
-                            ? _validateDetail = true
-                            : _validateDetail = false;
-                        _subject.text.isEmpty
-                            ? _validateSubject = true
-                            : _validateSubject = false;
-                        _place.text.isEmpty
-                            ? _validatePlace = true
-                            : _validatePlace = false;
-
-                        if (!_validateDetail &&
-                            !_validateSubject &&
-                            !_validatePlace) {
-                          EasyLoading.show(status: 'loading...');
-                          insertData();
-                        }
-                      });
-                    },
-                    style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Color(0xFFFFE73C)),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18),
+                          ),
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: _files.length,
+                            padding: const EdgeInsets.all(2.0),
+                            itemBuilder: (context, index) {
+                              var filePath =
+                                  _files.values.toList()[index].toString();
+                              var fileName = _files.values
+                                  .toList()[index]
+                                  .split('/')
+                                  .last
+                                  .toString();
+                              var extensions =
+                                  fileName.split('.').last.toString();
+                              //print(extensions);
+                              return Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: Stack(
+                                  children: <Widget>[
+                                    Container(
+                                      width: 104.0,
+                                      child: Column(
+                                        children: <Widget>[
+                                          Expanded(
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.all(
+                                                  Radius.circular(6.0),
+                                                ),
+                                                border: Border.all(
+                                                  color: Colors.grey[300],
+                                                  width: 1.0,
+                                                ),
+                                              ),
+                                              child: Center(
+                                                child: Image(
+                                                  image: AssetImage(
+                                                      "assets/images/$extensions.png"),
+                                                  width: 80.0,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Text(
+                                            fileName,
+                                            maxLines: 1,
+                                            textScaleFactor: 1.0,
+                                            style: TextStyle(fontSize: 11.0),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Positioned(
+                                      top: -10,
+                                      right: -10,
+                                      child: IconButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            _files.removeWhere((key, value) =>
+                                                value == filePath);
+                                            filesTotal = _files.length;
+                                            fileAllTotal =
+                                                filesTotal + filesImageTotal;
+                                            if (filesTotal == 0) {
+                                              _files = null;
+                                            }
+                                          });
+                                        },
+                                        icon: Icon(Icons.cancel),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
+                          ),
                         ),
                       ),
-                    ),
-                    child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 16),
-                      child: Text(
-                        "ส่งเรื่องร้องเรียน",
-                        style: TextStyle(color: Colors.black),
+
+                    //sendData
+                    Container(
+                      alignment: Alignment.centerRight,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            _detail.text.isEmpty
+                                ? _validateDetail = true
+                                : _validateDetail = false;
+                            _subject.text.isEmpty
+                                ? _validateSubject = true
+                                : _validateSubject = false;
+                            _place.text.isEmpty
+                                ? _validatePlace = true
+                                : _validatePlace = false;
+
+                            if (!_validateDetail &&
+                                !_validateSubject &&
+                                !_validatePlace) {
+                              EasyLoading.show(status: 'loading...');
+                              insertData();
+                            }
+                          });
+                        },
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Color(0xFFFFE73C)),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18),
+                            ),
+                          ),
+                        ),
+                        child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          child: Text(
+                            "ส่งเรื่องร้องเรียน",
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                )
-              ],
+                    )
+                  ],
+                ),
+              ),
             ),
           ),
         ),

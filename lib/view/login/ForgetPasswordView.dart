@@ -67,6 +67,7 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
     final response = await client.post(Uri.parse(Info().checkHavePhone),
         headers: {"Content-Type": "application/json"}, body: jsonMap);
     var rs = json.decode(response.body);
+    print(rs);
     var status = rs["status"].toString();
     var msg = rs["msg"].toString();
 

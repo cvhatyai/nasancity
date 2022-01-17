@@ -89,7 +89,9 @@ class _ComplainCateListViewState extends State<ComplainCateListView> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
 
-    final double itemHeight = (size.height - kToolbarHeight - 50) / 5;
+    final double itemHeight = WidhtDevice().widht(context) >= 768
+        ? ((size.height - kToolbarHeight - 50) / 4)
+        : ((size.height - kToolbarHeight - 50) / 5);
     final double itemWidth = size.width / 3;
 
     return PageSubView(
@@ -134,7 +136,8 @@ class _ComplainCateListViewState extends State<ComplainCateListView> {
                       shrinkWrap: true,
                       // physics: NeverScrollableScrollPhysics(),
                       childAspectRatio: (itemWidth / itemHeight),
-                      crossAxisCount: 3,
+                      crossAxisCount:
+                          WidhtDevice().widht(context) >= 768 ? 5 : 3,
                       children: List.generate(data.length, (index) {
                         return GestureDetector(
                           onTap: () {
@@ -172,8 +175,13 @@ class _ComplainCateListViewState extends State<ComplainCateListView> {
                                 child: Column(
                                   children: [
                                     Container(
-                                      width: WidhtDevice().widht(context) / 5,
-                                      height: WidhtDevice().widht(context) / 5,
+                                      width: WidhtDevice().widht(context) >= 768
+                                          ? WidhtDevice().widht(context) / 10
+                                          : WidhtDevice().widht(context) / 5,
+                                      height: WidhtDevice().widht(context) >=
+                                              768
+                                          ? WidhtDevice().widht(context) / 10
+                                          : WidhtDevice().widht(context) / 5,
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
                                         color: Colors.white,
@@ -197,8 +205,10 @@ class _ComplainCateListViewState extends State<ComplainCateListView> {
                                       ),
                                     ),
                                     Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.4,
+                                      width: WidhtDevice().widht(context) >= 768
+                                          ? WidhtDevice().widht(context) / 10
+                                          : MediaQuery.of(context).size.width *
+                                              0.4,
                                       alignment: Alignment.center,
                                       padding: EdgeInsets.all(6),
                                       child: SingleChildScrollView(

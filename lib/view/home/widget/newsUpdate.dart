@@ -100,7 +100,7 @@ class _NewsWidgetState extends State<NewsWidget> {
         ),
         Container(
           margin: EdgeInsets.only(top: 16, bottom: 10),
-          height: 220,
+          height: WidhtDevice().widht(context) >= 1024 ? 300 :220,
           // color: Colors.amber,
           child: (data != null && data.length != 0)
               ? ListView(
@@ -118,7 +118,9 @@ class _NewsWidgetState extends State<NewsWidget> {
                           );
                         },
                         child: Container(
-                          width: WidhtDevice().widht(context) * 0.45,
+                          width: WidhtDevice().widht(context) >= 768
+                              ? WidhtDevice().widht(context) / 5
+                              : WidhtDevice().widht(context) * 0.4,
                           margin: EdgeInsets.symmetric(horizontal: 4),
                           child: Column(
                             // alignment: Alignment.topCenter,
@@ -147,7 +149,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                                 ),
                                 alignment: Alignment.center,
                                 width: WidhtDevice().widht(context) * 0.45,
-                                height: 80,
+                                height: WidhtDevice().widht(context) >= 1024 ? 100 :80,
                                 child: Container(
                                   alignment: Alignment.centerLeft,
                                   padding: EdgeInsets.all(8),

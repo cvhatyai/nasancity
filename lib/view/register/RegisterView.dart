@@ -100,6 +100,7 @@ class _RegisterViewState extends State<RegisterView> {
     final response = await client.post(Uri.parse(Info().setOtp),
         headers: {"Content-Type": "application/json"}, body: jsonMap);
     var rs = json.decode(response.body);
+    print(rs);
     var status = rs["status"].toString();
     if (status == "success") {
       Navigator.push(

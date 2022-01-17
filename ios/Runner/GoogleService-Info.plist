@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>143351239822-64irbif4oo9ehdssvc1ug5ckdv952f99.apps.googleusercontent.com</string>
+	<string>381652871944-33n9tc5u78p27rae6eo2f0qanqpn5meb.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.143351239822-64irbif4oo9ehdssvc1ug5ckdv952f99</string>
+	<string>com.googleusercontent.apps.381652871944-33n9tc5u78p27rae6eo2f0qanqpn5meb</string>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>143351239822-1ua9k0c689qia5bc3k81vvq6e71d9oq3.apps.googleusercontent.com</string>
+	<string>381652871944-enkbsjijbn1ut1qraiem0v6haj6capds.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBdbJF5vjeTS-gAcIqx8x3pVLmTQhS11ZY</string>
+	<string>AIzaSyASB1DHVPOQPBkteN8ew9J1zHWbbXnTvvU</string>
 	<key>GCM_SENDER_ID</key>
-	<string>143351239822</string>
+	<string>381652871944</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>th.go.nasancity.app</string>
+	<string>th.go.nasancity</string>
 	<key>PROJECT_ID</key>
-	<string>templateapi-192309</string>
+	<string>abt1-9841c</string>
 	<key>STORAGE_BUCKET</key>
-	<string>templateapi-192309.appspot.com</string>
+	<string>abt1-9841c.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,8 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:143351239822:ios:c5148de267b3be099ee5df</string>
-	<key>DATABASE_URL</key>
-	<string>https://templateapi-192309.firebaseio.com</string>
+	<string>1:381652871944:ios:2cf8cce7d7f42a14bf9abd</string>
 </dict>
 </plist>

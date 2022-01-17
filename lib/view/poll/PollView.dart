@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:nasancity/style/font_style.dart';
+import 'package:nasancity/system/widht_device.dart';
 import 'package:nasancity/view/PageSubView.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -289,254 +290,261 @@ class _PollViewState extends State<PollView> {
         // color: Color(0xFFFFFFFF),
         child: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.only(top: 8),
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: (isVoted == "1")
-                ? Container(
-                    height: MediaQuery.of(context).size.height * 0.5,
-                    alignment: Alignment.center,
-                    child: Text("ท่านได้ให้คะแนนความพึงพอใจแล้ว"),
-                  )
-                : Column(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(top: 32),
-                        child: Text("กรุณาให้คะแนนความพึงพอใจการให้บริการ"),
-                      ),
-                      Padding(padding: EdgeInsets.all(20)),
-                      GestureDetector(
-                        onTap: () {
-                          _showMyDialog("ยอดเยี่ยม");
-                        },
-                        child: Stack(
-                          children: [
-                            Container(
-                              height: 50,
-                              padding: EdgeInsets.symmetric(horizontal: 16),
-                              margin: EdgeInsets.only(top: 10, bottom: 12),
-                              decoration: choiseStyle(),
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    flex: 1,
-                                    child: Container(),
-                                  ),
-                                  Expanded(
-                                    flex: 5,
-                                    child: Container(
-                                      padding: EdgeInsets.only(left: 24),
-                                      child: Text(
-                                        "ยอดเยี่ยม",
-                                        style: TextStyle(
-                                          fontSize: 22,
-                                          fontFamily: FontStyles.FontFamily,
+            child: Center(
+              child: Container(
+                width: WidhtDevice().widht(context) >= 768
+                    ? MediaQuery.of(context).size.width / 2
+                    : MediaQuery.of(context).size.width,
+                margin: EdgeInsets.only(top: 8),
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: (isVoted == "1")
+                    ? Container(
+                        height: MediaQuery.of(context).size.height * 0.5,
+                        alignment: Alignment.center,
+                        child: Text("ท่านได้ให้คะแนนความพึงพอใจแล้ว"),
+                      )
+                    : Column(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(top: 32),
+                            child: Text("กรุณาให้คะแนนความพึงพอใจการให้บริการ"),
+                          ),
+                          Padding(padding: EdgeInsets.all(20)),
+                          GestureDetector(
+                            onTap: () {
+                              _showMyDialog("ยอดเยี่ยม");
+                            },
+                            child: Stack(
+                              children: [
+                                Container(
+                                  height: 50,
+                                  padding: EdgeInsets.symmetric(horizontal: 16),
+                                  margin: EdgeInsets.only(top: 10, bottom: 12),
+                                  decoration: choiseStyle(),
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        flex: 1,
+                                        child: Container(),
+                                      ),
+                                      Expanded(
+                                        flex: 5,
+                                        child: Container(
+                                          padding: EdgeInsets.only(left: 24),
+                                          child: Text(
+                                            "ยอดเยี่ยม",
+                                            style: TextStyle(
+                                              fontSize: 22,
+                                              fontFamily: FontStyles.FontFamily,
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                    ),
+                                    ],
                                   ),
-                                ],
-                              ),
-                            ),
-                            Positioned(
-                              top: 1,
-                              left: 7,
-                              child: Image.asset(
-                                'assets/images/list_vote1.png',
-                                height: 70,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(padding: EdgeInsets.all(5)),
-                      GestureDetector(
-                        onTap: () {
-                          _showMyDialog("ดี");
-                        },
-                        child: Stack(
-                          children: [
-                            Container(
-                              height: 50,
-                              padding: EdgeInsets.symmetric(horizontal: 16),
-                              margin: EdgeInsets.only(top: 10, bottom: 12),
-                              decoration: choiseStyle(),
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    flex: 1,
-                                    child: Container(),
+                                ),
+                                Positioned(
+                                  top: 1,
+                                  left: 7,
+                                  child: Image.asset(
+                                    'assets/images/list_vote1.png',
+                                    height: 70,
                                   ),
-                                  Expanded(
-                                    flex: 5,
-                                    child: Container(
-                                      padding: EdgeInsets.only(left: 24),
-                                      child: Text(
-                                        "ดี",
-                                        style: TextStyle(
-                                          fontSize: 22,
-                                          fontFamily: FontStyles.FontFamily,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(padding: EdgeInsets.all(5)),
+                          GestureDetector(
+                            onTap: () {
+                              _showMyDialog("ดี");
+                            },
+                            child: Stack(
+                              children: [
+                                Container(
+                                  height: 50,
+                                  padding: EdgeInsets.symmetric(horizontal: 16),
+                                  margin: EdgeInsets.only(top: 10, bottom: 12),
+                                  decoration: choiseStyle(),
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        flex: 1,
+                                        child: Container(),
+                                      ),
+                                      Expanded(
+                                        flex: 5,
+                                        child: Container(
+                                          padding: EdgeInsets.only(left: 24),
+                                          child: Text(
+                                            "ดี",
+                                            style: TextStyle(
+                                              fontSize: 22,
+                                              fontFamily: FontStyles.FontFamily,
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                    ),
+                                    ],
                                   ),
-                                ],
-                              ),
-                            ),
-                            Positioned(
-                              top: 1,
-                              left: 7,
-                              child: Image.asset(
-                                'assets/images/list_vote2.png',
-                                height: 70,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(padding: EdgeInsets.all(5)),
-                      GestureDetector(
-                        onTap: () {
-                          _showMyDialog("พอสมควร");
-                        },
-                        child: Stack(
-                          children: [
-                            Container(
-                              height: 50,
-                              padding: EdgeInsets.symmetric(horizontal: 16),
-                              margin: EdgeInsets.only(top: 10, bottom: 12),
-                              decoration: choiseStyle(),
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    flex: 1,
-                                    child: Container(),
+                                ),
+                                Positioned(
+                                  top: 1,
+                                  left: 7,
+                                  child: Image.asset(
+                                    'assets/images/list_vote2.png',
+                                    height: 70,
                                   ),
-                                  Expanded(
-                                    flex: 5,
-                                    child: Container(
-                                      padding: EdgeInsets.only(left: 24),
-                                      child: Text(
-                                        "พอสมควร",
-                                        style: TextStyle(
-                                          fontSize: 22,
-                                          fontFamily: FontStyles.FontFamily,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(padding: EdgeInsets.all(5)),
+                          GestureDetector(
+                            onTap: () {
+                              _showMyDialog("พอสมควร");
+                            },
+                            child: Stack(
+                              children: [
+                                Container(
+                                  height: 50,
+                                  padding: EdgeInsets.symmetric(horizontal: 16),
+                                  margin: EdgeInsets.only(top: 10, bottom: 12),
+                                  decoration: choiseStyle(),
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        flex: 1,
+                                        child: Container(),
+                                      ),
+                                      Expanded(
+                                        flex: 5,
+                                        child: Container(
+                                          padding: EdgeInsets.only(left: 24),
+                                          child: Text(
+                                            "พอสมควร",
+                                            style: TextStyle(
+                                              fontSize: 22,
+                                              fontFamily: FontStyles.FontFamily,
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                    ),
+                                    ],
                                   ),
-                                ],
-                              ),
-                            ),
-                            Positioned(
-                              top: 1,
-                              left: 7,
-                              child: Image.asset(
-                                'assets/images/list_vote3.png',
-                                height: 70,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(padding: EdgeInsets.all(5)),
-                      GestureDetector(
-                        onTap: () {
-                          _showMyDialog("แย่");
-                        },
-                        child: Stack(
-                          children: [
-                            Container(
-                              height: 50,
-                              padding: EdgeInsets.symmetric(horizontal: 16),
-                              margin: EdgeInsets.only(top: 10, bottom: 12),
-                              decoration: choiseStyle(),
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    flex: 1,
-                                    child: Container(),
+                                ),
+                                Positioned(
+                                  top: 1,
+                                  left: 7,
+                                  child: Image.asset(
+                                    'assets/images/list_vote3.png',
+                                    height: 70,
                                   ),
-                                  Expanded(
-                                    flex: 5,
-                                    child: Container(
-                                      padding: EdgeInsets.only(left: 24),
-                                      child: Text(
-                                        "แย่",
-                                        style: TextStyle(
-                                          fontSize: 22,
-                                          fontFamily: FontStyles.FontFamily,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(padding: EdgeInsets.all(5)),
+                          GestureDetector(
+                            onTap: () {
+                              _showMyDialog("แย่");
+                            },
+                            child: Stack(
+                              children: [
+                                Container(
+                                  height: 50,
+                                  padding: EdgeInsets.symmetric(horizontal: 16),
+                                  margin: EdgeInsets.only(top: 10, bottom: 12),
+                                  decoration: choiseStyle(),
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        flex: 1,
+                                        child: Container(),
+                                      ),
+                                      Expanded(
+                                        flex: 5,
+                                        child: Container(
+                                          padding: EdgeInsets.only(left: 24),
+                                          child: Text(
+                                            "แย่",
+                                            style: TextStyle(
+                                              fontSize: 22,
+                                              fontFamily: FontStyles.FontFamily,
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                    ),
+                                    ],
                                   ),
-                                ],
-                              ),
-                            ),
-                            Positioned(
-                              top: 1,
-                              left: 7,
-                              child: Image.asset(
-                                'assets/images/list_vote4.png',
-                                height: 70,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(padding: EdgeInsets.all(5)),
-                      GestureDetector(
-                        onTap: () {
-                          _showMyDialog("แย่มาก");
-                        },
-                        child: Stack(
-                          children: [
-                            Container(
-                              height: 50,
-                              padding: EdgeInsets.symmetric(horizontal: 16),
-                              margin: EdgeInsets.only(top: 10, bottom: 12),
-                              decoration: choiseStyle(),
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    flex: 1,
-                                    child: Container(),
+                                ),
+                                Positioned(
+                                  top: 1,
+                                  left: 7,
+                                  child: Image.asset(
+                                    'assets/images/list_vote4.png',
+                                    height: 70,
                                   ),
-                                  Expanded(
-                                    flex: 5,
-                                    child: Container(
-                                      padding: EdgeInsets.only(left: 24),
-                                      child: Text(
-                                        "แย่มาก",
-                                        style: TextStyle(
-                                          fontSize: 22,
-                                          fontFamily: FontStyles.FontFamily,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(padding: EdgeInsets.all(5)),
+                          GestureDetector(
+                            onTap: () {
+                              _showMyDialog("แย่มาก");
+                            },
+                            child: Stack(
+                              children: [
+                                Container(
+                                  height: 50,
+                                  padding: EdgeInsets.symmetric(horizontal: 16),
+                                  margin: EdgeInsets.only(top: 10, bottom: 12),
+                                  decoration: choiseStyle(),
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        flex: 1,
+                                        child: Container(),
+                                      ),
+                                      Expanded(
+                                        flex: 5,
+                                        child: Container(
+                                          padding: EdgeInsets.only(left: 24),
+                                          child: Text(
+                                            "แย่มาก",
+                                            style: TextStyle(
+                                              fontSize: 22,
+                                              fontFamily: FontStyles.FontFamily,
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                    ),
+                                    ],
                                   ),
-                                ],
-                              ),
+                                ),
+                                Positioned(
+                                  top: 1,
+                                  left: 7,
+                                  child: Image.asset(
+                                    'assets/images/list_vote5.png',
+                                    height: 70,
+                                  ),
+                                ),
+                              ],
                             ),
-                            Positioned(
-                              top: 1,
-                              left: 7,
-                              child: Image.asset(
-                                'assets/images/list_vote5.png',
-                                height: 70,
-                              ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 32),
+                            child: Text(
+                              "ทุกความคิดเห็นของคุณจะเป็นประโยชน์ให้เรา\nนำไปพัฒนาเทศบาลเมืองนาสารให้ดียิ่งขึ้น",
+                              textAlign: TextAlign.center,
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                      Container(
-                        margin: EdgeInsets.only(top: 32),
-                        child: Text(
-                          "ทุกความคิดเห็นของคุณจะเป็นประโยชน์ให้เรา\nนำไปพัฒนาเทศบาลเมืองนาสารให้ดียิ่งขึ้น",
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ],
-                  ),
+              ),
+            ),
           ),
         ),
       ),
