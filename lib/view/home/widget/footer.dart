@@ -1,11 +1,15 @@
 import 'dart:convert';
+import 'dart:io';
 
+import 'package:device_info/device_info.dart';
+import 'package:flutter/services.dart';
 import 'package:nasancity/style/font_style.dart';
 import 'package:nasancity/system/Info.dart';
 import 'package:nasancity/view/poll/PollView.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:nasancity/model/AllList.dart';
+import 'package:package_info/package_info.dart';
 import 'package:toast/toast.dart';
 // import 'package:nasancity/system/Info.dart';
 // import 'package:toast/toast.dart';
@@ -20,12 +24,104 @@ class FooterWidget extends StatefulWidget {
 class _FooterWidgetState extends State<FooterWidget> {
   var faceLink = "";
   var lineLink = "";
+  var osName = "";
+  PackageInfo _packageInfo = PackageInfo(
+    appName: 'Unknown',
+    packageName: 'Unknown',
+    version: 'Unknown',
+    buildNumber: 'Unknown',
+  );
+  static final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
+  Map<String, dynamic> _deviceData = <String, dynamic>{};
+  Future<void> initPlatformState() async {
+    Map<String, dynamic> deviceData = <String, dynamic>{};
+
+    try {
+      if (Platform.isAndroid) {
+        deviceData = _readAndroidBuildData(await deviceInfoPlugin.androidInfo);
+        osName = "Android " + deviceData["version.release"];
+      } else if (Platform.isIOS) {
+        deviceData = _readIosDeviceInfo(await deviceInfoPlugin.iosInfo);
+        osName = "IOS " + deviceData["data.systemVersion"];
+      }
+    } on PlatformException {
+      deviceData = <String, dynamic>{
+        'Error:': 'Failed to get platform version.'
+      };
+    }
+
+    if (!mounted) return;
+
+    setState(() {
+      _deviceData = deviceData;
+      print(_deviceData.toString());
+      print(osName.toString());
+    });
+  }
+
+  Map<String, dynamic> _readAndroidBuildData(AndroidDeviceInfo build) {
+    return <String, dynamic>{
+      'version.securityPatch': build.version.securityPatch,
+      'version.sdkInt': build.version.sdkInt,
+      'version.release': build.version.release,
+      'version.previewSdkInt': build.version.previewSdkInt,
+      'version.incremental': build.version.incremental,
+      'version.codename': build.version.codename,
+      'version.baseOS': build.version.baseOS,
+      'board': build.board,
+      'bootloader': build.bootloader,
+      'brand': build.brand,
+      'device': build.device,
+      'display': build.display,
+      'fingerprint': build.fingerprint,
+      'hardware': build.hardware,
+      'host': build.host,
+      'id': build.id,
+      'manufacturer': build.manufacturer,
+      'model': build.model,
+      'product': build.product,
+      'supported32BitAbis': build.supported32BitAbis,
+      'supported64BitAbis': build.supported64BitAbis,
+      'supportedAbis': build.supportedAbis,
+      'tags': build.tags,
+      'type': build.type,
+      'isPhysicalDevice': build.isPhysicalDevice,
+      'androidId': build.androidId,
+      'systemFeatures': build.systemFeatures,
+    };
+  }
+
+  Map<String, dynamic> _readIosDeviceInfo(IosDeviceInfo data) {
+    return <String, dynamic>{
+      'name': data.name,
+      'systemName': data.systemName,
+      'systemVersion': data.systemVersion,
+      'model': data.model,
+      'localizedModel': data.localizedModel,
+      'identifierForVendor': data.identifierForVendor,
+      'isPhysicalDevice': data.isPhysicalDevice,
+      'utsname.sysname:': data.utsname.sysname,
+      'utsname.nodename:': data.utsname.nodename,
+      'utsname.release:': data.utsname.release,
+      'utsname.version:': data.utsname.version,
+      'utsname.machine:': data.utsname.machine,
+    };
+  }
+
+  Future<void> _initPackageInfo() async {
+    final PackageInfo info = await PackageInfo.fromPlatform();
+    setState(() {
+      _packageInfo = info;
+    });
+  }
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     getSiteDetail();
+    _initPackageInfo();
+    initPlatformState();
   }
 
   getSiteDetail() async {
@@ -229,7 +325,14 @@ class _FooterWidgetState extends State<FooterWidget> {
               ],
             ),
           ),
-
+          Text(
+            "Version " + _packageInfo.version + " On " + osName,
+            style: TextStyle(
+              fontFamily: FontStyles.FontFamily,
+              height: 1,
+              fontSize: 12,
+            ),
+          ),
           /*TextSpan(
             children: [
               Text(
@@ -241,10 +344,21 @@ class _FooterWidgetState extends State<FooterWidget> {
               ),
             ],
           ),*/
-          Text("ขนาดจออุปกรณ์นี้ " +
-              MediaQuery.of(context).size.width.toString() +
-              " X " +
-              MediaQuery.of(context).size.height.toString())
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            "ขนาดจออุปกรณ์นี้ " +
+                MediaQuery.of(context).size.width.toString() +
+                " X " +
+                MediaQuery.of(context).size.height.toString(),
+            style: TextStyle(
+              fontFamily: FontStyles.FontFamily,
+              height: 1,
+              fontSize: 12,
+              color: Colors.grey.shade300,
+            ),
+          )
         ],
       ),
     );

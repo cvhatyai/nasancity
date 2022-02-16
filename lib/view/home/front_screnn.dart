@@ -87,7 +87,7 @@ class _FrontpageScreenState extends State<FrontpageScreen> {
               child: Column(
                 children: [
                   Container(
-                    height: WidhtDevice().widht(context) >= 768 ? 600 : 390,
+                    height: WidhtDevice().widht(context) >= 768 ? 600 : 450,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage("assets/bg/bg-frontpage.png"),

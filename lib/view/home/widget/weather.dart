@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:nasancity/style/font_style.dart';
 import 'package:nasancity/system/Info.dart';
 import 'package:http/http.dart' as http;
 
@@ -60,6 +61,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                 style: TextStyle(
                   fontSize: 14,
                   color: Colors.white,
+                  fontFamily: FontStyles.FontFamily,
                 ),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
