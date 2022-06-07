@@ -470,7 +470,7 @@ class _ContactusViewState extends State<ContactusView> {
                                   fontWeight: FontWeight.w500),
                             ),
                             Text(
-                              'อำเภอบ้านตาขุน จังหวัดสุราษฎร์ธานี',
+                              'อำเภอบ้านนาสาร จังหวัดสุราษฎร์ธานี',
                               style: TextStyle(
                                   fontFamily: FontStyles.FontFamily,
                                   fontSize: 16,
