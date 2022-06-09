@@ -1066,7 +1066,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 GestureDetector(
                   onTap: () {
                     _launchInBrowser(
-                        "https://www.nasancity.go.th/demo/content/general");
+                        "https://www.nasancity.go.th/content/general");
 
                     // Navigator.push(
                     //   context,
@@ -1115,7 +1115,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 GestureDetector(
                   onTap: () {
                     _launchInBrowser(
-                        "https://www.nasancity.go.th/demo/content/history");
+                        "https://www.nasancity.go.th/content/history");
 
                     // Navigator.push(
                     //   context,
@@ -1164,7 +1164,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 GestureDetector(
                   onTap: () {
                     _launchInBrowser(
-                        "https://www.nasancity.go.th/demo/content/cate/8");
+                        "https://www.nasancity.go.th/content/cate/8");
 
                     // Navigator.push(
                     //   context,
@@ -1213,7 +1213,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 GestureDetector(
                   onTap: () {
                     _launchInBrowser(
-                        "https://www.nasancity.go.th/demo/content/vision");
+                        "https://www.nasancity.go.th/content/vision");
 
                     // Navigator.push(
                     //   context,
@@ -1262,7 +1262,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 GestureDetector(
                   onTap: () {
                     _launchInBrowser(
-                        "https://www.nasancity.go.th/demo/content/cate/4");
+                        "https://www.nasancity.go.th/content/cate/4");
 
                     // Navigator.push(
                     //   context,
@@ -1310,7 +1310,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    _launchInBrowser("https://nasancity.go.th/demo/news_tran");
+                    _launchInBrowser("https://nasancity.go.th/news_tran");
 
                     // Navigator.push(
                     //   context,
@@ -1356,10 +1356,10 @@ class _MenuScreenState extends State<MenuScreen> {
                     ],
                   ),
                 ),
-                GestureDetector(
+                /*GestureDetector(
                   onTap: () {
                     _launchInBrowser(
-                        "https://www.nasancity.go.th/demo/contactus/location");
+                        "https://www.nasancity.go.th/contactus/location");
 
                     // Navigator.push(
                     //   context,
@@ -1379,11 +1379,11 @@ class _MenuScreenState extends State<MenuScreen> {
                         height: 40,
                         child: Row(
                           children: [
-                            /*Image.asset(
+                            *//*Image.asset(
                               'assets/images/menu1.png',
                               height: 22,
                               width: 22,
-                            ),*/
+                            ),*//*
                             Image.asset(
                               'assets/item/menu/m13.png',
                               height: 18,
@@ -1404,7 +1404,7 @@ class _MenuScreenState extends State<MenuScreen> {
                       Divider(height: 1, indent: 8, endIndent: 8),
                     ],
                   ),
-                ),
+                ),*/
 
                 GestureDetector(
                   onTap: () {
