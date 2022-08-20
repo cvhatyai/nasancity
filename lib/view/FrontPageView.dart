@@ -15,6 +15,7 @@ import 'package:nasancity/view/news/NewsDetailView.dart';
 
 import 'package:nasancity/view/news/NewsListView.dart';
 import 'package:nasancity/view/noti/NotiListView.dart';
+import 'package:nasancity/view/policy/PolicyBanner.dart';
 import 'package:nasancity/view/search/SearchView.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -106,8 +107,16 @@ class _FrontPageViewState extends State<FrontPageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-          child: _widgetOptions.elementAt(selectedIndex),
+        body: Stack(
+          children: [
+            Container(
+              child: _widgetOptions.elementAt(selectedIndex),
+            ),
+            Positioned(
+              bottom: 0,
+              child: PrivacyPolicyBanner(),
+            ),
+          ],
         ),
         bottomNavigationBar: Container(
           decoration: BoxDecoration(

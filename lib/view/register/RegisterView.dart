@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/gestures.dart';
 import 'package:nasancity/style/font_style.dart';
 import 'package:nasancity/view/PageSubView.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ import 'package:http/http.dart' as http;
 import 'package:nasancity/model/AllList.dart';
 import 'package:nasancity/model/user.dart';
 import 'package:nasancity/system/Info.dart';
+import 'package:nasancity/view/policy/PolicyContentView.dart';
 import 'package:nasancity/view/register/RegisterOtpView.dart';
 import 'package:toast/toast.dart';
 
@@ -42,6 +44,8 @@ class _RegisterViewState extends State<RegisterView> {
   bool _validateName = false;
 
   bool isEnable = true;
+
+  bool acceptPrivacyPolicy = false;
 
   @override
   void initState() {
@@ -274,15 +278,67 @@ class _RegisterViewState extends State<RegisterView> {
                 ),
                 //btnLogin
                 Container(
+                  margin: EdgeInsets.only(bottom: 18, top: 12),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Checkbox(
+                        value: acceptPrivacyPolicy,
+                        activeColor: Color(0xFF65A5D8),
+                        onChanged: (bool value) {
+                          setState(() {
+                            acceptPrivacyPolicy = value;
+                          });
+                        },
+                      ),
+                      Expanded(
+                        child: Container(
+                          margin: EdgeInsets.only(top: 8),
+                          child: Text.rich(
+                            TextSpan(
+                              text: 'ฉันได้อ่าน ',
+                              style: TextStyle(fontSize: 16),
+                              children: [
+                                TextSpan(
+                                  text: 'นโยบายความเป็นส่วนตัว',
+                                  style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                  ),
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => PrivacyPolicyContentView(isHaveArrow: "1"),
+                                        ),
+                                      );
+                                    },
+                                ),
+                                const TextSpan(
+                                  text: ' โดยละเอียดเรียบร้อยแล้ว และยอมรับตามเงื่อนไขทั้งหมด',
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
                   margin: EdgeInsets.only(top: 16),
                   height: 40,
                   width: MediaQuery.of(context).size.width,
                   child: ElevatedButton(
                     style: ButtonStyle(
+
                       backgroundColor:
-                          MaterialStateProperty.all<Color>(Color(0xFF65A5D8)),
+                          MaterialStateProperty.all<Color>(acceptPrivacyPolicy ? Color(0xFF65A5D8) : Color(0xFFD3D7E2),),
                     ),
                     onPressed: () {
+                      if (!acceptPrivacyPolicy) {
+                        return;
+                      }
                       if (widget.socialID == "") {
                         setState(() {
                           _username.text.isEmpty

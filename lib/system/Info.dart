@@ -94,5 +94,9 @@ class Info {
   String marketList = _base_url_api_pity + '/marketList';
   String marketDetail = _base_url_api_pity + '/marketDetail';
 
+  String contentPrivacyPolicy = _base_url_api + '/contentPrivacyPolicy';
+  String getAcceptPrivacyPolicy = _base_url_api + '/getAcceptPrivacyPolicy';
+  String setAcceptPrivacyPolicy = _base_url_api + '/setAcceptPrivacyPolicy';
+
   Info() : super();
 }
