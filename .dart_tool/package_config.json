@@ -471,9 +471,9 @@
     },
     {
       "name": "sign_in_with_apple",
-      "rootUri": "file:///Users/cityvar/Library/flutter/.pub-cache/hosted/pub.dartlang.org/sign_in_with_apple-2.5.4",
+      "rootUri": "file:///Users/cityvar/Library/flutter/.pub-cache/hosted/pub.dartlang.org/sign_in_with_apple-3.2.0",
       "packageUri": "lib/",
-      "languageVersion": "2.3"
+      "languageVersion": "2.12"
     },
     {
       "name": "sky_engine",
@@ -620,7 +620,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2022-08-20T15:52:15.905821Z",
+  "generated": "2022-08-22T03:12:43.222051Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }

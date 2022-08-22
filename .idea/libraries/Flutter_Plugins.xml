@@ -19,7 +19,6 @@
       <root url="file://$USER_HOME$/Library/flutter/.pub-cache/git/flutter_webview_plugin-f85db45aedefeab4c1df75cfc4c35f62d3c1c629" />
       <root url="file://$USER_HOME$/Library/flutter/.pub-cache/hosted/pub.dartlang.org/location-2.5.4" />
       <root url="file://$USER_HOME$/Library/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_messaging-7.0.3" />
-      <root url="file://$USER_HOME$/Library/flutter/.pub-cache/hosted/pub.dartlang.org/sign_in_with_apple-2.5.4" />
       <root url="file://$USER_HOME$/Library/flutter/.pub-cache/hosted/pub.dartlang.org/package_info-2.0.2" />
       <root url="file://$USER_HOME$/Library/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_windows-0.0.2+3" />
       <root url="file://$USER_HOME$/Library/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_web-0.1.2+7" />
@@ -28,6 +27,7 @@
       <root url="file://$USER_HOME$/Library/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-0.5.3" />
       <root url="file://$USER_HOME$/Library/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in_web-0.9.2" />
       <root url="file://$USER_HOME$/Library/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-0.0.1+2" />
+      <root url="file://$USER_HOME$/Library/flutter/.pub-cache/hosted/pub.dartlang.org/sign_in_with_apple-3.2.0" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
